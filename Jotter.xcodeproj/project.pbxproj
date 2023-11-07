@@ -16,6 +16,7 @@
 		FAD991352AFA7F4E00B133E0 /* JotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991342AFA7F4E00B133E0 /* JotterTests.swift */; };
 		FAD9913F2AFA7F4E00B133E0 /* JotterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9913E2AFA7F4E00B133E0 /* JotterUITests.swift */; };
 		FAD991412AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991402AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift */; };
+		FAD9914F2AFA806000B133E0 /* Note+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9914E2AFA806000B133E0 /* Note+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		FAD9913A2AFA7F4E00B133E0 /* JotterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JotterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD9913E2AFA7F4E00B133E0 /* JotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterUITests.swift; sourceTree = "<group>"; };
 		FAD991402AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		FAD9914E2AFA806000B133E0 /* Note+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		FAD9911C2AFA7F4D00B133E0 /* Jotter */ = {
 			isa = PBXGroup;
 			children = (
+				FAD9914D2AFA805100B133E0 /* Model */,
 				FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */,
 				FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */,
 				FAD991242AFA7F4D00B133E0 /* ContentView.swift */,
@@ -133,6 +136,14 @@
 				FAD991402AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift */,
 			);
 			path = JotterUITests;
+			sourceTree = "<group>";
+		};
+		FAD9914D2AFA805100B133E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9914E2AFA806000B133E0 /* Note+Helper.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +278,7 @@
 			files = (
 				FAD9911E2AFA7F4D00B133E0 /* JotterApp.swift in Sources */,
 				FAD991232AFA7F4D00B133E0 /* Jotter.xcdatamodeld in Sources */,
+				FAD9914F2AFA806000B133E0 /* Note+Helper.swift in Sources */,
 				FAD991252AFA7F4D00B133E0 /* ContentView.swift in Sources */,
 				FAD991202AFA7F4D00B133E0 /* Persistence.swift in Sources */,
 			);
