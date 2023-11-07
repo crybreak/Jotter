@@ -1,0 +1,638 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FAD9911E2AFA7F4D00B133E0 /* JotterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */; };
+		FAD991202AFA7F4D00B133E0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */; };
+		FAD991232AFA7F4D00B133E0 /* Jotter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAD991212AFA7F4D00B133E0 /* Jotter.xcdatamodeld */; };
+		FAD991252AFA7F4D00B133E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991242AFA7F4D00B133E0 /* ContentView.swift */; };
+		FAD991272AFA7F4E00B133E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD991262AFA7F4E00B133E0 /* Assets.xcassets */; };
+		FAD9912B2AFA7F4E00B133E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD9912A2AFA7F4E00B133E0 /* Preview Assets.xcassets */; };
+		FAD991352AFA7F4E00B133E0 /* JotterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991342AFA7F4E00B133E0 /* JotterTests.swift */; };
+		FAD9913F2AFA7F4E00B133E0 /* JotterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9913E2AFA7F4E00B133E0 /* JotterUITests.swift */; };
+		FAD991412AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991402AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAD991312AFA7F4E00B133E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAD991122AFA7F4D00B133E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD991192AFA7F4D00B133E0;
+			remoteInfo = Jotter;
+		};
+		FAD9913B2AFA7F4E00B133E0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAD991122AFA7F4D00B133E0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD991192AFA7F4D00B133E0;
+			remoteInfo = Jotter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FAD9911A2AFA7F4D00B133E0 /* Jotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterApp.swift; sourceTree = "<group>"; };
+		FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		FAD991222AFA7F4D00B133E0 /* Jotter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jotter.xcdatamodel; sourceTree = "<group>"; };
+		FAD991242AFA7F4D00B133E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FAD991262AFA7F4E00B133E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAD991282AFA7F4E00B133E0 /* Jotter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jotter.entitlements; sourceTree = "<group>"; };
+		FAD9912A2AFA7F4E00B133E0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAD991302AFA7F4E00B133E0 /* JotterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JotterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD991342AFA7F4E00B133E0 /* JotterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterTests.swift; sourceTree = "<group>"; };
+		FAD9913A2AFA7F4E00B133E0 /* JotterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JotterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD9913E2AFA7F4E00B133E0 /* JotterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterUITests.swift; sourceTree = "<group>"; };
+		FAD991402AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAD991172AFA7F4D00B133E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAD9912D2AFA7F4E00B133E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAD991372AFA7F4E00B133E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAD991112AFA7F4D00B133E0 = {
+			isa = PBXGroup;
+			children = (
+				FAD9911C2AFA7F4D00B133E0 /* Jotter */,
+				FAD991332AFA7F4E00B133E0 /* JotterTests */,
+				FAD9913D2AFA7F4E00B133E0 /* JotterUITests */,
+				FAD9911B2AFA7F4D00B133E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAD9911B2AFA7F4D00B133E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9911A2AFA7F4D00B133E0 /* Jotter.app */,
+				FAD991302AFA7F4E00B133E0 /* JotterTests.xctest */,
+				FAD9913A2AFA7F4E00B133E0 /* JotterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAD9911C2AFA7F4D00B133E0 /* Jotter */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */,
+				FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */,
+				FAD991242AFA7F4D00B133E0 /* ContentView.swift */,
+				FAD991262AFA7F4E00B133E0 /* Assets.xcassets */,
+				FAD991282AFA7F4E00B133E0 /* Jotter.entitlements */,
+				FAD991212AFA7F4D00B133E0 /* Jotter.xcdatamodeld */,
+				FAD991292AFA7F4E00B133E0 /* Preview Content */,
+			);
+			path = Jotter;
+			sourceTree = "<group>";
+		};
+		FAD991292AFA7F4E00B133E0 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9912A2AFA7F4E00B133E0 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FAD991332AFA7F4E00B133E0 /* JotterTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAD991342AFA7F4E00B133E0 /* JotterTests.swift */,
+			);
+			path = JotterTests;
+			sourceTree = "<group>";
+		};
+		FAD9913D2AFA7F4E00B133E0 /* JotterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9913E2AFA7F4E00B133E0 /* JotterUITests.swift */,
+				FAD991402AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift */,
+			);
+			path = JotterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAD991192AFA7F4D00B133E0 /* Jotter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAD991442AFA7F4E00B133E0 /* Build configuration list for PBXNativeTarget "Jotter" */;
+			buildPhases = (
+				FAD991162AFA7F4D00B133E0 /* Sources */,
+				FAD991172AFA7F4D00B133E0 /* Frameworks */,
+				FAD991182AFA7F4D00B133E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Jotter;
+			productName = Jotter;
+			productReference = FAD9911A2AFA7F4D00B133E0 /* Jotter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAD9912F2AFA7F4E00B133E0 /* JotterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAD991472AFA7F4E00B133E0 /* Build configuration list for PBXNativeTarget "JotterTests" */;
+			buildPhases = (
+				FAD9912C2AFA7F4E00B133E0 /* Sources */,
+				FAD9912D2AFA7F4E00B133E0 /* Frameworks */,
+				FAD9912E2AFA7F4E00B133E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAD991322AFA7F4E00B133E0 /* PBXTargetDependency */,
+			);
+			name = JotterTests;
+			productName = JotterTests;
+			productReference = FAD991302AFA7F4E00B133E0 /* JotterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAD991392AFA7F4E00B133E0 /* JotterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAD9914A2AFA7F4E00B133E0 /* Build configuration list for PBXNativeTarget "JotterUITests" */;
+			buildPhases = (
+				FAD991362AFA7F4E00B133E0 /* Sources */,
+				FAD991372AFA7F4E00B133E0 /* Frameworks */,
+				FAD991382AFA7F4E00B133E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAD9913C2AFA7F4E00B133E0 /* PBXTargetDependency */,
+			);
+			name = JotterUITests;
+			productName = JotterUITests;
+			productReference = FAD9913A2AFA7F4E00B133E0 /* JotterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAD991122AFA7F4D00B133E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					FAD991192AFA7F4D00B133E0 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					FAD9912F2AFA7F4E00B133E0 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = FAD991192AFA7F4D00B133E0;
+					};
+					FAD991392AFA7F4E00B133E0 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = FAD991192AFA7F4D00B133E0;
+					};
+				};
+			};
+			buildConfigurationList = FAD991152AFA7F4D00B133E0 /* Build configuration list for PBXProject "Jotter" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAD991112AFA7F4D00B133E0;
+			productRefGroup = FAD9911B2AFA7F4D00B133E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAD991192AFA7F4D00B133E0 /* Jotter */,
+				FAD9912F2AFA7F4E00B133E0 /* JotterTests */,
+				FAD991392AFA7F4E00B133E0 /* JotterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAD991182AFA7F4D00B133E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD9912B2AFA7F4E00B133E0 /* Preview Assets.xcassets in Resources */,
+				FAD991272AFA7F4E00B133E0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAD9912E2AFA7F4E00B133E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAD991382AFA7F4E00B133E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAD991162AFA7F4D00B133E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD9911E2AFA7F4D00B133E0 /* JotterApp.swift in Sources */,
+				FAD991232AFA7F4D00B133E0 /* Jotter.xcdatamodeld in Sources */,
+				FAD991252AFA7F4D00B133E0 /* ContentView.swift in Sources */,
+				FAD991202AFA7F4D00B133E0 /* Persistence.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAD9912C2AFA7F4E00B133E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD991352AFA7F4E00B133E0 /* JotterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAD991362AFA7F4E00B133E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD991412AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift in Sources */,
+				FAD9913F2AFA7F4E00B133E0 /* JotterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAD991322AFA7F4E00B133E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAD991192AFA7F4D00B133E0 /* Jotter */;
+			targetProxy = FAD991312AFA7F4E00B133E0 /* PBXContainerItemProxy */;
+		};
+		FAD9913C2AFA7F4E00B133E0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAD991192AFA7F4D00B133E0 /* Jotter */;
+			targetProxy = FAD9913B2AFA7F4E00B133E0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FAD991422AFA7F4E00B133E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FAD991432AFA7F4E00B133E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		FAD991452AFA7F4E00B133E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Jotter/Jotter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Jotter/Preview Content\"";
+				DEVELOPMENT_TEAM = 8957MJT3NY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wilfried.gossan.Jotter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAD991462AFA7F4E00B133E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Jotter/Jotter.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Jotter/Preview Content\"";
+				DEVELOPMENT_TEAM = 8957MJT3NY;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wilfried.gossan.Jotter;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FAD991482AFA7F4E00B133E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8957MJT3NY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wilfried.gossan.JotterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jotter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Jotter";
+			};
+			name = Debug;
+		};
+		FAD991492AFA7F4E00B133E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8957MJT3NY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wilfried.gossan.JotterTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jotter.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Jotter";
+			};
+			name = Release;
+		};
+		FAD9914B2AFA7F4E00B133E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8957MJT3NY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wilfried.gossan.JotterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Jotter;
+			};
+			name = Debug;
+		};
+		FAD9914C2AFA7F4E00B133E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8957MJT3NY;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = wilfried.gossan.JotterUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Jotter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAD991152AFA7F4D00B133E0 /* Build configuration list for PBXProject "Jotter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAD991422AFA7F4E00B133E0 /* Debug */,
+				FAD991432AFA7F4E00B133E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAD991442AFA7F4E00B133E0 /* Build configuration list for PBXNativeTarget "Jotter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAD991452AFA7F4E00B133E0 /* Debug */,
+				FAD991462AFA7F4E00B133E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAD991472AFA7F4E00B133E0 /* Build configuration list for PBXNativeTarget "JotterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAD991482AFA7F4E00B133E0 /* Debug */,
+				FAD991492AFA7F4E00B133E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAD9914A2AFA7F4E00B133E0 /* Build configuration list for PBXNativeTarget "JotterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAD9914B2AFA7F4E00B133E0 /* Debug */,
+				FAD9914C2AFA7F4E00B133E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAD991212AFA7F4D00B133E0 /* Jotter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAD991222AFA7F4D00B133E0 /* Jotter.xcdatamodel */,
+			);
+			currentVersion = FAD991222AFA7F4D00B133E0 /* Jotter.xcdatamodel */;
+			path = Jotter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FAD991122AFA7F4D00B133E0 /* Project object */;
+}
