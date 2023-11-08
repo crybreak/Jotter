@@ -20,6 +20,8 @@ extension Note {
     convenience init(title: String, context: NSManagedObjectContext) {
         self.init(context: context)
         self.title = title
+        
+        PersistenceController.shared.save()
     }
     
     public override func awakeFromInsert() {
@@ -32,5 +34,11 @@ extension Note {
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Note.creationDate, ascending: true)]
         request.predicate = predicate
         return request
+    }
+    
+    static func delete(note: Note) {
+        
+        guard let context = note.managedObjectContext else {return}
+        context.delete(note) 
     }
 }
