@@ -19,7 +19,7 @@ final class NotesTests: XCTestCase {
     override func setUpWithError() throws {
         self.controller = PersistenceController.createEmptyStore()
     }
-
+    
     override func tearDownWithError() throws {
         self.controller = nil
     }
@@ -34,7 +34,7 @@ final class NotesTests: XCTestCase {
     func test_Notes_CreationDate() {
         let note = Note(context: context)
         let noteConvenient = Note(title: "New", context: context)
-       
+        
         XCTAssertNotNil(note.creationDate, "note should have creationDate property" )
         XCTAssertTrue(noteConvenient.creationDate != nil)
         XCTAssertFalse(noteConvenient.creationDate == nil)
@@ -48,7 +48,7 @@ final class NotesTests: XCTestCase {
     }
     
     func test_Fetch_All_Notes() {
-         _ = Note(title: "default note", context: context)
+        _ = Note(title: "default note", context: context)
         let fetch = Note.fetch(.all)
         let fetchedNotes = try? context.fetch(fetch)
         
@@ -84,5 +84,11 @@ final class NotesTests: XCTestCase {
         waitForExpectations(timeout: 1.0) {error in
             XCTAssertNil(error, "saving is not complete")
         }
+    }
+    
+    func test_IsFavorite_Default_Value() {
+        let note = Note(title: "default", context: context)
+        
+        XCTAssertFalse(note.isFavorite, "note is per default favorite")
     }
 }

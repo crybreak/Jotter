@@ -10,13 +10,21 @@ import CoreData
 
 extension Note {
     var title: String {
-        get {
-            self.title_ ?? ""
-        } set (newValue) {
-            self.title_ = newValue
-        }
+        get {self.title_ ?? ""}
+        set (newValue) {self.title_ = newValue}
     }
     
+    var status: Status {
+        get {
+            if let rawStatus = self.status_, let status = Status(rawValue: rawStatus) {
+                return status
+            } else {
+                return Status.draft
+            }
+        } set (newValue) {
+            status_ = newValue.rawValue
+        }
+    }
     convenience init(title: String, context: NSManagedObjectContext) {
         self.init(context: context)
         self.title = title
