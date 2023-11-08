@@ -25,6 +25,14 @@ extension Note {
             status_ = newValue.rawValue
         }
     }
+    
+    var formattedBodyText: NSAttributedString {
+        get {
+            NSAttributedString()
+        } set {
+        }
+    }
+    
     convenience init(title: String, context: NSManagedObjectContext) {
         self.init(context: context)
         self.title = title

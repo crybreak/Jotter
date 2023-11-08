@@ -9,6 +9,12 @@ import SwiftUI
 
 struct TextViewIOSWrapper: UIViewRepresentable {
     
+    let note: Note
+    
+    func makeCoordinator() -> Coordinator {
+        Coordinator(self, note: note)
+    }
+    
     func makeUIView(context: Context) -> UITextView {
         let view = UITextView()
         
@@ -20,21 +26,36 @@ struct TextViewIOSWrapper: UIViewRepresentable {
         view.layer.borderColor = UIColor.gray.cgColor
         view.layer.cornerRadius = 5
         
-        view.textStorage.setAttributedString(NSAttributedString)
+        view.textStorage.setAttributedString(note.formattedBodyText)
+        view.delegate = context.coordinator
+        
         return view;
     }
     
     func updateUIView(_ uiView: UITextView, context: Context) {
+        uiView.textStorage.setAttributedString(note.formattedBodyText)
+        context.coordinator.note = note
+    }
     
+    class Coordinator: NSObject, UITextViewDelegate {
+        var note: Note
+        let parent:  TextViewIOSWrapper
+        
+        init(_ parent: TextViewIOSWrapper, note: Note) {
+            self.parent = parent
+            self.note = note
+        }
+        
+        func textViewDidChange(_ textView: UITextView) {
+            note.formattedBodyText = textView.attributedText
+        }
     }
     
 }
-   
 
 
-//
-//struct TextViewIOSWrapper_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TextViewIOSWrapper()
-//    }
-//}
+struct TextViewIOSWrapper_Previews: PreviewProvider {
+    static var previews: some View {
+        TextViewIOSWrapper(note: Note(title: "Note", context: PersistenceController.shared.container.viewContext))
+    }
+}

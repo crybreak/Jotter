@@ -14,12 +14,10 @@ struct ContentDetailNote: View {
     var body: some View {
         VStack (spacing: 20) {
             Text("order \(Int(note.order))")
-            Text("Detail Note")
             
-            HStack {
-                Text ("Title: ")
-                Text(note.title)
-            }
+            
+            TextField("New Note", text: $note.title)
+            
             Picker(selection: $note.status) {
                 ForEach(Status.allCases) {status in
                     Text(status.rawValue)
@@ -29,18 +27,11 @@ struct ContentDetailNote: View {
                 Text("Note's status")
             }
             .pickerStyle(.segmented)
-            
-            
-            TextField("New Note", text: $note.title)
-            
-            Button("clear note") {
-                note.title = ""
-            }.foregroundColor(.pink)
-            
-            Button("delete note") {
-                let context = note.managedObjectContext
-                context?.delete(note)
-            }.foregroundColor(.red)
+            #if os(iOS)
+            TextViewIOSWrapper(note: note)
+            #else
+            TextViewMacosWrapper(note: note)
+            #endif
             
         }.padding()
             .onDisappear {
