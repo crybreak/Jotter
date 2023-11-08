@@ -73,4 +73,16 @@ final class NotesTests: XCTestCase {
         XCTAssertTrue(fecthedNotes!.count == 0, "deleted note should not be in database")
         XCTAssertFalse(fecthedNotes!.contains(note))
     }
+    
+    func test_Asynchronous_Save() {
+        
+        expectation(forNotification: .NSManagedObjectContextDidSave, object: context) {_ in
+            return true
+        }
+        _ = Note(title: "default", context: context)
+        controller.save()
+        waitForExpectations(timeout: 1.0) {error in
+            XCTAssertNil(error, "saving is not complete")
+        }
+    }
 }
