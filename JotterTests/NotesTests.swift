@@ -72,6 +72,7 @@ final class NotesTests: XCTestCase {
         let fecthedNotes = try? context.fetch(Note.fetch(.all))
         XCTAssertTrue(fecthedNotes!.count == 0, "deleted note should not be in database")
         XCTAssertFalse(fecthedNotes!.contains(note))
+        XCTAssertNotNil(fecthedNotes)
     }
     
     func test_Asynchronous_Save() {
@@ -90,5 +91,16 @@ final class NotesTests: XCTestCase {
         let note = Note(title: "default", context: context)
         
         XCTAssertFalse(note.isFavorite, "note is per default favorite")
+    }
+    
+    func test_formatedText_Data() {
+        let note = Note(title: "default", context: context)
+        note.formattedBodyText_ = NSAttributedString(string: "Welcometo jungle").toData()
+        let fetchNotes = try? context.fetch(Note.fetch(.all))
+        
+        XCTAssertNotNil(fetchNotes)
+        XCTAssertTrue(fetchNotes?.first?.formattedBodyText_ == note.formattedBodyText_,
+                      "note couldn't save formattedBodyText_")
+        
     }
 }
