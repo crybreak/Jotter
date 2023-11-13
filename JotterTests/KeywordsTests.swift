@@ -8,6 +8,7 @@
 import XCTest
 @testable import Jotter
 import SwiftUI
+import CoreData
 
 final class KeywordsTests: XCTestCase {
     var controller: PersistenceController!
@@ -21,7 +22,7 @@ final class KeywordsTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        self.controller = nil
     }
     
   
