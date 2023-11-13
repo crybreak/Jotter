@@ -22,7 +22,6 @@ struct NotePhotoSelectorButton: View {
                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
                     note.img = data
                 }
-                
             }
         }
     }

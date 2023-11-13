@@ -17,10 +17,25 @@ extension Folder {
     
     convenience init (name: String, context: NSManagedObjectContext) {
         self.init(context: context)
-        self.name_ = name
+        self.name = name
     }
     
     public override func awakeFromInsert() {
         self.creationDate = Date() + TimeInterval()
+    }
+    
+    static func fetch(_ predicate: NSPredicate) -> NSFetchRequest<Folder> {
+        
+        let request = NSFetchRequest<Folder>(entityName: "Folder")
+        
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Folder.creationDate, ascending: true)]
+        request.predicate = predicate
+        return request
+    }
+    
+    static func delete(_ folder: Folder) {
+        
+        guard let context = folder.managedObjectContext else {return}
+        context.delete(folder)
     }
 }

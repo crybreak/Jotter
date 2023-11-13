@@ -23,8 +23,8 @@ extension NSAttributedString {
 extension Data {
     
     func toAttributedString() -> NSAttributedString? {
-        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [.documentType: NSAttributedString.DocumentType.rtf,
-                                                                    .characterEncoding: String.Encoding.utf8]
+        let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [.documentType: NSAttributedString.DocumentType.rtf,.characterEncoding: String.Encoding.utf8]
+        
         let nsAttributeString = try? NSAttributedString(data: self, options: options, documentAttributes: nil)
         
         return nsAttributeString
