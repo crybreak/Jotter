@@ -3,7 +3,9 @@
     <entity name="Folder" representedClassName="Folder" syncable="YES" codeGenerationType="class">
         <attribute name="creationDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="name_" optional="YES" attributeType="String"/>
-        <relationship name="notes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="folder" inverseEntity="Note"/>
+        <relationship name="children_" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Folder" inverseName="parent" inverseEntity="Folder"/>
+        <relationship name="notes_" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Note" inverseName="folder" inverseEntity="Note"/>
+        <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="children_" inverseEntity="Folder"/>
     </entity>
     <entity name="Keyword" representedClassName="Keyword" syncable="YES" codeGenerationType="class">
         <attribute name="blue_" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -12,6 +14,7 @@
         <attribute name="opacity_" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="red_" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <relationship name="notes_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="keywords_" inverseEntity="Note"/>
     </entity>
     <entity name="Note" representedClassName="Note" syncable="YES" codeGenerationType="class">
         <attribute name="bodyText_" optional="YES" attributeType="String"/>
@@ -24,6 +27,9 @@
         <attribute name="status_" optional="YES" attributeType="String"/>
         <attribute name="title_" optional="YES" attributeType="String"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="notes" inverseEntity="Folder"/>
+        <relationship name="backLinkedNotes_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="linkedNotes_" inverseEntity="Note"/>
+        <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="notes_" inverseEntity="Folder"/>
+        <relationship name="keywords_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Keyword" inverseName="notes_" inverseEntity="Keyword"/>
+        <relationship name="linkedNotes_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="backLinkedNotes_" inverseEntity="Note"/>
     </entity>
 </model>

@@ -15,9 +15,20 @@ extension Folder {
         set {self.name_ = newValue}
     }
     
+    var notes: Set<Note> {
+        get { (self.notes_ as? Set<Note>) ?? [] }
+        set {self.notes_ = newValue as NSSet}
+    }
+    
+    var children: Set<Folder> {
+        get {(self.children_ as? Set<Folder>) ?? []}
+        set{self.children_ = newValue as NSSet}
+    }
+    
     convenience init (name: String, context: NSManagedObjectContext) {
         self.init(context: context)
         self.name = name
+        PersistenceController.shared.save()
     }
     
     public override func awakeFromInsert() {
