@@ -6,41 +6,62 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct NoteAttachementView: View {
-   @ObservedObject var attachment: Attachment
+    @ObservedObject var attachment: Attachment
     
     @State private var showFullImage: Bool = false
+    @State private var thumbnailImage: UIImage? = nil
+    @State private var attachmentID: NSManagedObjectID? = nil
+    
+    @Environment(\.pixelLength) var pixelLength
+    @Environment(\.displayScale) var displayScale
     
     var body: some View {
-        if let thumbnailData = attachment.thumbnailData {
+        
+        Group {
+            if let image = thumbnailImage {
+                Text("thumbnail \(dataSize(data: attachment.thumbnailData_))")
+                
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .gesture(TapGesture(count: 2).onEnded({ _ in
+                        showFullImage.toggle()
+                    }))
+                    .sheet(isPresented: $showFullImage) {
+                        FullImageView(attachment: attachment, title: "full image \(dataSize(data: attachment.fullImageData_)) KB" )
+                    }
+            } else {
+                Color.gray
+            }
+        }.frame(width: attachment.imageWidth() * pixelLength)
+        
+        .task(id: attachment.objectID) {
+            thumbnailImage = nil
+            attachmentID = attachment.objectID
             
-            Text("thumbnail \(dataSize(data: thumbnailData))")
+            thumbnailImage = await attachment.getThumbnail()
             
-            Image(uiImage: UIImage(data: thumbnailData)!)
-                .gesture(TapGesture(count: 2).onEnded({ _ in
-                    showFullImage.toggle()
-                }))
-            
-                .sheet(isPresented: $showFullImage) {
-                    FullImageView(attachment: attachment, title: "full image \(dataSize(data: attachment.fullImageData_))" )
-                }
-        }
-    }
-    
-    func dataSize(data: Data?) -> Int {
-        if let data = data {
-            return data.count / 1024
-        } else {
-            return 0
+            attachment.updateImageSize(to: thumbnailImage?.size)
         }
     }
 }
 
-private struct FullImageView: View {
+func dataSize(data: Data?) -> Int {
+    if let data = data {
+        return data.count / 1024
+    } else {
+        return 0
+    }
+}
 
+private struct FullImageView: View {
+    
     let attachment: Attachment
     let title: String
+    @State private var image: UIImage? = nil
     
     @Environment(\.dismiss) var dismiss
     
@@ -53,17 +74,18 @@ private struct FullImageView: View {
                     dismiss()
                 }
             }
-            if let data = attachment.fullImageData_ , let image = UIImage(data: data) {
+            if let image = image {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
+            } else {
+                ProgressView("Loding Image...")
+                    .frame(minWidth: 300, minHeight: 300)
             }
         }.padding()
-      
+            .task {
+                self.image = await attachment.createFullImage()
+            }
+        
     }
 }
-//struct NoteAttachementView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        NoteAttachementView()
-//    }
-//}

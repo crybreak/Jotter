@@ -20,14 +20,19 @@ struct NotePhotoSelectorButton: View {
         .onChange(of: selectedItem) { newValue in
             Task {
                 if let data = try? await newValue?.loadTransferable(type: Data.self) {
-                    if let attachment = note.attachment_  {
-                        attachment.fullImageData_ = data
-                        attachment.thumbnailData = attachment.fullImageData_
-                    } else {
-                        note.attachment_ = Attachment(image: data, context: context)
-                    }
+                    update(data: data)
                 }
             }
+        }
+    }
+    
+    @MainActor
+    func update(data: Data)  {
+        if let attachment = note.attachment_ {
+            attachment.fullImageData_ = data
+            attachment.thumbnailData_ = nil
+        } else {
+            note.attachment_ = Attachment(image: data, context: context)
         }
     }
 }
