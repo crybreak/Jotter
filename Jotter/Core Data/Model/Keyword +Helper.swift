@@ -24,24 +24,28 @@ extension Keyword {
     
     var color: Color {
         get {
-            Color(red: self.red_, green: self.green_, blue: self.blue_ )
+            Color(red: Double(self.red_), green: Double(self.green_), blue: Double(self.blue_) )
             
         }
         set {
             guard let components = newValue.cgColor?.components,
                   components.count > 2 else {return}
-            self.red_ = components[0]
-            self.green_ = components[1]
-            self.blue_ = components[2]
+            self.red_ = Float(components[0])
+            self.green_ = Float(components[1])
+            self.blue_ = Float(components[2])
             
             if (components.count == 4) {
-                self.opacity_ = components [3]
+                self.opacity_ = Float(components [3])
             } else {
                 self.opacity_ = 1
             }
             
-
         }
+    }
+    
+    var notes: Set<Note> {
+        get { (self.notes_ as? Set<Note>) ?? [] }
+        set {self.notes_ = newValue as NSSet}
     }
     
 }
