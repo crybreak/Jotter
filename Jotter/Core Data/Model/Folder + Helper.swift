@@ -32,14 +32,14 @@ extension Folder {
     }
     
     public override func awakeFromInsert() {
-        self.creationDate = Date() + TimeInterval()
+        self.creationDate_ = Date() + TimeInterval()
     }
     
     static func fetch(_ predicate: NSPredicate) -> NSFetchRequest<Folder> {
         
         let request = NSFetchRequest<Folder>(entityName: "Folder")
         
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Folder.creationDate, ascending: true)]
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Folder.creationDate_, ascending: true)]
         request.predicate = predicate
         return request
     }

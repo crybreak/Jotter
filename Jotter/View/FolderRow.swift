@@ -10,24 +10,54 @@ import SwiftUI
 struct FolderRow: View {
     
     @ObservedObject var folder: Folder
+
+    @State private var showRenameEditor: Bool = false
     @State private var showDeleteConfirmation: Bool = false
+    @FocusState private var textFieldIsSelected: Bool
 
     var body: some View {
-        TextField("", text: $folder.name)
-            .textFieldStyle(.roundedBorder)
-            .contextMenu {
-                Button ("Rename") {
-                }
-                
-                Button("Delete") {
-                    showDeleteConfirmation = true
-                }
+        Group {
+#if os(iOS)
+            Text(folder.name)
+#else
+            TextField("", text: $folder.name)
+                .focused($textFieldIsSelected)
+#endif
+        }
+        .contextMenu {
+            Button ("Rename") {
+                #if os(OSX)
+                textFieldIsSelected = true
+                #else
+                showRenameEditor = true
+                #endif
             }
-            .confirmationDialog("Delete", isPresented: $showDeleteConfirmation) {
-                Button("Delete") {
-                    Folder.delete(folder)
-                }
+            
+            Button("Delete") {
+                showDeleteConfirmation = true
             }
+        }
+        .confirmationDialog("Delete", isPresented: $showDeleteConfirmation) {
+            Button("Delete") {
+                Folder.delete(folder)
+                PersistenceController.shared.save()
+            }
+        }
+        .sheet(isPresented: $showRenameEditor) {
+            FolderEditorView(folder: folder)
+        }
+    }
+}
+
+struct FolderRow_Previews: PreviewProvider {
+    static var previews: some View {
+        FolderRow(folder: Folder(name: "New Folder", context:
+                                    PersistenceController.shared.container.viewContext))
+        .frame(width: 200)
+        .padding(50)
+        
+        
+        
     }
 }
 

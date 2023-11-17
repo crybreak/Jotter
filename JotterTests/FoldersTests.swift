@@ -42,7 +42,7 @@ final class FoldersTests: XCTestCase {
     func test_Folder_creationDate() {
         let folder = Folder(name: "equity", context: context)
         
-        XCTAssertNotNil(folder.creationDate, "folder should have creation date")
+        XCTAssertNotNil(folder.creationDate_, "folder should have creation date")
 
     }
     

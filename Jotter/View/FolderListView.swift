@@ -12,13 +12,15 @@ struct FolderListView: View {
     @FetchRequest(fetchRequest: Folder.fetch(.all))
     private var folders: FetchedResults<Folder>
     
-    @State private var selectedFolder: Folder? = nil
+    @Binding var selectedFolder: Folder?
     
     var body: some View {
         List (selection: $selectedFolder) {
             ForEach(folders) { folder in
-                FolderRow(folder: folder)
-                    .tag(folder)
+                NavigationLink(value: folder) {
+                    FolderRow(folder: folder)
+                        .tag(folder)
+                }
             }
             .onDelete(perform: deleteFolders(offsets:))
         }
@@ -43,7 +45,7 @@ struct FolderListView: View {
 struct FolderList_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            FolderListView()
+            FolderListView(selectedFolder: .constant(nil))
                 .environment(\.managedObjectContext,
                               PersistenceController.preview.container.viewContext)
                
