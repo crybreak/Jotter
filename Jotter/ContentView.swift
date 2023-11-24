@@ -9,41 +9,35 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    
     @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(fetchRequest: Note.fetch(.all))
-    private var notes: FetchedResults<Note>
-
+    
+    @State private var columnVisibility:
+    NavigationSplitViewVisibility = .all
+    
+    @State private var selectedFolder: Folder? = nil
+    @State private var selectedNote: Note? = nil
     var body: some View {
-        NavigationView {
-            List {
-                ForEach(notes) { note in
-                    NavigationLink {
-                        Text(" New Note at \(note.creationDate!)")
-                    } label: {
-                        Text(note.creationDate!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteNotes)
+        NavigationSplitView(columnVisibility:
+                                $columnVisibility) {
+            FolderListView(selectedFolder: $selectedFolder)
+        } content: {
+            if let folder = selectedFolder {
+                NoteListView(selectedFolder: folder, selectNote: $selectedNote)
+            } else {
+                Text("select folder")
+                    .foregroundColor(.secondary)
             }
-            .toolbar {
-                ToolbarItem {
-                    Button(action: addNote) {
-                        Label("Add Note", systemImage: "plus")
-                    }
-                }
+        } detail: {
+            if let note = selectedNote {
+                ContentDetailNote(note: note)
+            } else {
+                Text("select a note")
+                    .foregroundColor(.secondary)
             }
         }
-    }
-
-   
-    
-    private func addNote() {
-        let _ = Note(title: "New Note", context: viewContext)
-    }
-
-    private func deleteNotes(offsets: IndexSet) {
-        offsets.map { notes[$0] }.forEach(viewContext.delete)
+        
+        
     }
 }
 
@@ -56,6 +50,6 @@ private let itemFormatter: DateFormatter = {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView()
     }
 }
