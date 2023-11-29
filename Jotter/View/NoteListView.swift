@@ -19,10 +19,9 @@ struct NoteListView: View {
     @Binding var selectedNote: Note?
     @Environment(\.managedObjectContext) var viewContext        
     @State private var selectedNoteSorting = NoteSorting.creationDateAsc
-    @State private var searchText: String = ""
-    @State private var searchTokens = [NoteSearchToken]()
-    @State private var searchTokenSuggestions = NoteSearchToken.allCases
-
+    
+    @StateObject var viewModel = NoteSearchViewModel()
+    
     var body: some View {
         List (selection: $selectedNote){
             switch selectedNoteSorting {
@@ -35,11 +34,26 @@ struct NoteListView: View {
             case .letter:
                 NoteSectionedByLetterView(for: selectedFolder)
             }
-        }.searchable(text: $searchText,
-                     tokens: $searchTokens,
-                     suggestedTokens: $searchTokenSuggestions, token: { token in
+        }.searchable(text: $viewModel.searchText,
+                     tokens: $viewModel.searchTokens,
+                     token: { token in
             Text(token.name)
         })
+        .searchSuggestions({
+            ForEach(NoteSearchToken.allCases) {token in
+                Button {
+                     viewModel.addToken(token)
+                } label: {
+                    Text(token.fullName)
+                }.disabled(viewModel.isTokenSelected(token))
+
+            }
+        }).searchScopes($viewModel.searchScope, scopes: {
+            ForEach(NoteSearchScope.allCases) {scope in
+                Text(scope.name(folder: selectedFolder))
+            }
+        })
+        
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: addNote) {
