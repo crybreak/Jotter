@@ -18,13 +18,13 @@ struct JotterApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
         .onChange(of: scenePhase) {newScenePhase in
-            newScenePhase == .background
-            ? persistenceController.save() : print("Screen Mode .active or .inactive")
+            newScenePhase == .background ? persistenceController.save() : print("Screen Mode .active or .inactive")
         }
         .commands {
             CommandGroup (replacing: .saveItem) {
-                Button("Save") { persistenceController.save() }
-                    .keyboardShortcut("S", modifiers: [.command])
+                Button("Save") {
+                    persistenceController.save()
+                }.keyboardShortcut("S", modifiers: [.command])
             }
         }
     }

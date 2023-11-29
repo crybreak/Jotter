@@ -10,15 +10,13 @@ import CoreData
 
 struct NoteSectionedByLetterView: View {
     
-    init(for selectedFolder: Folder) {
-        self.selectedFolder = selectedFolder
-        let request = Note.fetch(for: selectedFolder)
+    init(predicate: NSPredicate) {
+        let request = Note.fetch(predicate)
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Note.title_, ascending: true)]
         self._sectionByLetter = SectionedFetchRequest(fetchRequest: request,
                                                       sectionIdentifier: \.sectionLetterTitle)
     }
     
-    let selectedFolder: Folder
     @Environment(\.managedObjectContext) var context
     
     @SectionedFetchRequest<String, Note>(
@@ -50,9 +48,13 @@ struct NoteSectionedByLetterView_Previews: PreviewProvider {
         let context = PersistenceController.preview.container.viewContext
         let folder = Folder.exampleWithNotes(context: context)
         
+        let viewModel = NoteSearchViewModel()
+        viewModel.folderChanged(to: folder)
+//        viewModel.searchTokens = [.archivedStatus, .draftStatus, .last24Hours, .withAttachement]
+        let predicate = viewModel.predicate
         
         return NavigationView {
-            NoteSectionedByLetterView(for: folder)
+            NoteSectionedByLetterView(predicate: predicate)
                 .environment(\.managedObjectContext, context)
         }
     }

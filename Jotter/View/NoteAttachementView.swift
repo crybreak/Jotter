@@ -22,7 +22,6 @@ struct NoteAttachementView: View {
         
         Group {
             if let image = thumbnailImage {
-                Text("thumbnail \(dataSize(data: attachment.thumbnailData_))")
                 
                 Image(uiImage: image)
                     .resizable()
@@ -36,14 +35,12 @@ struct NoteAttachementView: View {
             } else {
                 Color.gray
             }
-        }.frame(width: attachment.imageWidth() * pixelLength)
+        }.frame(width: attachment.imageWidth() * pixelLength,
+                height: attachment.imageHeight() * pixelLength)
         
         .task(id: attachment.objectID) {
             thumbnailImage = nil
-            attachmentID = attachment.objectID
-            
             thumbnailImage = await attachment.getThumbnail()
-            
             attachment.updateImageSize(to: thumbnailImage?.size)
         }
     }

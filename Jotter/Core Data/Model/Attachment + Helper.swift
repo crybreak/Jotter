@@ -20,7 +20,7 @@ extension Attachment {
     static let maxThumbnailPixelSize: Int = 600
     
     convenience init(image: Data?, context: NSManagedObjectContext) {
-        
+         
         self.init(context: context)
         self.fullImageData_ = image
         
@@ -45,7 +45,7 @@ extension Attachment {
     
     func getThumbnail() async -> UIImage? {
         
-        guard self.thumbnailData_  == nil else {
+        guard self.thumbnailData_ == nil else {
             return UIImage(data: thumbnailData_!)
         }
         guard let fullImageData = self.fullImageData_ else {
@@ -91,14 +91,13 @@ extension Attachment {
         }
         
         if let newWidth = newSize?.width,
-           self.width != Float(newWidth) {
+        self.width != Float(newWidth) {
             self.width = Float(newWidth)
         }
     }
     
     func imageWidth() -> CGFloat {
         if self.width > 0 {
-            print("width: \(self.width * 0.5)")
             return CGFloat(self.width)
         } else {
             return CGFloat(Attachment.maxThumbnailPixelSize)
@@ -107,7 +106,6 @@ extension Attachment {
     
     func imageHeight() -> CGFloat {
         if self.height > 0 {
-            print("height: \(self.height * 0.5)")
             return CGFloat(self.height)
         } else {
             return CGFloat(Attachment.maxThumbnailPixelSize)

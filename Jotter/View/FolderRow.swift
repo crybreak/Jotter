@@ -10,6 +10,7 @@ import SwiftUI
 struct FolderRow: View {
     
     @ObservedObject var folder: Folder
+    @Environment(\.managedObjectContext) var viewContext;
 
     @State private var showRenameEditor: Bool = false
     @State private var showDeleteConfirmation: Bool = false
@@ -32,7 +33,14 @@ struct FolderRow: View {
                 showRenameEditor = true
                 #endif
             }
-            
+            Button  {
+                let subfolder = Folder(name: "New subFolder",
+                                       context: viewContext)
+                folder.children.insert(subfolder)
+            } label: {
+                Text("Create New Subfolder")
+            }
+
             Button("Delete") {
                 showDeleteConfirmation = true
             }

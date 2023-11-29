@@ -70,8 +70,52 @@ final class FoldersTests: XCTestCase {
         let retrivedFolders = try? context.fetch(Folder.fetch(.all))
         XCTAssertTrue(retrivedFolders?.count == 0)
     }
-    
-    
-    
 
+    
+    func test_top_folder_fetch() {
+        
+        let parent = Folder(name: "parent", context: context)
+        let child = Folder(name: "children", context: context)
+        parent.children.insert(child)
+                
+        let retrievedFolder = try! context.fetch(Folder.topFolderFetch())
+        
+        XCTAssertTrue(retrievedFolder.count == 1)
+        XCTAssertTrue(retrievedFolder.contains(parent))
+    }
+
+    func test_fetch_first_2_folders() {
+        _ = Folder(name: "parent", context: context)
+        _ = Folder(name: "parent", context: context)
+        _ = Folder(name: "parent", context: context)
+        
+        let fetchRequest = Folder.topFolderFetch()
+        fetchRequest.fetchLimit = 2
+        
+        let retrivedFolders = try! context.fetch(fetchRequest)
+        XCTAssertTrue(retrivedFolders.count == 2)
+    }
+    
+    func test_batch_size() {
+        _ = Folder(name: "parent", context: context)
+        _ = Folder(name: "parent", context: context)
+        _ = Folder(name: "parent", context: context)
+        
+        let fetchRequest = Folder.topFolderFetch()
+        
+        let retrivedFolders = try! context.fetch(fetchRequest)
+        XCTAssertTrue(retrivedFolders.count == 3)
+    }
+    
+    func test_fetch_count_top_folder() {
+        _ = Folder(name: "parent", context: context)
+        _ = Folder(name: "parent", context: context)
+        _ = Folder(name: "parent", context: context)
+        
+        let fetchRequest = Folder.topFolderFetch()
+        fetchRequest.resultType = .countResultType
+        let retrivedFoldersCount = try! context.count(for: fetchRequest)
+        
+        XCTAssertTrue(retrivedFoldersCount == 3)
+    }
 }

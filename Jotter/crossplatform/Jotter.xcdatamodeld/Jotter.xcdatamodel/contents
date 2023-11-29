@@ -17,11 +17,12 @@
         <relationship name="parent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="children_" inverseEntity="Folder"/>
     </entity>
     <entity name="Keyword" representedClassName="Keyword" syncable="YES" codeGenerationType="class">
-        <attribute name="blue_" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="blue_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="colorHex_" optional="YES" attributeType="String"/>
-        <attribute name="green_" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="opacity_" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
-        <attribute name="red_" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="green_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="name_" optional="YES" attributeType="String"/>
+        <attribute name="opacity_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="red_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="uuid" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="notes_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="keywords_" inverseEntity="Note"/>
     </entity>
@@ -41,5 +42,8 @@
         <relationship name="folder" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Folder" inverseName="notes_" inverseEntity="Folder"/>
         <relationship name="keywords_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Keyword" inverseName="notes_" inverseEntity="Keyword"/>
         <relationship name="linkedNotes_" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="backLinkedNotes_" inverseEntity="Note"/>
+        <fetchedProperty name="fetchedProperty" optional="YES">
+            <fetchRequest name="fetchedPropertyFetchRequest" entity="Note"/>
+        </fetchedProperty>
     </entity>
 </model>

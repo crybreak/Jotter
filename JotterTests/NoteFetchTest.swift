@@ -137,14 +137,17 @@ final class NoteFetchTest: XCTestCase {
     func test_fetch_notes_for_last_7_days() {
         
         let calendar = Calendar.current
+   
         let beginDate = calendar.date(byAdding: .day, value: -7, to: Date())!
         
         let note1 = Note(title: "Hello and World", context: context)
-        note1.creationDate_ = calendar.date(byAdding: .day, value: 2, to: Date())
-        
+        note1.creationDate_ = calendar.date(byAdding: .day, value: 2, to: Date())!
+       
+
         let note2 = Note(title: "test more world", context: context)
-        note2.creationDate_ = calendar.date(byAdding: .day, value: -9, to: Date())
-        
+        note2.creationDate_ = calendar.date(byAdding: .day, value: -9, to: Date())!
+        print( note2.creationDate_! )
+
         
         let predicate = NSPredicate(format: "%K < %@", NoteProperties.creationDate,
                                     beginDate as NSDate)
@@ -159,7 +162,7 @@ final class NoteFetchTest: XCTestCase {
     
     func test_fetch_notes_of_last_week() {
         let calendar = Calendar.current
-        let today = Date(timeIntervalSince1970: 1700474970)
+        let today = Date()
         
         //        print("today \(today.description(with: .current))")
         let endDATE = calendar.date(byAdding: .day, value: 1, to: today)
@@ -174,7 +177,7 @@ final class NoteFetchTest: XCTestCase {
         
         let startOflastWeek = calendar.date(byAdding: .day, value: -7, to: today)
         
-        let predicate = NSPredicate(format: "creationDate_ > %@ AND creationDate_ <= %@", argumentArray: [startOflastWeek, startOfWeek] )
+        let predicate = NSPredicate(format: "creationDate_ > %@ AND creationDate_ <= %@", argumentArray: [startOflastWeek!, startOfWeek] )
         
         let request = Note.fetch(predicate)
         let retrievedNotes = try! context.fetch(request)

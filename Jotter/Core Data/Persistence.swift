@@ -41,7 +41,7 @@ struct PersistenceController {
         
         guard context.hasChanges else {return}
         do {
-            try viewContext.save()
+            try context.save()
         } catch {
             // Replace this implementation with code to handle the error appropriately.
             // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
@@ -54,7 +54,8 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for index in 0..<10 {
-            let newNote = Note(title: "New Note \(index)", context: viewContext)
+            let _ = Note(title: "New Note \(index)", context: viewContext)
+            let _ = Folder(name: "folder\(index)", context: viewContext)
         }
         do {
             try viewContext.save()
@@ -66,4 +67,8 @@ struct PersistenceController {
         }
         return result
     }()
+    
+    static func createEmptyStore() -> PersistenceController {
+        return PersistenceController(inMemory: true);
+    }
 }

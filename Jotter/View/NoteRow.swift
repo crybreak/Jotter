@@ -15,8 +15,20 @@ struct NoteRow: View {
             Text(note.title)
                 .bold()
             
-            Text(note.creationDate, formatter: itemFormatter)
-                .font(.caption)
+            HStack {
+                Text(note.creationDate, formatter: itemFormatter)
+                    .font(.caption)
+                
+                Text(note.status.rawValue)
+                    .font(.caption)
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 5)
+                    .padding(.vertical, 5)
+                    .background(RoundedRectangle(cornerRadius: 5,
+                                                 style: .continuous).fill(Color.gray))
+                
+            }
+            
             
             if note.bodyText.count > 0 {
                 Text(note.bodyText)
@@ -35,7 +47,6 @@ private let itemFormatter: DateFormatter = {
 
 struct NoteRow_Previews: PreviewProvider {
     static var previews: some View {
-        NoteRow(note: Note(title: "new Note",
-                           context: PersistenceController.preview.container.viewContext))
+        NoteRow(note: Note.example())
     }
 }

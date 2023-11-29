@@ -53,9 +53,3 @@ struct TextViewIOSWrapper: UIViewRepresentable {
     
 }
 
-
-struct TextViewIOSWrapper_Previews: PreviewProvider {
-    static var previews: some View {
-        TextViewIOSWrapper(note: Note(title: "Note", context: PersistenceController.shared.container.viewContext))
-    }
-}

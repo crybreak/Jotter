@@ -23,7 +23,7 @@ struct ContentView: View {
             FolderListView(selectedFolder: $selectedFolder)
         } content: {
             if let folder = selectedFolder {
-                NoteListView(selectedFolder: folder, selectNote: $selectedNote)
+                NoteListView(selectedFolder: folder, selectedNote: $selectedNote)
             } else {
                 Text("select folder")
                     .foregroundColor(.secondary)

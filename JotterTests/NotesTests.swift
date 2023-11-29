@@ -36,8 +36,8 @@ final class NotesTests: XCTestCase {
         let noteConvenient = Note(title: "New", context: context)
         
         XCTAssertNotNil(note.creationDate, "note should have creationDate property" )
-        XCTAssertTrue(noteConvenient.creationDate != nil)
-        XCTAssertFalse(noteConvenient.creationDate == nil)
+        XCTAssertTrue(noteConvenient.creationDate_ != nil)
+        XCTAssertFalse(noteConvenient.creationDate_ == nil)
     }
     
     func test_Notes_Updating_title() {
@@ -93,14 +93,24 @@ final class NotesTests: XCTestCase {
         XCTAssertFalse(note.isFavorite, "note is per default favorite")
     }
     
-    func test_formatedText_Data() {
+    func test_formattedBodyText_addData() {
+        let note = Note(title: "default", context: context)
+        note.formattedBodyText_ = NSAttributedString(string: "Welcometo jungle").toData()
+        
+        XCTAssertTrue(note.formattedBodyText_ == NSAttributedString(string: "Welcometo jungle").toData())
+        
+    }
+    
+    func test_formattedBodyText_Fetchdata() {
+        
         let note = Note(title: "default", context: context)
         note.formattedBodyText_ = NSAttributedString(string: "Welcometo jungle").toData()
         let fetchNotes = try? context.fetch(Note.fetch(.all))
         
         XCTAssertNotNil(fetchNotes)
         XCTAssertTrue(fetchNotes?.first?.formattedBodyText_ == note.formattedBodyText_,
-                      "note couldn't save formattedBodyText_")
-        
+                      "note couldn't read formattedBodyText_")
     }
+    
+    
 }

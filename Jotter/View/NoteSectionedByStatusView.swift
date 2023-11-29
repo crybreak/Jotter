@@ -9,9 +9,9 @@ import SwiftUI
 
 struct NoteSectionedByStatusView: View {
     
-    init(selectedFolder: Folder) {
-        let request = Note.fetch(for: selectedFolder)
-        request.sortDescriptors = [NSSortDescriptor(keyPath: \Note.status_, ascending: false), NSSortDescriptor(keyPath: \Note.creationDate_, ascending: true)]
+    init(predicate: NSPredicate) {
+        let request = Note.fetch(predicate)
+        request.sortDescriptors = [NSSortDescriptor(keyPath: \Note.status_, ascending: true), NSSortDescriptor(keyPath: \Note.creationDate_, ascending: true)]
         
         self._sectionedNotes = SectionedFetchRequest(fetchRequest: request, sectionIdentifier: \.sectionStatus)
     }
@@ -25,7 +25,6 @@ struct NoteSectionedByStatusView: View {
     
     var body: some View {
         ForEach(sectionedNotes) {section in
-            
             Text(section.id)
                 .font(.title3)
                 .foregroundColor(.gray)
@@ -51,7 +50,12 @@ struct NoteSectionedByStatusView_Previews: PreviewProvider {
     static var previews: some View {
         let context = PersistenceController.preview.container.viewContext
         let folder = Folder.exampleWithNotes(context: context)
-        NoteSectionedByStatusView(selectedFolder: folder)
+        
+        let viewModel = NoteSearchViewModel()
+        viewModel.folderChanged(to: folder)
+        let predicate = viewModel.predicate
+        
+        return NoteSectionedByStatusView(predicate: predicate)
             .environment(\.managedObjectContext, context)
     }
 }

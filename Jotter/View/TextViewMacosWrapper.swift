@@ -30,6 +30,7 @@ struct TextViewMacosWrapper: NSViewRepresentable {
         view.isRulerVisible = true
         
         view.delegate = context.coordinator
+        view.textStorage?.setAttributedString(note.formattedBodyText)
         
         return view
     }
@@ -57,8 +58,4 @@ struct TextViewMacosWrapper: NSViewRepresentable {
     }
 }
 
-//struct TextViewMacosWrapper_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TextViewMacosWrapper()
-//    }
-//}
+

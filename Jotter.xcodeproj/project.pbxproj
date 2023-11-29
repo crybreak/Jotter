@@ -7,9 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA29386F2B098794004D5438 /* RecursiveFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA29386E2B098794004D5438 /* RecursiveFolderView.swift */; };
+		FA2938712B0A6D93004D5438 /* NoteFetchTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2938702B0A6D93004D5438 /* NoteFetchTest.swift */; };
+		FA31F61C2AFBE9050004BF6B /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F61B2AFBE9050004BF6B /* Status.swift */; };
+		FA31F6202AFBF6AC0004BF6B /* TextViewIOSWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F61F2AFBF6AC0004BF6B /* TextViewIOSWrapper.swift */; platformFilter = ios; };
+		FA31F6242AFC02D00004BF6B /* TextViewMacosWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F6232AFC02D00004BF6B /* TextViewMacosWrapper.swift */; platformFilters = (macos, ); };
+		FA31F6262AFC0E160004BF6B /* NSAttributeString + Data + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F6252AFC0E160004BF6B /* NSAttributeString + Data + Helper.swift */; };
+		FA31F6282AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F6272AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift */; };
+		FA31F62A2AFCF4BD0004BF6B /* OptionnalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F6292AFCF4BD0004BF6B /* OptionnalImageView.swift */; };
+		FA31F62E2AFCF7A50004BF6B /* macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F62D2AFCF7A50004BF6B /* macOS.swift */; platformFilters = (macos, ); };
+		FA565DA82B10C67200769E99 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DA72B10C67200769E99 /* FlowLayout.swift */; };
+		FA565DAA2B10D06700769E99 /* AddKeywordsToNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DA92B10D06700769E99 /* AddKeywordsToNoteView.swift */; };
+		FA565DAD2B11596900769E99 /* NewKeywordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DAC2B11596900769E99 /* NewKeywordView.swift */; };
+		FA565DB32B137EB800769E99 /* NoteSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DB22B137EB800769E99 /* NoteSorting.swift */; };
+		FA565DB52B14AECF00769E99 /* NoteSectionByDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DB42B14AECF00769E99 /* NoteSectionByDayView.swift */; };
+		FA565DB72B14D58D00769E99 /* NoteSectionedByStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DB62B14D58D00769E99 /* NoteSectionedByStatusView.swift */; };
+		FA565DB92B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DB82B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift */; };
+		FA565DBB2B14E98000769E99 /* NoteSingleSortedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DBA2B14E98000769E99 /* NoteSingleSortedView.swift */; };
+		FA565DBD2B15FC2C00769E99 /* NoteSectionedByLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DBC2B15FC2C00769E99 /* NoteSectionedByLetterView.swift */; };
+		FA9813882AFD4A89003452C6 /* Keyword +Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9813872AFD4A89003452C6 /* Keyword +Helper.swift */; };
+		FA98138A2AFE3A29003452C6 /* Color + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9813892AFE3A29003452C6 /* Color + Helper.swift */; };
+		FA98138C2AFE3F57003452C6 /* KeywordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98138B2AFE3F57003452C6 /* KeywordsTests.swift */; };
+		FA9979752AFE772100B0EA5C /* ColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979742AFE772100B0EA5C /* ColorsTests.swift */; };
+		FA99797F2AFEBEBA00B0EA5C /* Folder + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA99797E2AFEBEBA00B0EA5C /* Folder + Helper.swift */; };
+		FA9979812AFEEA7C00B0EA5C /* FoldersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979802AFEEA7C00B0EA5C /* FoldersTests.swift */; };
+		FA9979832B02473600B0EA5C /* NotesFolderRelationshipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979822B02473600B0EA5C /* NotesFolderRelationshipTests.swift */; };
+		FA9979862B0278FA00B0EA5C /* FolderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979852B0278FA00B0EA5C /* FolderListView.swift */; };
+		FA9979882B02820D00B0EA5C /* FolderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979872B02820D00B0EA5C /* FolderRow.swift */; };
+		FA99798A2B02CADA00B0EA5C /* NoteListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979892B02CADA00B0EA5C /* NoteListView.swift */; };
+		FA99798C2B03820200B0EA5C /* SubFolderRelationshipTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA99798B2B03820200B0EA5C /* SubFolderRelationshipTests.swift */; };
+		FA99798E2B048CD400B0EA5C /* FolderEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA99798D2B048CD400B0EA5C /* FolderEditorView.swift */; };
+		FA9979902B04ACC000B0EA5C /* NoteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA99798F2B04ACC000B0EA5C /* NoteRow.swift */; };
+		FA9979CE2B0611FA00B0EA5C /* Attachment + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979CD2B0611FA00B0EA5C /* Attachment + Helper.swift */; };
+		FA9979D02B06415000B0EA5C /* NoteAttachementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979CF2B06415000B0EA5C /* NoteAttachementView.swift */; };
+		FA9979D32B0643FD00B0EA5C /* Jotter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA9979D12B0643FD00B0EA5C /* Jotter.xcdatamodeld */; };
+		FAB304992B0BB771001527DE /* NotesKeywordsCollectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB304982B0BB771001527DE /* NotesKeywordsCollectView.swift */; };
+		FAB643212B1638550040C333 /* NoteSearchToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB643202B1638550040C333 /* NoteSearchToken.swift */; };
+		FAB643232B166A1C0040C333 /* NoteSearchScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB643222B166A1C0040C333 /* NoteSearchScope.swift */; };
+		FAB643252B1677220040C333 /* NoteSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB643242B1677220040C333 /* NoteSearchViewModel.swift */; };
 		FAD9911E2AFA7F4D00B133E0 /* JotterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */; };
 		FAD991202AFA7F4D00B133E0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */; };
-		FAD991232AFA7F4D00B133E0 /* Jotter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAD991212AFA7F4D00B133E0 /* Jotter.xcdatamodeld */; };
 		FAD991252AFA7F4D00B133E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991242AFA7F4D00B133E0 /* ContentView.swift */; };
 		FAD991272AFA7F4E00B133E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD991262AFA7F4E00B133E0 /* Assets.xcassets */; };
 		FAD9912B2AFA7F4E00B133E0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAD9912A2AFA7F4E00B133E0 /* Preview Assets.xcassets */; };
@@ -18,6 +55,8 @@
 		FAD991412AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991402AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift */; };
 		FAD9914F2AFA806000B133E0 /* Note+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9914E2AFA806000B133E0 /* Note+Helper.swift */; };
 		FAD991522AFA835400B133E0 /* Predicate + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991512AFA835400B133E0 /* Predicate + Helper.swift */; };
+		FAD991542AFA875D00B133E0 /* ContentDetailNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991532AFA875D00B133E0 /* ContentDetailNote.swift */; };
+		FAD991582AFAA65B00B133E0 /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991572AFAA65B00B133E0 /* NotesTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,10 +77,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA29386E2B098794004D5438 /* RecursiveFolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecursiveFolderView.swift; sourceTree = "<group>"; };
+		FA2938702B0A6D93004D5438 /* NoteFetchTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFetchTest.swift; sourceTree = "<group>"; };
+		FA31F61B2AFBE9050004BF6B /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		FA31F61F2AFBF6AC0004BF6B /* TextViewIOSWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewIOSWrapper.swift; sourceTree = "<group>"; };
+		FA31F6232AFC02D00004BF6B /* TextViewMacosWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewMacosWrapper.swift; sourceTree = "<group>"; };
+		FA31F6252AFC0E160004BF6B /* NSAttributeString + Data + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributeString + Data + Helper.swift"; sourceTree = "<group>"; };
+		FA31F6272AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePhotoSelectorButton.swift; sourceTree = "<group>"; };
+		FA31F6292AFCF4BD0004BF6B /* OptionnalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionnalImageView.swift; sourceTree = "<group>"; };
+		FA31F62D2AFCF7A50004BF6B /* macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS.swift; sourceTree = "<group>"; };
+		FA565DA72B10C67200769E99 /* FlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		FA565DA92B10D06700769E99 /* AddKeywordsToNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeywordsToNoteView.swift; sourceTree = "<group>"; };
+		FA565DAC2B11596900769E99 /* NewKeywordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewKeywordView.swift; sourceTree = "<group>"; };
+		FA565DB22B137EB800769E99 /* NoteSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSorting.swift; sourceTree = "<group>"; };
+		FA565DB42B14AECF00769E99 /* NoteSectionByDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSectionByDayView.swift; sourceTree = "<group>"; };
+		FA565DB62B14D58D00769E99 /* NoteSectionedByStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSectionedByStatusView.swift; sourceTree = "<group>"; };
+		FA565DB82B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesSimpleSectionnedByStatus.swift; sourceTree = "<group>"; };
+		FA565DBA2B14E98000769E99 /* NoteSingleSortedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSingleSortedView.swift; sourceTree = "<group>"; };
+		FA565DBC2B15FC2C00769E99 /* NoteSectionedByLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSectionedByLetterView.swift; sourceTree = "<group>"; };
+		FA9813872AFD4A89003452C6 /* Keyword +Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyword +Helper.swift"; sourceTree = "<group>"; };
+		FA9813892AFE3A29003452C6 /* Color + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Helper.swift"; sourceTree = "<group>"; };
+		FA98138B2AFE3F57003452C6 /* KeywordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordsTests.swift; sourceTree = "<group>"; };
+		FA9979742AFE772100B0EA5C /* ColorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTests.swift; sourceTree = "<group>"; };
+		FA99797E2AFEBEBA00B0EA5C /* Folder + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder + Helper.swift"; sourceTree = "<group>"; };
+		FA9979802AFEEA7C00B0EA5C /* FoldersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTests.swift; sourceTree = "<group>"; };
+		FA9979822B02473600B0EA5C /* NotesFolderRelationshipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesFolderRelationshipTests.swift; sourceTree = "<group>"; };
+		FA9979852B0278FA00B0EA5C /* FolderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderListView.swift; sourceTree = "<group>"; };
+		FA9979872B02820D00B0EA5C /* FolderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderRow.swift; sourceTree = "<group>"; };
+		FA9979892B02CADA00B0EA5C /* NoteListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListView.swift; sourceTree = "<group>"; };
+		FA99798B2B03820200B0EA5C /* SubFolderRelationshipTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubFolderRelationshipTests.swift; sourceTree = "<group>"; };
+		FA99798D2B048CD400B0EA5C /* FolderEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderEditorView.swift; sourceTree = "<group>"; };
+		FA99798F2B04ACC000B0EA5C /* NoteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteRow.swift; sourceTree = "<group>"; };
+		FA9979CD2B0611FA00B0EA5C /* Attachment + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attachment + Helper.swift"; sourceTree = "<group>"; };
+		FA9979CF2B06415000B0EA5C /* NoteAttachementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAttachementView.swift; sourceTree = "<group>"; };
+		FA9979D22B0643FD00B0EA5C /* Jotter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jotter.xcdatamodel; sourceTree = "<group>"; };
+		FAB304982B0BB771001527DE /* NotesKeywordsCollectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesKeywordsCollectView.swift; sourceTree = "<group>"; };
+		FAB643202B1638550040C333 /* NoteSearchToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSearchToken.swift; sourceTree = "<group>"; };
+		FAB643222B166A1C0040C333 /* NoteSearchScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSearchScope.swift; sourceTree = "<group>"; };
+		FAB643242B1677220040C333 /* NoteSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSearchViewModel.swift; sourceTree = "<group>"; };
 		FAD9911A2AFA7F4D00B133E0 /* Jotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterApp.swift; sourceTree = "<group>"; };
 		FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		FAD991222AFA7F4D00B133E0 /* Jotter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jotter.xcdatamodel; sourceTree = "<group>"; };
 		FAD991242AFA7F4D00B133E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FAD991262AFA7F4E00B133E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAD991282AFA7F4E00B133E0 /* Jotter.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jotter.entitlements; sourceTree = "<group>"; };
@@ -53,6 +129,8 @@
 		FAD991402AFA7F4E00B133E0 /* JotterUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		FAD9914E2AFA806000B133E0 /* Note+Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Note+Helper.swift"; sourceTree = "<group>"; };
 		FAD991512AFA835400B133E0 /* Predicate + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Predicate + Helper.swift"; sourceTree = "<group>"; };
+		FAD991532AFA875D00B133E0 /* ContentDetailNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailNote.swift; sourceTree = "<group>"; };
+		FAD991572AFAA65B00B133E0 /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +158,122 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA31F61D2AFBF5BE0004BF6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA9979842B0278E700B0EA5C /* folder */,
+				FA31F61E2AFBF6080004BF6B /* note */,
+				FA565DAB2B10D10800769E99 /* keyword */,
+				FA565DA62B10C60500769E99 /* Uility */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA31F61E2AFBF6080004BF6B /* note */ = {
+			isa = PBXGroup;
+			children = (
+				FA9979892B02CADA00B0EA5C /* NoteListView.swift */,
+				FA99798F2B04ACC000B0EA5C /* NoteRow.swift */,
+				FA565DAF2B137CC300769E99 /* note list */,
+				FA565DAE2B137C9900769E99 /* note detail */,
+			);
+			name = note;
+			sourceTree = "<group>";
+		};
+		FA31F62B2AFCF7410004BF6B /* crossplatform */ = {
+			isa = PBXGroup;
+			children = (
+				FA31F62D2AFCF7A50004BF6B /* macOS.swift */,
+			);
+			path = crossplatform;
+			sourceTree = "<group>";
+		};
+		FA565DA62B10C60500769E99 /* Uility */ = {
+			isa = PBXGroup;
+			children = (
+				FA565DA72B10C67200769E99 /* FlowLayout.swift */,
+			);
+			name = Uility;
+			sourceTree = "<group>";
+		};
+		FA565DAB2B10D10800769E99 /* keyword */ = {
+			isa = PBXGroup;
+			children = (
+				FA565DA92B10D06700769E99 /* AddKeywordsToNoteView.swift */,
+				FA565DAC2B11596900769E99 /* NewKeywordView.swift */,
+			);
+			name = keyword;
+			sourceTree = "<group>";
+		};
+		FA565DAE2B137C9900769E99 /* note detail */ = {
+			isa = PBXGroup;
+			children = (
+				FAD991532AFA875D00B133E0 /* ContentDetailNote.swift */,
+				FA31F61F2AFBF6AC0004BF6B /* TextViewIOSWrapper.swift */,
+				FA31F6232AFC02D00004BF6B /* TextViewMacosWrapper.swift */,
+				FA31F6272AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift */,
+				FA31F6292AFCF4BD0004BF6B /* OptionnalImageView.swift */,
+				FA9979CF2B06415000B0EA5C /* NoteAttachementView.swift */,
+				FAB304982B0BB771001527DE /* NotesKeywordsCollectView.swift */,
+			);
+			name = "note detail";
+			sourceTree = "<group>";
+		};
+		FA565DAF2B137CC300769E99 /* note list */ = {
+			isa = PBXGroup;
+			children = (
+				FA565DB62B14D58D00769E99 /* NoteSectionedByStatusView.swift */,
+				FA565DB82B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift */,
+				FA565DBC2B15FC2C00769E99 /* NoteSectionedByLetterView.swift */,
+				FA565DB42B14AECF00769E99 /* NoteSectionByDayView.swift */,
+				FA565DBA2B14E98000769E99 /* NoteSingleSortedView.swift */,
+			);
+			name = "note list";
+			sourceTree = "<group>";
+		};
+		FA565DB02B137DD000769E99 /* data conversion helper */ = {
+			isa = PBXGroup;
+			children = (
+				FAD991512AFA835400B133E0 /* Predicate + Helper.swift */,
+				FA31F6252AFC0E160004BF6B /* NSAttributeString + Data + Helper.swift */,
+				FA9813892AFE3A29003452C6 /* Color + Helper.swift */,
+			);
+			path = "data conversion helper";
+			sourceTree = "<group>";
+		};
+		FA565DB12B137E9100769E99 /* note search and sorting */ = {
+			isa = PBXGroup;
+			children = (
+				FA565DB22B137EB800769E99 /* NoteSorting.swift */,
+				FAB643202B1638550040C333 /* NoteSearchToken.swift */,
+				FAB643222B166A1C0040C333 /* NoteSearchScope.swift */,
+				FAB643242B1677220040C333 /* NoteSearchViewModel.swift */,
+			);
+			path = "note search and sorting";
+			sourceTree = "<group>";
+		};
+		FA9979762AFE95AD00B0EA5C /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */,
+				FA565DB12B137E9100769E99 /* note search and sorting */,
+				FAD9914D2AFA805100B133E0 /* Model */,
+				FA565DB02B137DD000769E99 /* data conversion helper */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		FA9979842B0278E700B0EA5C /* folder */ = {
+			isa = PBXGroup;
+			children = (
+				FA9979852B0278FA00B0EA5C /* FolderListView.swift */,
+				FA29386E2B098794004D5438 /* RecursiveFolderView.swift */,
+				FA9979872B02820D00B0EA5C /* FolderRow.swift */,
+				FA99798D2B048CD400B0EA5C /* FolderEditorView.swift */,
+			);
+			name = folder;
+			sourceTree = "<group>";
+		};
 		FAD991112AFA7F4D00B133E0 = {
 			isa = PBXGroup;
 			children = (
@@ -103,14 +297,14 @@
 		FAD9911C2AFA7F4D00B133E0 /* Jotter */ = {
 			isa = PBXGroup;
 			children = (
-				FAD991502AFA830B00B133E0 /* New Group */,
-				FAD9914D2AFA805100B133E0 /* Model */,
 				FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */,
-				FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */,
 				FAD991242AFA7F4D00B133E0 /* ContentView.swift */,
+				FA31F61D2AFBF5BE0004BF6B /* View */,
+				FA9979762AFE95AD00B0EA5C /* Core Data */,
+				FA31F62B2AFCF7410004BF6B /* crossplatform */,
 				FAD991262AFA7F4E00B133E0 /* Assets.xcassets */,
 				FAD991282AFA7F4E00B133E0 /* Jotter.entitlements */,
-				FAD991212AFA7F4D00B133E0 /* Jotter.xcdatamodeld */,
+				FA9979D12B0643FD00B0EA5C /* Jotter.xcdatamodeld */,
 				FAD991292AFA7F4E00B133E0 /* Preview Content */,
 			);
 			path = Jotter;
@@ -128,6 +322,13 @@
 			isa = PBXGroup;
 			children = (
 				FAD991342AFA7F4E00B133E0 /* JotterTests.swift */,
+				FAD991572AFAA65B00B133E0 /* NotesTests.swift */,
+				FA98138B2AFE3F57003452C6 /* KeywordsTests.swift */,
+				FA9979742AFE772100B0EA5C /* ColorsTests.swift */,
+				FA9979802AFEEA7C00B0EA5C /* FoldersTests.swift */,
+				FA9979822B02473600B0EA5C /* NotesFolderRelationshipTests.swift */,
+				FA99798B2B03820200B0EA5C /* SubFolderRelationshipTests.swift */,
+				FA2938702B0A6D93004D5438 /* NoteFetchTest.swift */,
 			);
 			path = JotterTests;
 			sourceTree = "<group>";
@@ -145,16 +346,12 @@
 			isa = PBXGroup;
 			children = (
 				FAD9914E2AFA806000B133E0 /* Note+Helper.swift */,
+				FA99797E2AFEBEBA00B0EA5C /* Folder + Helper.swift */,
+				FA9979CD2B0611FA00B0EA5C /* Attachment + Helper.swift */,
+				FA9813872AFD4A89003452C6 /* Keyword +Helper.swift */,
+				FA31F61B2AFBE9050004BF6B /* Status.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		FAD991502AFA830B00B133E0 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				FAD991512AFA835400B133E0 /* Predicate + Helper.swift */,
-			);
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,12 +484,44 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA31F62A2AFCF4BD0004BF6B /* OptionnalImageView.swift in Sources */,
+				FAB643212B1638550040C333 /* NoteSearchToken.swift in Sources */,
+				FAB643252B1677220040C333 /* NoteSearchViewModel.swift in Sources */,
+				FA99798A2B02CADA00B0EA5C /* NoteListView.swift in Sources */,
+				FA9979CE2B0611FA00B0EA5C /* Attachment + Helper.swift in Sources */,
+				FA9813882AFD4A89003452C6 /* Keyword +Helper.swift in Sources */,
+				FA565DBB2B14E98000769E99 /* NoteSingleSortedView.swift in Sources */,
 				FAD9911E2AFA7F4D00B133E0 /* JotterApp.swift in Sources */,
-				FAD991232AFA7F4D00B133E0 /* Jotter.xcdatamodeld in Sources */,
+				FA31F6242AFC02D00004BF6B /* TextViewMacosWrapper.swift in Sources */,
 				FAD9914F2AFA806000B133E0 /* Note+Helper.swift in Sources */,
+				FA29386F2B098794004D5438 /* RecursiveFolderView.swift in Sources */,
+				FA565DB72B14D58D00769E99 /* NoteSectionedByStatusView.swift in Sources */,
+				FA9979882B02820D00B0EA5C /* FolderRow.swift in Sources */,
+				FAB304992B0BB771001527DE /* NotesKeywordsCollectView.swift in Sources */,
+				FA31F61C2AFBE9050004BF6B /* Status.swift in Sources */,
+				FAD991542AFA875D00B133E0 /* ContentDetailNote.swift in Sources */,
+				FA9979D02B06415000B0EA5C /* NoteAttachementView.swift in Sources */,
+				FA99797F2AFEBEBA00B0EA5C /* Folder + Helper.swift in Sources */,
 				FAD991522AFA835400B133E0 /* Predicate + Helper.swift in Sources */,
+				FA98138A2AFE3A29003452C6 /* Color + Helper.swift in Sources */,
+				FA565DB92B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift in Sources */,
+				FA31F6282AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift in Sources */,
+				FA9979862B0278FA00B0EA5C /* FolderListView.swift in Sources */,
+				FA31F62E2AFCF7A50004BF6B /* macOS.swift in Sources */,
+				FA565DAD2B11596900769E99 /* NewKeywordView.swift in Sources */,
+				FA565DB32B137EB800769E99 /* NoteSorting.swift in Sources */,
+				FA565DB52B14AECF00769E99 /* NoteSectionByDayView.swift in Sources */,
+				FA31F6202AFBF6AC0004BF6B /* TextViewIOSWrapper.swift in Sources */,
 				FAD991252AFA7F4D00B133E0 /* ContentView.swift in Sources */,
+				FA9979D32B0643FD00B0EA5C /* Jotter.xcdatamodeld in Sources */,
+				FA565DA82B10C67200769E99 /* FlowLayout.swift in Sources */,
+				FA565DAA2B10D06700769E99 /* AddKeywordsToNoteView.swift in Sources */,
+				FA9979902B04ACC000B0EA5C /* NoteRow.swift in Sources */,
+				FA99798E2B048CD400B0EA5C /* FolderEditorView.swift in Sources */,
 				FAD991202AFA7F4D00B133E0 /* Persistence.swift in Sources */,
+				FA565DBD2B15FC2C00769E99 /* NoteSectionedByLetterView.swift in Sources */,
+				FAB643232B166A1C0040C333 /* NoteSearchScope.swift in Sources */,
+				FA31F6262AFC0E160004BF6B /* NSAttributeString + Data + Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +529,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA99798C2B03820200B0EA5C /* SubFolderRelationshipTests.swift in Sources */,
+				FA98138C2AFE3F57003452C6 /* KeywordsTests.swift in Sources */,
+				FA9979832B02473600B0EA5C /* NotesFolderRelationshipTests.swift in Sources */,
+				FA9979752AFE772100B0EA5C /* ColorsTests.swift in Sources */,
+				FA9979812AFEEA7C00B0EA5C /* FoldersTests.swift in Sources */,
 				FAD991352AFA7F4E00B133E0 /* JotterTests.swift in Sources */,
+				FA2938712B0A6D93004D5438 /* NoteFetchTest.swift in Sources */,
+				FAD991582AFAA65B00B133E0 /* NotesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,13 +882,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FAD991212AFA7F4D00B133E0 /* Jotter.xcdatamodeld */ = {
+		FA9979D12B0643FD00B0EA5C /* Jotter.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FAD991222AFA7F4D00B133E0 /* Jotter.xcdatamodel */,
+				FA9979D22B0643FD00B0EA5C /* Jotter.xcdatamodel */,
 			);
-			currentVersion = FAD991222AFA7F4D00B133E0 /* Jotter.xcdatamodel */;
-			path = Jotter.xcdatamodeld;
+			currentVersion = FA9979D22B0643FD00B0EA5C /* Jotter.xcdatamodel */;
+			name = Jotter.xcdatamodeld;
+			path = crossplatform/Jotter.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -9,26 +9,22 @@ import SwiftUI
 
 struct NoteSingleSortedView: View {
     
-    init(selectedFolder: Folder, noteSorting: NoteSorting) {
-        self.selectedFolder = selectedFolder
-        self._notes = FetchRequest(fetchRequest: Note.fetch(for: selectedFolder))
+    init(predicate: NSPredicate, noteSorting: NoteSorting) {
+        self._notes = FetchRequest(fetchRequest: Note.fetch(predicate))
         self.noteSorting = noteSorting
     }
     
     @FetchRequest(fetchRequest: Note.fetch(.none))
     private var notes: FetchedResults<Note>
 
-    let selectedFolder: Folder
     var noteSorting: NoteSorting
     
     var body: some View {
-        
         ForEach(notes) { note in
             NavigationLink(value: note) {
                 NoteRow(note: note)
             }.tag(note)
         }.onDelete(perform: deleteNotes(offsets:))
-        
         .onChange(of: noteSorting) { newValue in
             
             let defaultSorting = NSSortDescriptor(keyPath: \Note.creationDate_,
@@ -59,8 +55,17 @@ struct NoteSingleSorted_Previews: PreviewProvider {
         
         let context = PersistenceController.preview.container.viewContext
         
-        NoteSingleSortedView(selectedFolder: Folder.exampleWithNotes(context: context),
-                         noteSorting: NoteSorting.creationDateDsc)
-            .environment(\.managedObjectContext, context)
+        let folder = Folder.exampleWithNotes(context: context)
+        
+        let viewModel = NoteSearchViewModel()
+        viewModel.folderChanged(to: folder)
+//        viewModel.searchTokens = [.archivedStatus, .draftStatus, .last24Hours, .withAttachement]
+        let predicate = viewModel.predicate
+        
+        return NavigationView {
+            NoteSingleSortedView(predicate: predicate,
+                             noteSorting: NoteSorting.creationDateDsc)
+                .environment(\.managedObjectContext, context)
+        }
     }
 }

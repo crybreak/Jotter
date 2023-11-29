@@ -3,7 +3,6 @@
     <entity name="Keyword" representedClassName="Keyword" syncable="YES" codeGenerationType="class">
         <attribute name="blue_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="colorHex_" optional="YES" attributeType="String"/>
-        <attribute name="colorTransformed_" optional="YES" attributeType="Transformable"/>
         <attribute name="green_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="opacity_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="red_" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>

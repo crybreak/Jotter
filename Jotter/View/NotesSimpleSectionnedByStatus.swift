@@ -46,6 +46,8 @@ struct NotesSimpleSectionnedByStatus_Previews: PreviewProvider {
         let context = PersistenceController.preview.container.viewContext
         let folder = Folder.exampleWithNotes(context: context)
         
-        return NotesSimpleSectionnedByStatus (selectedFolder: folder ).environment(\.managedObjectContext, context)
+      
+        
+        return NotesSimpleSectionnedByStatus (selectedFolder: folder).environment(\.managedObjectContext, context)
     }
 }

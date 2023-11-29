@@ -47,12 +47,27 @@ final class KeywordsTests: XCTestCase {
     }
 
     func test_Keyword_component_Color () {
+        
         let color = Color(red: 0, green: 0, blue: 1);
         let keyword = Keyword(context: context)
         keyword.color = color
         let retrievedColor = keyword.color
         
         XCTAssertTrue(retrievedColor == color, "No matching Color")
-
+    }
+    
+    func test_search_keywords_for_notes() {
+        
+        let keyword = Keyword(context: context)
+        let note1 = Note(title: "dd", context: context)
+        note1.keywords.insert(keyword)
+        
+        let predicate = NSPredicate(format: "%K CONTAINS %@", KeywordProperties.notes, note1)
+        let request = Keyword.fetch(predicate)
+        let retrivedKeywords = try! context.fetch(request)
+       
+        XCTAssertTrue(keyword.notes.contains(note1))
+        XCTAssertTrue(retrivedKeywords.count == 1)
+        XCTAssertTrue(retrivedKeywords.contains(keyword))
     }
 }

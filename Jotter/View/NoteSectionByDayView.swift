@@ -9,8 +9,8 @@ import SwiftUI
 
 struct NoteSectionbYDayView: View {
     
-    init(selectedFolder: Folder) {
-        let request = Note.fetch(for: selectedFolder)
+    init(predicate: NSPredicate) {
+        let request = Note.fetch(predicate)
         request.sortDescriptors = [NSSortDescriptor(keyPath: \Note.creationDate_, ascending: false)]
         self._notesSections = SectionedFetchRequest(fetchRequest: request, sectionIdentifier: \.day)
     }
@@ -22,20 +22,21 @@ struct NoteSectionbYDayView: View {
     
     private var notesSections: SectionedFetchResults<String, Note>
     var body: some View {
-        ForEach(notesSections) {section in
-            
-            Text(section.id)
-                .font(.title3)
-                .foregroundColor(.gray)
-                .padding(.top)
-            
-            ForEach(section) {note in
-                NoteRow(note: note)
-                    .tag(note)
-            }
-            .onDelete { offset in
-                deleteNotes(section: section, offsets: offset)
-            }
+       
+            ForEach(notesSections) {section in
+                
+                Text(section.id)
+                    .font(.title3)
+                    .foregroundColor(.gray)
+                    .padding(.top)
+                
+                ForEach(section) {note in
+                    NoteRow(note: note)
+                        .tag(note)
+                }
+                .onDelete { offset in
+                    deleteNotes(section: section, offsets: offset)
+                }
         }
     }
     
@@ -49,7 +50,15 @@ struct NoteSectionbYDayView_Previews: PreviewProvider {
         
         let context = PersistenceController.preview.container.viewContext
         let folder = Folder.exampleWithNotes(context: context)
-        NoteSectionbYDayView(selectedFolder: folder)
+        
+        let viewModel = NoteSearchViewModel()
+        viewModel.folderChanged(to: folder)
+        let predicate = viewModel.predicate
+        
+        viewModel.searchTokens = [.draftStatus, .last24Hours]
+
+        
+        return NoteSectionbYDayView(predicate: predicate)
             .environment(\.managedObjectContext, context)
     }
 }

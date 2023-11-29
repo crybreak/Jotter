@@ -38,4 +38,6 @@ enum NoteSorting: Identifiable, CaseIterable{
             return "Letter"
         }
     }
+    
+    
 }

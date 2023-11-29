@@ -26,13 +26,13 @@ struct NoteListView: View {
         List (selection: $selectedNote){
             switch selectedNoteSorting {
             case .titleAsc, .titleDsc, .creationDateAsc, .creationDateDsc:
-                NoteSingleSortedView(selectedFolder: selectedFolder, noteSorting:    selectedNoteSorting)
+                NoteSingleSortedView(predicate: viewModel.predicate, noteSorting: selectedNoteSorting)
             case .status:
-                NoteSectionedByStatusView(selectedFolder: selectedFolder)
+                NoteSectionedByStatusView(predicate: viewModel.predicate)
             case .day:
-                NoteSectionbYDayView(selectedFolder: selectedFolder)
+                NoteSectionbYDayView(predicate: viewModel.predicate)
             case .letter:
-                NoteSectionedByLetterView(for: selectedFolder)
+                NoteSectionedByLetterView(predicate: viewModel.predicate)
             }
         }.searchable(text: $viewModel.searchText,
                      tokens: $viewModel.searchTokens,
@@ -53,7 +53,6 @@ struct NoteListView: View {
                 Text(scope.name(folder: selectedFolder))
             }
         })
-        
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
                 Button(action: addNote) {
@@ -68,13 +67,18 @@ struct NoteListView: View {
                     }
                 }
             }
+        }.onAppear {
+            viewModel.folderChanged(to: selectedFolder)
+        }
+        .onChange(of: selectedFolder) { newValue in
+            viewModel.folderChanged(to: selectedFolder)
         }
     }
     
     
     
     private func addNote() {
-        let newNote = Note(title: "New note", context: viewContext)
+        let newNote = Note(title: "New note1", context: viewContext)
         newNote.folder = selectedFolder
         selectedNote = newNote
     }

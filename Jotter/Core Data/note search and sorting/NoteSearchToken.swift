@@ -52,5 +52,12 @@ enum NoteSearchToken: CaseIterable, Identifiable {
             return "Notes with Attachment"
         }
     }
+    
+    func isStatusToken() -> Bool {
+        switch self {
+        case .archivedStatus, .reviewStatus, .draftStatus: return true
+        case .last24Hours, .last7Days, .withAttachement: return false
+        }
+    }
 
 }

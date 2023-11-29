@@ -9,18 +9,16 @@ import SwiftUI
 
 struct FolderListView: View {
     @Environment(\.managedObjectContext) var viewContext
-    @FetchRequest(fetchRequest: Folder.fetch(.all))
+    @FetchRequest(fetchRequest: Folder.topFolderFetch())
     private var folders: FetchedResults<Folder>
     
     @Binding var selectedFolder: Folder?
     
     var body: some View {
+     
         List (selection: $selectedFolder) {
             ForEach(folders) { folder in
-                NavigationLink(value: folder) {
-                    FolderRow(folder: folder)
-                        .tag(folder)
-                }
+                    RecursiveFolderView(folder: folder)
             }
             .onDelete(perform: deleteFolders(offsets:))
         }
@@ -28,7 +26,7 @@ struct FolderListView: View {
             ToolbarItem(placement: .primaryAction) {
                 Button {
                     let newFolder = Folder(name: "New Folder", context: viewContext)
-                    selectedFolder  = newFolder
+                    selectedFolder = newFolder
 
                 } label: {
                     Label("Create new folder", systemImage:"folder.badge.plus")
@@ -42,13 +40,14 @@ struct FolderListView: View {
     }
 }
 
-struct FolderList_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            FolderListView(selectedFolder: .constant(nil))
-                .environment(\.managedObjectContext,
-                              PersistenceController.preview.container.viewContext)
-               
-        }
-    }
-}
+//struct FolderList_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let context =  PersistenceController.createEmptyStore().container.viewContext
+//        let nestedFolder = Folder.nestedFolderExemple(context: context)
+//        NavigationView {
+//            FolderListView(selectedFolder: .constant(nestedFolder))
+//                .environment(\.managedObjectContext, context)
+//
+//        }
+//    }
+//}

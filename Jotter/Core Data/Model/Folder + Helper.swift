@@ -35,6 +35,11 @@ extension Folder {
         self.creationDate_ = Date() + TimeInterval()
     }
     
+    var creationDate: Date {
+        get { self.creationDate_ ?? Date() }
+    }
+   
+    
     static func fetch(_ predicate: NSPredicate) -> NSFetchRequest<Folder> {
         
         let request = NSFetchRequest<Folder>(entityName: "Folder")
@@ -44,9 +49,59 @@ extension Folder {
         return request
     }
     
+    static func topFolderFetch () -> NSFetchRequest<Folder> {
+        
+        let predicate = NSPredicate(format: "%K == nil", FolderProperties.parent)
+        return Folder.fetch(predicate)
+    }
+    
     static func delete(_ folder: Folder) {
         
         guard let context = folder.managedObjectContext else {return}
         context.delete(folder)
+    }
+}
+
+
+extension Folder: Comparable {
+    public static func < (lhs: Folder, rhs: Folder) -> Bool {
+        lhs.creationDate < rhs.creationDate
+    }
+}
+
+//MARK: - define my string constants
+
+
+struct FolderProperties {
+    static let parent = "parent"
+    static let children = "children_"
+    static let name = "name_"
+}
+
+extension Folder {
+    //MARK: - preview
+    
+//    static func nestedFolderExemple(context: NSManagedObjectContext) -> Folder {
+//        let parent = Folder(name: "parent", context: context)
+//        let child1 = Folder(name: "child 1", context: context)
+//        let child2 = Folder(name: "child 2", context: context)
+//        let child3 = Folder(name: "child 3", context: context)
+//
+//        parent.children.insert(child1)
+//        parent.children.insert(child2)
+//        child2.children.insert(child3)
+//
+//        return parent
+//    }
+    
+    static func exampleWithNotes(context: NSManagedObjectContext) -> Folder {
+        
+        let folder = Folder(name: "New Folder", context: context)
+        
+        let notes = Note.exampleArray(context: context)
+        for note in notes {
+            folder.notes.insert(note)
+        }
+        return folder
     }
 }
