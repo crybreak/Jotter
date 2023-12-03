@@ -9,7 +9,15 @@ import SwiftUI
 import CoreData
 
 extension Keyword {
-   
+
+    var uuid: UUID  {
+        #if DEBUG
+        uuid_!
+        #else
+        self.uuid_ ?? UUID()
+        #endif
+    }
+    
     var name: String {
         get { self.name_ ?? ""}
         set{ self.name_ = newValue}
@@ -29,7 +37,7 @@ extension Keyword {
     
     var color: Color {
         get {
-            Color(red: self.red_, green: self.green_, blue: self.blue_)
+            Color(red: self.red_, green: self.green_, blue: self.blue_, opacity: self.opacity_)
         }
         set {
             guard let components = newValue.cgColor?.components,
@@ -50,6 +58,10 @@ extension Keyword {
     convenience init(name: String, context: NSManagedObjectContext) {
         self.init(context: context)
         self.name = name
+    }
+    
+    public override func awakeFromInsert() {
+        self.uuid_ = UUID()
     }
     
     static func fetch(_ predicate: NSPredicate) -> NSFetchRequest<Keyword> {
@@ -75,6 +87,8 @@ extension Keyword {
 
 
 struct KeywordProperties {
+    static let uuid = "uuid_"
+
     static let name = "name_"
     static let notes = "notes_"
 }
@@ -107,3 +121,4 @@ extension Keyword {
         return keys
     }
 }
+

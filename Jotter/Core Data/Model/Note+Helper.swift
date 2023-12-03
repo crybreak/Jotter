@@ -12,6 +12,14 @@ import CoreData
 
 extension Note {
     
+    var uuid: UUID  {
+        #if DEBUG
+        uuid_!
+        #else
+        self.uuid_ ?? UUID()
+        #endif
+    }
+    
     var title: String {
         get {self.title_ ?? ""}
         set (newValue) {self.title_ = newValue.capitalized}
@@ -63,13 +71,12 @@ extension Note {
     convenience init(title: String, context: NSManagedObjectContext) {
         self.init(context: context)
         self.title = title
-        
-        PersistenceController.shared.save()
     }
     
     public override func awakeFromInsert() {
         self.creationDate_ = Date() + TimeInterval()
         self.status = .draft
+        self.uuid_ = UUID()
     }
     
     static func fetch(_ predicate: NSPredicate ) -> NSFetchRequest<Note> {
@@ -96,12 +103,14 @@ extension Note {
         }
         return Note.fetch(for: folder)
     }
+    
+    static func fetch
+    
     static func delete(note: Note) {
         
         guard let context = note.managedObjectContext else {return}
         context.delete(note) 
     }
-   
 }
 
 
@@ -138,6 +147,8 @@ extension Note {
 //MARK: -define my string contants
 
 struct NoteProperties {
+    static let uuid = "uuid_"
+
     static let title = "title_"
     static let bodyText = "bodyText_"
     static let status = "status_"
@@ -176,6 +187,10 @@ extension Note {
     
         let note = Note(title: "my note", context: context)
         note.formattedBodyText = NSAttributedString(string: defaultText)
+        
+        let folder = Folder.nestedFolderExemple(context: context)
+        //let nestedFolder = folder.children.first
+        note.folder = folder
         let keys = Keyword.exampleArray()
         for key in keys {
             note.keywords.insert(key)

@@ -17,6 +17,15 @@ import UIKit
 
 extension Attachment {
     
+    var uuid: UUID  {
+        #if DEBUG
+        uuid_!
+        #else
+        self.uuid_ ?? UUID()
+        #endif
+    }
+
+    
     static let maxThumbnailPixelSize: Int = 600
     
     convenience init(image: Data?, context: NSManagedObjectContext) {
@@ -24,7 +33,10 @@ extension Attachment {
         self.init(context: context)
         self.fullImageData_ = image
         
-        PersistenceController.shared.save()
+    }
+    
+    public override func awakeFromInsert() {
+        self.uuid_ = UUID()
     }
     
     
@@ -111,5 +123,11 @@ extension Attachment {
             return CGFloat(Attachment.maxThumbnailPixelSize)
         }
     }
+
+}
+
+
+struct AttachementProperties {
+    static let uuid = "uuid_"
 
 }
