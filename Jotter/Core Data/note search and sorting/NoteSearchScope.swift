@@ -13,12 +13,16 @@ enum NoteSearchScope: CaseIterable, Identifiable {
     
     var id: Self {self}
     
-    func name(folder: Folder) -> String {
+    func name(folder: Folder?) -> String {
         switch self {
         case .all:
             return "All"
         case .selectedFolder:
-            return "\(folder.name)"
+            if let folder = folder {
+                return " \'\(folder.name) \'"
+            } else {
+                return "This Folder"
+            }
         }
     }
     
