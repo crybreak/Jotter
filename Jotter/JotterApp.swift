@@ -17,15 +17,21 @@ struct JotterApp: App {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
+        #if os(iOS)
         .onChange(of: scenePhase) {newScenePhase in
-            newScenePhase == .background ? persistenceController.save() : print("Screen Mode .active or .inactive")
+            if  newScenePhase == .background {
+                print("➡️ main app - background")
+                persistenceController.save()
+            }
         }
+        #endif
         .commands {
             CommandGroup (replacing: .saveItem) {
                 Button("Save") {
                     persistenceController.save()
                 }.keyboardShortcut("S", modifiers: [.command])
             }
+            NoteHistoryCommands()
         }
     }
 }
