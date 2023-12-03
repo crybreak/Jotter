@@ -55,10 +55,10 @@ struct AddKeywordsToNoteView: View {
                 .frame(minHeight: 150)
             if selectedKeywords.count > 0 {
                 Button {
-                    dismiss()
                     selectedKeywords.forEach { keyword in
                         note.keywords.insert(keyword)
                     }
+                    dismiss()
                 } label: {
                     Text("Add keywords to note")
                 }

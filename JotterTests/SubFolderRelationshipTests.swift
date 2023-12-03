@@ -31,8 +31,8 @@ final class SubFolderRelationshipTests: XCTestCase {
         let subFolder_1 = Folder(name: "Core Data", context: context)
         let subFolder_2 = Folder(name: "Combine", context: context)
         
-        subFolder_1.parent = folder
-        subFolder_2.parent = folder
+        folder.children.insert(subFolder_1)
+        folder.children.insert(subFolder_2)
         
         XCTAssertTrue(subFolder_1.parent == folder, "folder not contains subfolder ")
         XCTAssertTrue(folder.children.contains(subFolder_1), "folder not contains subfolder ")

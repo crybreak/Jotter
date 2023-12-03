@@ -49,12 +49,9 @@ final class NoteFetchTest: XCTestCase {
         let note2 = Note(title: "test more", context: context)
         
         let searchTerm = "test"
-        let predicates = [NSPredicate(format: "%K CONTAINS[cd] %@", NoteProperties.title, searchTerm as CVarArg),
-                          NSPredicate(format: "%K CONTAINS[cd] %@", NoteProperties.bodyText, searchTerm as CVarArg)]
+        let predicate = NSpredicateHelper().createSearchTextPredicate(text: searchTerm)
         
-        let predicate = NSCompoundPredicate(orPredicateWithSubpredicates: predicates)
-        
-        let request = Note.fetch(predicate)
+        let request = Note.fetch(predicate!)
         let retrievedNotes = try! context.fetch(request)
         
         XCTAssertTrue(retrievedNotes.count == 2)
@@ -283,6 +280,7 @@ final class NoteFetchTest: XCTestCase {
         
         XCTAssertTrue(retrivedNotes.count == 1)
         XCTAssertTrue(retrivedNotes.contains(note1))
+        XCTAssert(note3.keywords.contains(keyword2))
     }
 
 }
