@@ -58,10 +58,24 @@ extension Folder {
         return request
     }
     
-    static func topFolderFetch () -> NSFetchRequest<Folder> {
+    static func topFolderFetch() -> NSFetchRequest<Folder> {
         
         let predicate = NSPredicate(format: "%K == nil", FolderProperties.parent)
         return Folder.fetch(predicate)
+    }
+    
+    static func fetch(_ uuidString: String, context: NSManagedObjectContext) -> Folder? {
+        
+        guard let uuid = UUID(uuidString: uuidString) else {return nil}
+        let predicate = NSPredicate(format: "%K == %@", FolderProperties.uuid, uuid as CVarArg)
+        let request = Folder.fetch(predicate)
+        request.fetchLimit = 1
+        
+        if let folders = try? context.fetch(request), let folder = folders.first {
+            return folder
+        } else {
+            return nil
+        }
     }
     
     static func delete(_ folder: Folder) {

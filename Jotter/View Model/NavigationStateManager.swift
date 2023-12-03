@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import CoreData
 
 class NavigationStateManager: ObservableObject {
     
@@ -127,6 +128,18 @@ class NavigationStateManager: ObservableObject {
             self.predicate = predicates.first ?? .none
         } else {
             self.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+        }
+    }
+    
+    //MARK: - State restoration
+    
+    func restoreState (noteID: String?, folderID: String?, context: NSManagedObjectContext) {
+        if let uuidString = noteID, selectedNote == nil  {
+            selectedNote = Note.fetch(uuidString, context: context)
+        }
+        
+        if let uuidString = folderID, selectedFolder == nil  {
+            selectedFolder = Folder.fetch(uuidString, context: context)
         }
     }
 }

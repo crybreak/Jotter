@@ -11,33 +11,58 @@ import CoreData
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
+    @Environment(\.scenePhase) var scenePhase
     
     @State private var columnVisibility:
     NavigationSplitViewVisibility = .all
     
-    @State private var selectedFolder: Folder? = nil
-    @State private var selectedNote: Note? = nil
+    @StateObject var stateManager = NavigationStateManager()
+    
+    @SceneStorage("folder") var folderID: String?
+    @SceneStorage("note") var noteID: String?
+    
     var body: some View {
         NavigationSplitView(columnVisibility:
                                 $columnVisibility) {
-            FolderListView(selectedFolder: $selectedFolder)
+            FolderListView(selectedFolder: $stateManager.selectedFolder)
         } content: {
-            if let folder = selectedFolder {
-                NoteListView(selectedFolder: folder, selectedNote: $selectedNote)
+            if  stateManager.selectedFolder != nil {
+                NoteListView()
             } else {
                 Text("select folder")
                     .foregroundColor(.secondary)
             }
         } detail: {
-            if let note = selectedNote {
+            if let note = stateManager.selectedNote {
                 ContentDetailNote(note: note)
             } else {
                 Text("select a note")
                     .foregroundColor(.secondary)
             }
         }
+        .environmentObject(stateManager)
+        .focusedSceneObject(stateManager)
+        .onReceive (stateManager.$selectedNote.compactMap({$0}) ) {note  in
+            noteID = note.uuid.uuidString
+        }
+        .onReceive (stateManager.$selectedFolder.compactMap({$0})) {folder  in
+            folderID = folder.uuid.uuidString
+        }
         
+        .onChange(of: noteID, perform: { newValue in
+            restoreState()
+        })
         
+        .onChange(of: scenePhase) { newValue in
+            guard newValue == .active else {return}
+            restoreState()
+         
+
+        }
+    }
+    
+    func restoreState() {
+        stateManager.restoreState(noteID: noteID, folderID: folderID, context: viewContext)
     }
 }
 

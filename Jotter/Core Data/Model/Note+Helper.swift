@@ -14,7 +14,7 @@ extension Note {
     
     var uuid: UUID  {
         #if DEBUG
-        uuid_!
+        self.uuid_!
         #else
         self.uuid_ ?? UUID()
         #endif
@@ -104,7 +104,19 @@ extension Note {
         return Note.fetch(for: folder)
     }
     
-    static func fetch
+    static func fetch(_ uuidString: String, context: NSManagedObjectContext)-> Note? {
+        guard let uuid = UUID(uuidString: uuidString) else {return nil}
+
+        let predicate = NSPredicate(format: "%K == %@", NoteProperties.uuid, uuid as CVarArg )
+        let request = Note.fetch(predicate)
+        request.fetchLimit = 1
+        
+        if let notes = try? context.fetch(request), let note = notes.first {
+            return note
+        } else {
+            return nil
+        }
+    }
     
     static func delete(note: Note) {
         
