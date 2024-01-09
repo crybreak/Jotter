@@ -6,14 +6,34 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ContentDetailNote: View {
     
+    @EnvironmentObject var stateManager: NavigationStateManager
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var note: Note
     @State private var showKeyword = false
+    @State private var isTargeted = false
+    
     var body: some View {
-        VStack (spacing: 20) {
+        VStack (alignment: .leading,spacing: 20) {
+            HStack {
+                if let folders = note.folder?.fullFolderPath() {
+                    ForEach(folders) {folder in
+                        HStack (spacing: 2) {
+                            Image(systemName: "chevron.forward")
+                            Image(systemName: "folder")
+                            Text(folder.name)
+                        }.onTapGesture {
+                            withAnimation {
+                                stateManager.folderChanged(to: folder)
+                            }
+                        }
+                    }
+                }
+            }
+
             Text("order \(Int(note.order))")
             Text("canonical: \(note.canonicalTitle_ ?? "")")
             
@@ -37,14 +57,44 @@ TextViewMacosWrapper(note: note)
 #endif
             }
             
-            if let attachment = note.attachment_ {
-                NoteAttachementView(attachment: attachment)
+            Group {
+                if let attachment = note.attachment_ {
+                    NoteAttachementView(attachment: attachment)
+                } else {
+                    ZStack {
+                        Color.white
+                        Image(systemName: "photo")
+                            .imageScale(.large)
+                            .foregroundStyle(.secondary)
+                            
+                    }
+                    .frame(width: 100, height: 100)
+                    .border(Color.gray)
+                        
+                   
+                }
             }
+            .overlay(isTargeted ? Color(white: 0.5, opacity: 0.5) :
+                        Color.clear)
+            .onDrop(of: [UTType.image], isTargeted: $isTargeted,
+                     perform: { providers in
+                 let found = providers.loadFirstObject(ofType: UIImage.self) { image in
+                     #if os(OSX)
+                     guard let data = image.tiffRepresentation else {return}
+                     #else
+                     guard let data = image.pngData() else {return}
+                     #endif
+                     note.addImage(imageData: data)
+                 }
+                 return found
+             })
+            
         NotePhotoSelectorButton(note: note)
             
         NotesKeywordsCollectView(note: note)
         }
         .padding()
+        
         .onDisappear {
             PersistenceController.shared.save()
         }
@@ -69,5 +119,6 @@ struct ContentDetailNote_Previews: PreviewProvider {
        ContentDetailNote(note: Note.example())
            .environment(\.managedObjectContext,
                          PersistenceController.preview.container.viewContext)
+           .environmentObject(NavigationStateManager())
   }
 }

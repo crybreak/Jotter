@@ -26,6 +26,15 @@ struct NoteAttachementView: View {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFit()
+                    .contextMenu {
+                        Button {
+                            Attachment.delete(attachment)
+                        } label: {
+                            Text("Delete Attachement")
+                        }
+
+                    }
+                    .onDrag({NSItemProvider(object: image)})
                     .gesture(TapGesture(count: 2).onEnded({ _ in
                         showFullImage.toggle()
                     }))
@@ -33,7 +42,8 @@ struct NoteAttachementView: View {
                         FullImageView(attachment: attachment, title: "full image \(dataSize(data: attachment.fullImageData_)) KB" )
                     }
             } else {
-                Color.gray
+                ProgressView("Loding Image...")
+                    .frame(minWidth: 300, minHeight: 300)
             }
         }.frame(width: attachment.imageWidth() * pixelLength,
                 height: attachment.imageHeight() * pixelLength)

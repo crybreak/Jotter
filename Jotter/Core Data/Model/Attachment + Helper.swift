@@ -18,18 +18,18 @@ import UIKit
 extension Attachment {
     
     var uuid: UUID  {
-        #if DEBUG
+#if DEBUG
         uuid_!
-        #else
+#else
         self.uuid_ ?? UUID()
-        #endif
+#endif
     }
-
+    
     
     static let maxThumbnailPixelSize: Int = 600
     
     convenience init(image: Data?, context: NSManagedObjectContext) {
-         
+        
         self.init(context: context)
         self.fullImageData_ = image
         
@@ -39,7 +39,16 @@ extension Attachment {
         self.uuid_ = UUID()
     }
     
+    static func delete(_ attachment: Attachment?) {
+        guard let attachment,
+                let context = attachment.managedObjectContext else {return}
+        context.delete(attachment)
+    }
     
+}
+ 
+// MARK: create Thumbnail image
+extension Attachment {
     static func createThumbnailThroughtImage(from imageData: Data, thumbmailPixelSize: Int) -> UIImage? {
         
         let options = [kCGImageSourceCreateThumbnailWithTransform: true,
