@@ -15,6 +15,7 @@ struct NoteRow: View {
             Text(note.title)
                 .bold()
             
+            Text(note.uuid.uuidString)
             HStack {
                 Text(note.creationDate, formatter: itemFormatter)
                     .font(.caption)
@@ -35,6 +36,11 @@ struct NoteRow: View {
                     .lineLimit(3)
             }
         }
+        .tag(note)
+        .onDrag {
+            NSItemProvider(object: note.uuid.uuidString as NSString)
+        }
+        
     }
 }
 
@@ -48,5 +54,7 @@ private let itemFormatter: DateFormatter = {
 struct NoteRow_Previews: PreviewProvider {
     static var previews: some View {
         NoteRow(note: Note.example())
+            .padding()
+            .frame(width: 300)
     }
 }

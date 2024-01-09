@@ -10,11 +10,11 @@ import CoreData
 
 struct ContentView: View {
     
+    @Environment(\.undoManager) private var undoManager
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.scenePhase) var scenePhase
     
-    @State private var columnVisibility:
-    NavigationSplitViewVisibility = .all
+    @State private var columnVisibility: NavigationSplitViewVisibility = .all
     
     @StateObject var stateManager = NavigationStateManager()
     
@@ -22,8 +22,8 @@ struct ContentView: View {
     @SceneStorage("note") var noteID: String?
     
     var body: some View {
-        NavigationSplitView(columnVisibility:
-                                $columnVisibility) {
+        NavigationSplitView(columnVisibility: $columnVisibility) {
+                        
             FolderListView(selectedFolder: $stateManager.selectedFolder)
         } content: {
             if  stateManager.selectedFolder != nil {
@@ -39,26 +39,36 @@ struct ContentView: View {
                 Text("select a note")
                     .foregroundColor(.secondary)
             }
-        }
+        }.toolbar(content: {
+            ToolbarItem(placement: .navigation) {
+                NavigationBackwardForwardButtonsView()
+            }
+        })
         .environmentObject(stateManager)
         .focusedSceneObject(stateManager)
-        .onReceive (stateManager.$selectedNote.compactMap({$0}) ) {note  in
-            noteID = note.uuid.uuidString
+        .onReceive (stateManager.$selectedNote.dropFirst() ) {note  in
+            noteID = note?.uuid.uuidString
         }
-        .onReceive (stateManager.$selectedFolder.compactMap({$0})) {folder  in
-            folderID = folder.uuid.uuidString
+        .onReceive (stateManager.$selectedFolder.dropFirst()) {folder  in
+            folderID = folder?.uuid.uuidString
         }
         
+        // need for macos for window in background
         .onChange(of: noteID, perform: { newValue in
             restoreState()
         })
         
+        // need for ios
+
         .onChange(of: scenePhase) { newValue in
             guard newValue == .active else {return}
             restoreState()
-         
-
         }
+        
+        .onChange(of: undoManager) { newValue in
+            stateManager.undoManager = newValue
+        }
+        
     }
     
     func restoreState() {
@@ -66,12 +76,6 @@ struct ContentView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

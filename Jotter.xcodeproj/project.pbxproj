@@ -27,7 +27,6 @@
 		FA565DBD2B15FC2C00769E99 /* NoteSectionedByLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DBC2B15FC2C00769E99 /* NoteSectionedByLetterView.swift */; };
 		FA9813882AFD4A89003452C6 /* Keyword +Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9813872AFD4A89003452C6 /* Keyword +Helper.swift */; };
 		FA98138A2AFE3A29003452C6 /* Color + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9813892AFE3A29003452C6 /* Color + Helper.swift */; };
-		FA98138C2AFE3F57003452C6 /* KeywordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA98138B2AFE3F57003452C6 /* KeywordsTests.swift */; };
 		FA9979752AFE772100B0EA5C /* ColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979742AFE772100B0EA5C /* ColorsTests.swift */; };
 		FA99797F2AFEBEBA00B0EA5C /* Folder + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA99797E2AFEBEBA00B0EA5C /* Folder + Helper.swift */; };
 		FA9979812AFEEA7C00B0EA5C /* FoldersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979802AFEEA7C00B0EA5C /* FoldersTests.swift */; };
@@ -41,10 +40,19 @@
 		FA9979CE2B0611FA00B0EA5C /* Attachment + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979CD2B0611FA00B0EA5C /* Attachment + Helper.swift */; };
 		FA9979D02B06415000B0EA5C /* NoteAttachementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979CF2B06415000B0EA5C /* NoteAttachementView.swift */; };
 		FA9979D32B0643FD00B0EA5C /* Jotter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA9979D12B0643FD00B0EA5C /* Jotter.xcdatamodeld */; };
+		FAA7E06E2B40703500B7A94E /* UndoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7E06D2B40703500B7A94E /* UndoProvider.swift */; };
+		FAA7E0702B40703D00B7A94E /* UndoHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA7E06F2B40703D00B7A94E /* UndoHandler.swift */; };
 		FAB304992B0BB771001527DE /* NotesKeywordsCollectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB304982B0BB771001527DE /* NotesKeywordsCollectView.swift */; };
 		FAB643212B1638550040C333 /* NoteSearchToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB643202B1638550040C333 /* NoteSearchToken.swift */; };
 		FAB643232B166A1C0040C333 /* NoteSearchScope.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB643222B166A1C0040C333 /* NoteSearchScope.swift */; };
-		FAB643252B1677220040C333 /* NoteSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB643242B1677220040C333 /* NoteSearchViewModel.swift */; };
+		FAB643252B1677220040C333 /* NavigationStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB643242B1677220040C333 /* NavigationStateManager.swift */; };
+		FAB643282B18D4B70040C333 /* NSpredicateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB643272B18D4B70040C333 /* NSpredicateHelper.swift */; };
+		FAB6432B2B1A1A0C0040C333 /* NoteHistoryCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB6432A2B1A1A0C0040C333 /* NoteHistoryCommands.swift */; };
+		FAC298412B272C2C00AB0867 /* NavigationBackwardForwardButtonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC298402B272C2C00AB0867 /* NavigationBackwardForwardButtonsView.swift */; };
+		FAC85DAE2B4CDEB300C10C99 /* helperforNSItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DAD2B4CDEB300C10C99 /* helperforNSItemProvider.swift */; };
+		FAC85DB12B4D7E3A00C10C99 /* UTType + custom + identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DB02B4D7E3A00C10C99 /* UTType + custom + identifiers.swift */; };
+		FAC85DB32B4D7EEE00C10C99 /* NoteDragItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DB22B4D7EEE00C10C99 /* NoteDragItem.swift */; };
+		FAD64CA42B2518D000B448B6 /* KeywordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD64CA32B2518D000B448B6 /* KeywordsTests.swift */; };
 		FAD9911E2AFA7F4D00B133E0 /* JotterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */; };
 		FAD991202AFA7F4D00B133E0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */; };
 		FAD991252AFA7F4D00B133E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991242AFA7F4D00B133E0 /* ContentView.swift */; };
@@ -97,7 +105,6 @@
 		FA565DBC2B15FC2C00769E99 /* NoteSectionedByLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSectionedByLetterView.swift; sourceTree = "<group>"; };
 		FA9813872AFD4A89003452C6 /* Keyword +Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyword +Helper.swift"; sourceTree = "<group>"; };
 		FA9813892AFE3A29003452C6 /* Color + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Helper.swift"; sourceTree = "<group>"; };
-		FA98138B2AFE3F57003452C6 /* KeywordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordsTests.swift; sourceTree = "<group>"; };
 		FA9979742AFE772100B0EA5C /* ColorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTests.swift; sourceTree = "<group>"; };
 		FA99797E2AFEBEBA00B0EA5C /* Folder + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Folder + Helper.swift"; sourceTree = "<group>"; };
 		FA9979802AFEEA7C00B0EA5C /* FoldersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldersTests.swift; sourceTree = "<group>"; };
@@ -111,10 +118,20 @@
 		FA9979CD2B0611FA00B0EA5C /* Attachment + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attachment + Helper.swift"; sourceTree = "<group>"; };
 		FA9979CF2B06415000B0EA5C /* NoteAttachementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAttachementView.swift; sourceTree = "<group>"; };
 		FA9979D22B0643FD00B0EA5C /* Jotter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jotter.xcdatamodel; sourceTree = "<group>"; };
+		FAA7E06D2B40703500B7A94E /* UndoProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UndoProvider.swift; path = ../../../Downloads/UndoProvider.swift; sourceTree = "<group>"; };
+		FAA7E06F2B40703D00B7A94E /* UndoHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UndoHandler.swift; path = ../../../Downloads/UndoHandler.swift; sourceTree = "<group>"; };
 		FAB304982B0BB771001527DE /* NotesKeywordsCollectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesKeywordsCollectView.swift; sourceTree = "<group>"; };
 		FAB643202B1638550040C333 /* NoteSearchToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSearchToken.swift; sourceTree = "<group>"; };
 		FAB643222B166A1C0040C333 /* NoteSearchScope.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSearchScope.swift; sourceTree = "<group>"; };
-		FAB643242B1677220040C333 /* NoteSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSearchViewModel.swift; sourceTree = "<group>"; };
+		FAB643242B1677220040C333 /* NavigationStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStateManager.swift; sourceTree = "<group>"; };
+		FAB643272B18D4B70040C333 /* NSpredicateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSpredicateHelper.swift; sourceTree = "<group>"; };
+		FAB6432A2B1A1A0C0040C333 /* NoteHistoryCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteHistoryCommands.swift; sourceTree = "<group>"; };
+		FAC298402B272C2C00AB0867 /* NavigationBackwardForwardButtonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBackwardForwardButtonsView.swift; sourceTree = "<group>"; };
+		FAC85DAD2B4CDEB300C10C99 /* helperforNSItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = helperforNSItemProvider.swift; path = ../../../../Downloads/helperforNSItemProvider.swift; sourceTree = "<group>"; };
+		FAC85DAF2B4D7BA000C10C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		FAC85DB02B4D7E3A00C10C99 /* UTType + custom + identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType + custom + identifiers.swift"; sourceTree = "<group>"; };
+		FAC85DB22B4D7EEE00C10C99 /* NoteDragItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDragItem.swift; sourceTree = "<group>"; };
+		FAD64CA32B2518D000B448B6 /* KeywordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordsTests.swift; sourceTree = "<group>"; };
 		FAD9911A2AFA7F4D00B133E0 /* Jotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterApp.swift; sourceTree = "<group>"; };
 		FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -161,6 +178,7 @@
 		FA31F61D2AFBF5BE0004BF6B /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAC2983F2B272BFF00AB0867 /* toolbar */,
 				FA9979842B0278E700B0EA5C /* folder */,
 				FA31F61E2AFBF6080004BF6B /* note */,
 				FA565DAB2B10D10800769E99 /* keyword */,
@@ -188,10 +206,28 @@
 			path = crossplatform;
 			sourceTree = "<group>";
 		};
-		FA565DA62B10C60500769E99 /* Uility */ = {
+		FA377CDC2B276CF500C281BB /* undo */ = {
+			isa = PBXGroup;
+			children = (
+				FAA7E06F2B40703D00B7A94E /* UndoHandler.swift */,
+				FAA7E06D2B40703500B7A94E /* UndoProvider.swift */,
+			);
+			name = undo;
+			sourceTree = "<group>";
+		};
+		FA377CDD2B276D0300C281BB /* container view */ = {
 			isa = PBXGroup;
 			children = (
 				FA565DA72B10C67200769E99 /* FlowLayout.swift */,
+			);
+			name = "container view";
+			sourceTree = "<group>";
+		};
+		FA565DA62B10C60500769E99 /* Uility */ = {
+			isa = PBXGroup;
+			children = (
+				FA377CDD2B276D0300C281BB /* container view */,
+				FA377CDC2B276CF500C281BB /* undo */,
 			);
 			name = Uility;
 			sourceTree = "<group>";
@@ -211,9 +247,9 @@
 				FAD991532AFA875D00B133E0 /* ContentDetailNote.swift */,
 				FA31F61F2AFBF6AC0004BF6B /* TextViewIOSWrapper.swift */,
 				FA31F6232AFC02D00004BF6B /* TextViewMacosWrapper.swift */,
-				FA31F6272AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift */,
 				FA31F6292AFCF4BD0004BF6B /* OptionnalImageView.swift */,
 				FA9979CF2B06415000B0EA5C /* NoteAttachementView.swift */,
+				FA31F6272AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift */,
 				FAB304982B0BB771001527DE /* NotesKeywordsCollectView.swift */,
 			);
 			name = "note detail";
@@ -247,7 +283,7 @@
 				FA565DB22B137EB800769E99 /* NoteSorting.swift */,
 				FAB643202B1638550040C333 /* NoteSearchToken.swift */,
 				FAB643222B166A1C0040C333 /* NoteSearchScope.swift */,
-				FAB643242B1677220040C333 /* NoteSearchViewModel.swift */,
+				FAB643272B18D4B70040C333 /* NSpredicateHelper.swift */,
 			);
 			path = "note search and sorting";
 			sourceTree = "<group>";
@@ -274,6 +310,41 @@
 			name = folder;
 			sourceTree = "<group>";
 		};
+		FAB643262B18D4160040C333 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAC85DAC2B4CDE5200C10C99 /* drag and drop */,
+				FAB643242B1677220040C333 /* NavigationStateManager.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		FAB643292B1A19F60040C333 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6432A2B1A1A0C0040C333 /* NoteHistoryCommands.swift */,
+			);
+			path = app;
+			sourceTree = "<group>";
+		};
+		FAC2983F2B272BFF00AB0867 /* toolbar */ = {
+			isa = PBXGroup;
+			children = (
+				FAC298402B272C2C00AB0867 /* NavigationBackwardForwardButtonsView.swift */,
+			);
+			name = toolbar;
+			sourceTree = "<group>";
+		};
+		FAC85DAC2B4CDE5200C10C99 /* drag and drop */ = {
+			isa = PBXGroup;
+			children = (
+				FAC85DAD2B4CDEB300C10C99 /* helperforNSItemProvider.swift */,
+				FAC85DB02B4D7E3A00C10C99 /* UTType + custom + identifiers.swift */,
+				FAC85DB22B4D7EEE00C10C99 /* NoteDragItem.swift */,
+			);
+			path = "drag and drop";
+			sourceTree = "<group>";
+		};
 		FAD991112AFA7F4D00B133E0 = {
 			isa = PBXGroup;
 			children = (
@@ -297,9 +368,12 @@
 		FAD9911C2AFA7F4D00B133E0 /* Jotter */ = {
 			isa = PBXGroup;
 			children = (
+				FAC85DAF2B4D7BA000C10C99 /* Info.plist */,
+				FAB643292B1A19F60040C333 /* app */,
 				FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */,
 				FAD991242AFA7F4D00B133E0 /* ContentView.swift */,
 				FA31F61D2AFBF5BE0004BF6B /* View */,
+				FAB643262B18D4160040C333 /* View Model */,
 				FA9979762AFE95AD00B0EA5C /* Core Data */,
 				FA31F62B2AFCF7410004BF6B /* crossplatform */,
 				FAD991262AFA7F4E00B133E0 /* Assets.xcassets */,
@@ -323,12 +397,12 @@
 			children = (
 				FAD991342AFA7F4E00B133E0 /* JotterTests.swift */,
 				FAD991572AFAA65B00B133E0 /* NotesTests.swift */,
-				FA98138B2AFE3F57003452C6 /* KeywordsTests.swift */,
 				FA9979742AFE772100B0EA5C /* ColorsTests.swift */,
 				FA9979802AFEEA7C00B0EA5C /* FoldersTests.swift */,
 				FA9979822B02473600B0EA5C /* NotesFolderRelationshipTests.swift */,
 				FA99798B2B03820200B0EA5C /* SubFolderRelationshipTests.swift */,
 				FA2938702B0A6D93004D5438 /* NoteFetchTest.swift */,
+				FAD64CA32B2518D000B448B6 /* KeywordsTests.swift */,
 			);
 			path = JotterTests;
 			sourceTree = "<group>";
@@ -422,6 +496,7 @@
 				TargetAttributes = {
 					FAD991192AFA7F4D00B133E0 = {
 						CreatedOnToolsVersion = 14.3.1;
+						LastSwiftMigration = 1500;
 					};
 					FAD9912F2AFA7F4E00B133E0 = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -486,29 +561,35 @@
 			files = (
 				FA31F62A2AFCF4BD0004BF6B /* OptionnalImageView.swift in Sources */,
 				FAB643212B1638550040C333 /* NoteSearchToken.swift in Sources */,
-				FAB643252B1677220040C333 /* NoteSearchViewModel.swift in Sources */,
+				FAB643252B1677220040C333 /* NavigationStateManager.swift in Sources */,
 				FA99798A2B02CADA00B0EA5C /* NoteListView.swift in Sources */,
 				FA9979CE2B0611FA00B0EA5C /* Attachment + Helper.swift in Sources */,
 				FA9813882AFD4A89003452C6 /* Keyword +Helper.swift in Sources */,
+				FAC85DB12B4D7E3A00C10C99 /* UTType + custom + identifiers.swift in Sources */,
 				FA565DBB2B14E98000769E99 /* NoteSingleSortedView.swift in Sources */,
 				FAD9911E2AFA7F4D00B133E0 /* JotterApp.swift in Sources */,
 				FA31F6242AFC02D00004BF6B /* TextViewMacosWrapper.swift in Sources */,
 				FAD9914F2AFA806000B133E0 /* Note+Helper.swift in Sources */,
+				FAC85DAE2B4CDEB300C10C99 /* helperforNSItemProvider.swift in Sources */,
 				FA29386F2B098794004D5438 /* RecursiveFolderView.swift in Sources */,
 				FA565DB72B14D58D00769E99 /* NoteSectionedByStatusView.swift in Sources */,
 				FA9979882B02820D00B0EA5C /* FolderRow.swift in Sources */,
 				FAB304992B0BB771001527DE /* NotesKeywordsCollectView.swift in Sources */,
+				FAB6432B2B1A1A0C0040C333 /* NoteHistoryCommands.swift in Sources */,
 				FA31F61C2AFBE9050004BF6B /* Status.swift in Sources */,
 				FAD991542AFA875D00B133E0 /* ContentDetailNote.swift in Sources */,
 				FA9979D02B06415000B0EA5C /* NoteAttachementView.swift in Sources */,
+				FAA7E0702B40703D00B7A94E /* UndoHandler.swift in Sources */,
 				FA99797F2AFEBEBA00B0EA5C /* Folder + Helper.swift in Sources */,
 				FAD991522AFA835400B133E0 /* Predicate + Helper.swift in Sources */,
 				FA98138A2AFE3A29003452C6 /* Color + Helper.swift in Sources */,
 				FA565DB92B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift in Sources */,
 				FA31F6282AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift in Sources */,
+				FAC85DB32B4D7EEE00C10C99 /* NoteDragItem.swift in Sources */,
 				FA9979862B0278FA00B0EA5C /* FolderListView.swift in Sources */,
 				FA31F62E2AFCF7A50004BF6B /* macOS.swift in Sources */,
 				FA565DAD2B11596900769E99 /* NewKeywordView.swift in Sources */,
+				FAA7E06E2B40703500B7A94E /* UndoProvider.swift in Sources */,
 				FA565DB32B137EB800769E99 /* NoteSorting.swift in Sources */,
 				FA565DB52B14AECF00769E99 /* NoteSectionByDayView.swift in Sources */,
 				FA31F6202AFBF6AC0004BF6B /* TextViewIOSWrapper.swift in Sources */,
@@ -519,9 +600,11 @@
 				FA9979902B04ACC000B0EA5C /* NoteRow.swift in Sources */,
 				FA99798E2B048CD400B0EA5C /* FolderEditorView.swift in Sources */,
 				FAD991202AFA7F4D00B133E0 /* Persistence.swift in Sources */,
+				FAB643282B18D4B70040C333 /* NSpredicateHelper.swift in Sources */,
 				FA565DBD2B15FC2C00769E99 /* NoteSectionedByLetterView.swift in Sources */,
 				FAB643232B166A1C0040C333 /* NoteSearchScope.swift in Sources */,
 				FA31F6262AFC0E160004BF6B /* NSAttributeString + Data + Helper.swift in Sources */,
+				FAC298412B272C2C00AB0867 /* NavigationBackwardForwardButtonsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +613,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA99798C2B03820200B0EA5C /* SubFolderRelationshipTests.swift in Sources */,
-				FA98138C2AFE3F57003452C6 /* KeywordsTests.swift in Sources */,
+				FAD64CA42B2518D000B448B6 /* KeywordsTests.swift in Sources */,
 				FA9979832B02473600B0EA5C /* NotesFolderRelationshipTests.swift in Sources */,
 				FA9979752AFE772100B0EA5C /* ColorsTests.swift in Sources */,
 				FA9979812AFEEA7C00B0EA5C /* FoldersTests.swift in Sources */,
@@ -679,6 +762,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Jotter/Jotter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -687,6 +771,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Jotter/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -707,6 +792,8 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Jotter/View/Jotter-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -717,6 +804,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Jotter/Jotter.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -725,6 +813,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Jotter/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -745,6 +834,7 @@
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Jotter/View/Jotter-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

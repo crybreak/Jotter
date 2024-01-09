@@ -35,7 +35,6 @@ struct NotesKeywordsCollectView: View {
                         Button("Remove Keyword") {
                             note.keywords.remove(keyword)
                         }
-                        
                         Button("show notes for keyword ") {
                             
                         }

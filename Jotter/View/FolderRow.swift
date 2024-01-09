@@ -59,7 +59,7 @@ struct FolderRow: View {
 
 struct FolderRow_Previews: PreviewProvider {
     static var previews: some View {
-        FolderRow(folder: Folder(name: "New Folder", context:
+        FolderRow(folder: Folder(name: "New Folda", context:
                                     PersistenceController.shared.container.viewContext))
         .frame(width: 200)
         .padding(50)

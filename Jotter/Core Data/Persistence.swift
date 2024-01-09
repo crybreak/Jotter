@@ -34,6 +34,7 @@ struct PersistenceController {
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+        
     }
     
     func save () {

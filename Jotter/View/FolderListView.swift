@@ -16,11 +16,13 @@ struct FolderListView: View {
     
     var body: some View {
      
-        List (selection: $selectedFolder) {
-            ForEach(folders) { folder in
+        UndoProvider($selectedFolder) { binding in
+            List (selection: binding) {
+                ForEach(folders) { folder in
                     RecursiveFolderView(folder: folder)
+                }
+                .onDelete(perform: deleteFolders(offsets:))
             }
-            .onDelete(perform: deleteFolders(offsets:))
         }
         .toolbar {
             ToolbarItem(placement: .primaryAction) {

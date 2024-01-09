@@ -24,16 +24,16 @@ class NavigationStateManager: ObservableObject {
     @Published private var folderScopePredicate: NSPredicate? = nil
     @Published private var tokenPredicate: NSPredicate? = nil
     
-    @Published private var totaltNotehistory = 5;
-
-    
     @Published var predicate: NSPredicate = .none
     
     @Published var noteHistory = [Note]()
+    @Published private var totaltNotehistory = 5;
+
+    let predicateHelper = NSpredicateHelper()
 
     var subscriptions = Set<AnyCancellable>()
-    
-    let predicateHelper = NSpredicateHelper()
+    weak var undoManager: UndoManager?
+
     
     init () {
         $searchScope.sink{[unowned self] scope in
@@ -42,7 +42,9 @@ class NavigationStateManager: ObservableObject {
             self.createFullPredicate()
         }.store(in: &subscriptions)
         
-        $searchText.sink {[unowned self] text in
+        $searchText
+            .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
+            .sink {[unowned self] text in
             self.searchTextPredicate = predicateHelper.createSearchTextPredicate(text: text)
             self.createFullPredicate()
         }.store(in: &subscriptions)
@@ -83,6 +85,19 @@ class NavigationStateManager: ObservableObject {
         let newNote  = Note(title: "New note1", context: context)
         newNote.folder = self.selectedFolder
         self.selectedNote = newNote
+    }
+    
+    
+    func folderChanged(to folder: Folder) {
+        
+        guard folder != self.selectedFolder  else {return}
+        
+        if let oldFolder = self.selectedFolder {
+            undoManager?.registerUndo(withTarget: self, handler: { target in
+                target.folderChanged(to: oldFolder)
+            })
+        }
+        self.selectedFolder = folder
     }
     
     
