@@ -123,6 +123,16 @@ extension Note {
         guard let context = note.managedObjectContext else {return}
         context.delete(note) 
     }
+    
+    func addImage(imageData: Data)  {
+        if let attachment = self.attachment_ {
+            attachment.fullImageData_ = imageData
+            attachment.thumbnailData_ = nil
+        } else {
+            guard let context = self.managedObjectContext else {return}
+            self.attachment_ = Attachment(image: imageData, context: context)
+        }
+    }
 }
 
 
