@@ -45,20 +45,20 @@ struct NoteSectionbYDayView: View {
     }
 }
 
-struct NoteSectionbYDayView_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        let context = PersistenceController.preview.container.viewContext
-        let folder = Folder.exampleWithNotes(context: context)
-        
-        let viewModel = NoteSearchViewModel()
-        viewModel.folderChanged(to: folder)
-        let predicate = viewModel.predicate
-        
-        viewModel.searchTokens = [.draftStatus, .last24Hours]
-
-        
-        return NoteSectionbYDayView(predicate: predicate)
-            .environment(\.managedObjectContext, context)
-    }
-}
+//struct NoteSectionbYDayView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        
+//        let context = PersistenceController.preview.container.viewContext
+//        let folder = Folder.exampleWithNotes(context: context)
+//        
+//        let viewModel = NavigationStateManager()
+//        viewModel.folderChanged(to: folder)
+//        let predicate = viewModel.predicate
+//        
+//        viewModel.searchTokens = [.draftStatus, .last24Hours]
+//
+//        
+//        return NoteSectionbYDayView(predicate: predicate)
+//            .environment(\.managedObjectContext, context)
+//    }
+//}

@@ -42,20 +42,20 @@ struct NoteSectionedByLetterView: View {
     }
 }
 
-struct NoteSectionedByLetterView_Previews: PreviewProvider {
-    
-    static var previews: some View {
-        let context = PersistenceController.preview.container.viewContext
-        let folder = Folder.exampleWithNotes(context: context)
-        
-        let viewModel = NoteSearchViewModel()
-        viewModel.folderChanged(to: folder)
-//        viewModel.searchTokens = [.archivedStatus, .draftStatus, .last24Hours, .withAttachement]
-        let predicate = viewModel.predicate
-        
-        return NavigationView {
-            NoteSectionedByLetterView(predicate: predicate)
-                .environment(\.managedObjectContext, context)
-        }
-    }
-}
+//struct NoteSectionedByLetterView_Previews: PreviewProvider {
+//    
+//    static var previews: some View {
+//        let context = PersistenceController.preview.container.viewContext
+//        let folder = Folder.exampleWithNotes(context: context)
+//        
+//        let viewModel = NavigationStateManager()
+//        viewModel.folderChanged(to: folder)
+////        viewModel.searchTokens = [.archivedStatus, .draftStatus, .last24Hours, .withAttachement]
+//        let predicate = viewModel.predicate
+//        
+//        return NavigationView {
+//            NoteSectionedByLetterView(predicate: predicate)
+//                .environment(\.managedObjectContext, context)
+//        }
+//    }
+//}

@@ -46,16 +46,16 @@ struct NoteSectionedByStatusView: View {
     }
 }
 
-struct NoteSectionedByStatusView_Previews: PreviewProvider {
-    static var previews: some View {
-        let context = PersistenceController.preview.container.viewContext
-        let folder = Folder.exampleWithNotes(context: context)
-        
-        let viewModel = NoteSearchViewModel()
-        viewModel.folderChanged(to: folder)
-        let predicate = viewModel.predicate
-        
-        return NoteSectionedByStatusView(predicate: predicate)
-            .environment(\.managedObjectContext, context)
-    }
-}
+//struct NoteSectionedByStatusView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let context = PersistenceController.preview.container.viewContext
+//        let folder = Folder.exampleWithNotes(context: context)
+//        
+//        let viewModel = NavigationStateManager()
+//        viewModel.folderChanged(to: folder)
+//        let predicate = viewModel.predicate
+//        
+//        return NoteSectionedByStatusView(predicate: predicate)
+//            .environment(\.managedObjectContext, context)
+//    }
+//}

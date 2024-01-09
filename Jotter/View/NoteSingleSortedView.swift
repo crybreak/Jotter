@@ -50,22 +50,22 @@ struct NoteSingleSortedView: View {
     }
 }
 
-struct NoteSingleSorted_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        let context = PersistenceController.preview.container.viewContext
-        
-        let folder = Folder.exampleWithNotes(context: context)
-        
-        let viewModel = NoteSearchViewModel()
-        viewModel.folderChanged(to: folder)
-//        viewModel.searchTokens = [.archivedStatus, .draftStatus, .last24Hours, .withAttachement]
-        let predicate = viewModel.predicate
-        
-        return NavigationView {
-            NoteSingleSortedView(predicate: predicate,
-                             noteSorting: NoteSorting.creationDateDsc)
-                .environment(\.managedObjectContext, context)
-        }
-    }
-}
+//struct NoteSingleSorted_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+//        let context = PersistenceController.preview.container.viewContext
+//
+//        let folder = Folder.exampleWithNotes(context: context)
+//
+//        let viewModel = NavigationStateManager()
+//        viewModel.folderChanged(to: folder)
+////        viewModel.searchTokens = [.archivedStatus, .draftStatus, .last24Hours, .withAttachement]
+//        let predicate = viewModel.predicate
+//
+//        return NavigationView {
+//            NoteSingleSortedView(predicate: predicate,
+//                             noteSorting: NoteSorting.creationDateDsc)
+//                .environment(\.managedObjectContext, context)
+//        }
+//    }
+//}
