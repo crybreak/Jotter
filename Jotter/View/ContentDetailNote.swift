@@ -76,17 +76,9 @@ TextViewMacosWrapper(note: note)
             }
             .overlay(isTargeted ? Color(white: 0.5, opacity: 0.5) :
                         Color.clear)
-            .onDrop(of: [UTType.image], isTargeted: $isTargeted,
+            .onDrop(of: [UTType.image, .jotterNote], isTargeted: $isTargeted,
                      perform: { providers in
-                 let found = providers.loadFirstObject(ofType: UIImage.self) { image in
-                     #if os(OSX)
-                     guard let data = image.tiffRepresentation else {return}
-                     #else
-                     guard let data = image.pngData() else {return}
-                     #endif
-                     note.addImage(imageData: data)
-                 }
-                 return found
+                handleDrop(for: providers )
              })
             
         NotePhotoSelectorButton(note: note)
@@ -110,6 +102,31 @@ TextViewMacosWrapper(note: note)
                 }
             }
         }
+    }
+    
+    func handleDrop(for providers: [NSItemProvider]) -> Bool{
+        
+        var found = providers.loadFirstObject(ofType: UIImage.self) { image in
+             #if os(OSX)
+             guard let data = image.tiffRepresentation else {return}
+             #else
+             guard let data = image.pngData() else {return}
+             #endif
+             note.addImage(imageData: data)
+         }
+        if found == false {
+            found = providers.loadFirstObject(ofType: NoteDragItem.self) {
+                NoteDragItem in
+                guard let id = NoteDragItem.id,
+                      let droppedNote = Note.fetch(id, context: viewContext) else {
+                          return
+                      }
+                
+                guard note.uuid != droppedNote.uuid else {return}
+                note.linkedNotes.insert(droppedNote)
+            }
+        }
+         return found
     }
 }
 

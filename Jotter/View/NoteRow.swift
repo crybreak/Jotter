@@ -38,7 +38,7 @@ struct NoteRow: View {
         }
         .tag(note)
         .onDrag {
-            NSItemProvider(object: note.uuid.uuidString as NSString)
+            NSItemProvider(object: NoteDragItem(id: note.uuid))
         }
         
     }

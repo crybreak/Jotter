@@ -106,8 +106,11 @@ extension Note {
     
     static func fetch(_ uuidString: String, context: NSManagedObjectContext)-> Note? {
         guard let uuid = UUID(uuidString: uuidString) else {return nil}
-
-        let predicate = NSPredicate(format: "%K == %@", NoteProperties.uuid, uuid as CVarArg )
+        return Note.fetch(uuid, context: context)
+    }
+    
+    static func fetch (_ uuid: UUID, context: NSManagedObjectContext) -> Note? {
+        let predicate = NSPredicate(format:  "%K == %@", NoteProperties.uuid, uuid as CVarArg)
         let request = Note.fetch(predicate)
         request.fetchLimit = 1
         
