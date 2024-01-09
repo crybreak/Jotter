@@ -10,52 +10,48 @@ import CoreData
 
 struct NoteListView: View {
     
-    init(selectedFolder: Folder, selectedNote: Binding<Note?>) {
-        self.selectedFolder = selectedFolder
-        self._selectedNote = selectedNote
-    }
-    
-    let selectedFolder: Folder
-    @Binding var selectedNote: Note?
-    @Environment(\.managedObjectContext) var viewContext        
+    @Environment(\.managedObjectContext) var viewContext
     @State private var selectedNoteSorting = NoteSorting.creationDateAsc
     
-    @StateObject var viewModel = NoteSearchViewModel()
+    @EnvironmentObject var stateManager: NavigationStateManager
     
     var body: some View {
-        List (selection: $selectedNote){
-            switch selectedNoteSorting {
-            case .titleAsc, .titleDsc, .creationDateAsc, .creationDateDsc:
-                NoteSingleSortedView(predicate: viewModel.predicate, noteSorting: selectedNoteSorting)
-            case .status:
-                NoteSectionedByStatusView(predicate: viewModel.predicate)
-            case .day:
-                NoteSectionbYDayView(predicate: viewModel.predicate)
-            case .letter:
-                NoteSectionedByLetterView(predicate: viewModel.predicate)
+        
+        UndoProvider($stateManager.selectedNote) { binding in
+            List (selection: binding){
+                switch selectedNoteSorting {
+                case .titleAsc, .titleDsc, .creationDateAsc, .creationDateDsc:
+                    NoteSingleSortedView(predicate: stateManager.predicate, noteSorting: selectedNoteSorting)
+                case .status:
+                    NoteSectionedByStatusView(predicate: stateManager.predicate)
+                case .day:
+                    NoteSectionbYDayView(predicate: stateManager.predicate)
+                case .letter:
+                    NoteSectionedByLetterView(predicate: stateManager.predicate)
+                }
             }
-        }.searchable(text: $viewModel.searchText,
-                     tokens: $viewModel.searchTokens,
+        }.searchable(text: $stateManager.searchText,
+                     tokens: $stateManager.searchTokens,
                      token: { token in
             Text(token.name)
         })
         .searchSuggestions({
             ForEach(NoteSearchToken.allCases) {token in
                 Button {
-                     viewModel.addToken(token)
+                     stateManager.addToken(token)
                 } label: {
                     Text(token.fullName)
-                }.disabled(viewModel.isTokenSelected(token))
+                }.disabled(stateManager.isTokenSelected(token))
 
             }
-        }).searchScopes($viewModel.searchScope, scopes: {
+        }).searchScopes($stateManager.searchScope, scopes: {
             ForEach(NoteSearchScope.allCases) {scope in
-                Text(scope.name(folder: selectedFolder))
+                Text(scope.name(folder: stateManager.selectedFolder!))
             }
         })
         .toolbar {
             ToolbarItem(placement: .primaryAction) {
-                Button(action: addNote) {
+                Button(action: stateManager.addNote) {
                     Label("New Note", systemImage: "note.text.badge.plus" )
                 }
             }
@@ -67,20 +63,8 @@ struct NoteListView: View {
                     }
                 }
             }
-        }.onAppear {
-            viewModel.folderChanged(to: selectedFolder)
         }
-        .onChange(of: selectedFolder) { newValue in
-            viewModel.folderChanged(to: selectedFolder)
-        }
-    }
-    
-    
-    
-    private func addNote() {
-        let newNote = Note(title: "New note1", context: viewContext)
-        newNote.folder = selectedFolder
-        selectedNote = newNote
+        
     }
 }
 
@@ -91,11 +75,13 @@ struct NoteListView_Previews: PreviewProvider {
         
         let context = PersistenceController.preview.container.viewContext
         let folder = Folder.exampleWithNotes(context: context)
+        let manager = NavigationStateManager()
+        manager.selectedFolder = folder
         return NavigationView {
-            NoteListView(selectedFolder: folder, selectedNote: .constant(nil))
+            NoteListView()
                .environment(\.managedObjectContext,
                              context)
-        }
+        }.environmentObject(manager)
         
     }
 }
