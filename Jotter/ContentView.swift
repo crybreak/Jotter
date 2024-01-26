@@ -18,8 +18,8 @@ struct ContentView: View {
     
     @StateObject var stateManager = NavigationStateManager()
     
-    @SceneStorage("folder") var folderID: String?
-    @SceneStorage("note") var noteID: String?
+    @SceneStorage(SceneStorageKeys.folder) var folderID: String?
+    @SceneStorage(SceneStorageKeys.note) var noteID: String?
     
     var body: some View {
         NavigationSplitView(columnVisibility: $columnVisibility) {
@@ -46,7 +46,7 @@ struct ContentView: View {
         })
         .environmentObject(stateManager)
         .focusedSceneObject(stateManager)
-        .onReceive (stateManager.$selectedNote.dropFirst() ) {note  in
+        .onReceive (stateManager.$selectedNote.dropFirst()) {note  in
             noteID = note?.uuid.uuidString
         }
         .onReceive (stateManager.$selectedFolder.dropFirst()) {folder  in
