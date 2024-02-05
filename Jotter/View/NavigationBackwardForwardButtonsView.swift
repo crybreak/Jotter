@@ -22,14 +22,18 @@ struct NavigationBackwardForwardButtonsView: View {
             Button {
                 undoManager?.undo()
             }label: {
-                Label("Go Backward", systemImage: "chevron.left")
-            }.disabled(!canUndo)
+              Image(systemName: "chevron.left")
+            }
+            .help("Go Backward")
+            .disabled(!canUndo)
             
             Button {
                 undoManager?.redo()
             }label: {
-                Label("Go Forward", systemImage: "chevron.right")
-            }.disabled(!canRedo)
+                Image(systemName: "chevron.right")
+            }
+            .help("Go Forward")
+            .disabled(!canRedo)
         }
         .onReceive(stateManager.objectWillChange.delay(for: 0.1, scheduler: RunLoop.main)) {
             _ in
