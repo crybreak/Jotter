@@ -9,4 +9,6 @@ import Foundation
 
 struct  AppStorageKeys {
     static let showMenuBarExtra = "showMenuBarExtra"
+    static let hasSeenOnboarding = "hasSeenOnboarding"
 }
+ 
