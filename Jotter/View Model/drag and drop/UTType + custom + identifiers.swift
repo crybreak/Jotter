@@ -11,5 +11,6 @@ import UniformTypeIdentifiers
 
 extension UTType {
      static let jotterNote = UTType(exportedAs: "wilfried.gossan.Jotter.note")
+     static let  jotterFolder = UTType(exportedAs: "wilfried.gossan.Jotter.folder")
     
 }
