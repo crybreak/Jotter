@@ -12,8 +12,10 @@ struct NoteAttachementView: View {
     @ObservedObject var attachment: Attachment
     
     @State private var showFullImage: Bool = false
-    @State private var thumbnailImage: UIImage? = nil
+    @State private var thumbnailUIImage: UIImage? = nil
     @State private var attachmentID: NSManagedObjectID? = nil
+    
+    @Binding var thumbnailImage: Image?
     
     @Environment(\.pixelLength) var pixelLength
     @Environment(\.displayScale) var displayScale
@@ -21,11 +23,12 @@ struct NoteAttachementView: View {
     var body: some View {
         
         Group {
-            if let image = thumbnailImage {
+            if let image = thumbnailImage, let uiImage = thumbnailUIImage {
                 
-                Image(uiImage: image)
+                    image
                     .resizable()
                     .scaledToFit()
+                #if os(iOS)
                     .contextMenu {
                         Button {
                             Attachment.delete(attachment)
@@ -34,7 +37,8 @@ struct NoteAttachementView: View {
                         }
 
                     }
-                    .onDrag({NSItemProvider(object: image)})
+                #endif
+                    .onDrag({NSItemProvider(object: uiImage)})
                     .gesture(TapGesture(count: 2).onEnded({ _ in
                         showFullImage.toggle()
                     }))
@@ -48,10 +52,22 @@ struct NoteAttachementView: View {
         }.frame(width: attachment.imageWidth() * pixelLength,
                 height: attachment.imageHeight() * pixelLength)
         
-        .task(id: attachment.objectID) {
+        .task(id: attachment.fullImageData_) {
+            thumbnailUIImage = nil
             thumbnailImage = nil
-            thumbnailImage = await attachment.getThumbnail()
-            attachment.updateImageSize(to: thumbnailImage?.size)
+            attachmentID = attachment.objectID
+            let newThumbnailImage = await attachment.getThumbnail()
+            attachment.updateImageSize(to: thumbnailUIImage?.size)
+            
+            if self.attachmentID == attachment.objectID {
+                thumbnailUIImage = newThumbnailImage
+                if let thumbnailUIImage {
+                    thumbnailImage = Image(uiImage: thumbnailUIImage)
+                }
+                
+
+            }
+            
         }
     }
 }
@@ -96,3 +112,9 @@ private struct FullImageView: View {
         
     }
 }
+
+//
+//#Preview {
+//    let context = PersistenceController.preview.container.viewContext
+//    return NoteAttachementView(attachment: Attachment(image: nil, context: context))
+//}
