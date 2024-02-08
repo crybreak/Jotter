@@ -15,7 +15,7 @@ struct SettingView: View {
                     Label( "Profile", systemImage: "person")
                 }
             
-            Text("Menu Bar extra")
+            MenubarExtraSettingsView()
                 .tabItem {
                     Label( "Menu bar", systemImage: "gear")
                 }

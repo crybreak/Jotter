@@ -11,9 +11,17 @@ import CoreData
 struct NoteListView: View {
     
     @Environment(\.managedObjectContext) var viewContext
-    @State private var selectedNoteSorting = NoteSorting.creationDateAsc
-    
+    @Binding var selectedNoteSorting: NoteSorting
     @EnvironmentObject var stateManager: NavigationStateManager
+    
+    var selectedFolderTitleBinding: Binding<String> {
+        Binding {
+            stateManager.selectedFolder?.name ?? ""
+        } set: { newValue in
+            stateManager.selectedFolder?.name = newValue
+        }
+
+    }
     
     var body: some View {
         
@@ -30,7 +38,9 @@ struct NoteListView: View {
                     NoteSectionedByLetterView(predicate: stateManager.predicate)
                 }
             }
-        }.searchable(text: $stateManager.searchText,
+            .listStyleInsertAlternatingBackground()
+        }
+        .searchable(text: $stateManager.searchText,
                      tokens: $stateManager.searchTokens,
                      token: { token in
             Text(token.name)
@@ -49,22 +59,53 @@ struct NoteListView: View {
                 Text(scope.name(folder: stateManager.selectedFolder!))
             }
         })
+        .navigationTitle(selectedFolderTitleBinding)
+        #if os(iOS)
+        .pidNavigationBarTitleDisplayMode()
+        #endif
+        
+        .toolbarTitleMenu(content: {
+            RenameButton()
+            
+            Button(action: {
+                
+            }, label: {
+                Label("Move to", systemImage: "folder")
+            })
+            
+            
+            Button(role: .destructive, action: {
+                Folder.delete(stateManager.selectedFolder!)
+                stateManager.selectedFolder = nil
+            }, label: {
+                Label("Delete", systemImage: "trash")
+            })
+        })
         .toolbar {
-            ToolbarItem(placement: .primaryAction) {
-                Button(action: stateManager.addNote) {
-                    Label("New Note", systemImage: "note.text.badge.plus" )
-                }
+            
+            ToolbarItemGroup(placement: .primaryAction) {
+               
+#if os(iOS)
+                NoteListSortingPicker(selectedNoteSorting: $selectedNoteSorting)
+                #endif
+
             }
             
-            ToolbarItem (placement: .secondaryAction)  {
-                Picker("Sort By", selection: $selectedNoteSorting.animation()) {
-                    ForEach(NoteSorting.allCases) {sorting in
-                        Text(sorting.title())
-                    }
+            ToolbarItemGroup(placement: .addItem) {
+#if os(OSX)
+                 
+                NoteListSortingPicker(selectedNoteSorting: $selectedNoteSorting)
+                #endif
+               
+                Button {
+                    stateManager.addNote()
+                } label: {
+                    Image(systemName: "note.text.badge.plus" )
                 }
+                .help("Create New Note")
+                
             }
         }
-        
     }
 }
 
@@ -78,10 +119,12 @@ struct NoteListView_Previews: PreviewProvider {
         let manager = NavigationStateManager()
         manager.selectedFolder = folder
         return NavigationView {
-            NoteListView()
+            NoteListView(selectedNoteSorting: .constant(NoteSorting.creationDateDsc))
                .environment(\.managedObjectContext,
                              context)
-        }.environmentObject(manager)
+               .environmentObject(manager)
+               .listStyle(.inset)
+        }
         
     }
 }

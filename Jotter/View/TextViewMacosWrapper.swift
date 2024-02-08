@@ -6,12 +6,14 @@
 //
 
 import SwiftUI
+import AppKit
+
 
 struct TextViewMacosWrapper: NSViewRepresentable {
     let note: Note
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(note: note, self)
+        Coordinator(note: note, parent: self)
     }
    
     func makeNSView(context: Context) -> NSTextView {
@@ -20,7 +22,8 @@ struct TextViewMacosWrapper: NSViewRepresentable {
         view.isRichText = true
         view.isEditable = true
         view.isSelectable = true
-        
+        view.allowsUndo = true
+
         view.usesInspectorBar = true
         
         view.usesFindPanel = true
@@ -30,8 +33,6 @@ struct TextViewMacosWrapper: NSViewRepresentable {
         view.isRulerVisible = true
         
         view.delegate = context.coordinator
-        view.textStorage?.setAttributedString(note.formattedBodyText)
-        
         return view
     }
     
@@ -45,17 +46,25 @@ struct TextViewMacosWrapper: NSViewRepresentable {
         var note: Note
         let parent: TextViewMacosWrapper
         
-        init( note: Note, _ parent: TextViewMacosWrapper) {
+        init( note: Note, parent: TextViewMacosWrapper) {
             self.note = note
             self.parent = parent
         }
         
-        func textViewDidChange(_ notification: Notification) {
+        
+        func textDidChange(_ notification: Notification) {
             if let textview = notification.object as? NSTextView {
                 note.formattedBodyText = textview.attributedString()
             }
         }
     }
 }
+
+struct TextViewMacosWrapper_Previews: PreviewProvider {
+    static var previews: some View {
+        TextViewMacosWrapper(note: Note(title: "new", context: PersistenceController.preview.container.viewContext))
+    }
+}
+
 
 

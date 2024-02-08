@@ -22,7 +22,9 @@ struct ProfileSettingsView: View {
             TextField("Enter your password", text: $password)
             
             DatePicker("Enter your birhday", selection: $birthday.animation(), displayedComponents: [.date])
+            #if os(OSX)
                 .datePickerStyle(.stepperField)
+            #endif
             
             ColorPicker(selection: $favoriteColor.animation(), label: {
                 Text("Color")

@@ -49,10 +49,11 @@ struct NoteClipboardView: View {
             }
             .padding()
             .navigationTitle("Notes in your clipboard")
-            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 EditButton()
             }
+            .pidNavigationBarTitleDisplayMode()
+
             
         }
         

@@ -16,4 +16,12 @@ extension Image {
     }
 }
 
+typealias UIFont = NSFont
+typealias UIPasteboard = NSPasteboard
 
+extension NSPasteboard {
+    func copyText(_ text: String) {
+        self.clearContents()
+        self.setString(text, forType: .string)
+    }
+}

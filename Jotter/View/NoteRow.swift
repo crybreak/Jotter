@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct NoteRow: View {
+    @EnvironmentObject var stateManager: NavigationStateManager
+    @Environment(\.openWindow) var openWindow
+
     @ObservedObject var note: Note
+    @State private  var showExportDialog = false
+
     
-    var body: some View {
-        VStack (alignment: .leading){
+    var content: some View {
+        VStack (alignment: .leading, spacing: 2){
             Text(note.title)
                 .bold()
             
-            Text(note.uuid.uuidString)
             HStack {
                 Text(note.creationDate, formatter: itemFormatter)
                     .font(.caption)
@@ -27,19 +31,67 @@ struct NoteRow: View {
                     .padding(.vertical, 5)
                     .background(RoundedRectangle(cornerRadius: 5,
                                                  style: .continuous).fill(Color.gray))
-                
             }
-            
             
             if note.bodyText.count > 0 {
                 Text(note.bodyText)
                     .lineLimit(3)
             }
         }
+    }
+    
+    var body: some View {
+        content
         .tag(note)
+        .onTapGesture {
+            stateManager.noteChanged(to: note)
+        }
         .onDrag {
             NSItemProvider(object: NoteDragItem(id: note.uuid))
+        } preview: {
+            content
+                .foregroundStyle(Color.black)
+                .padding(5)
+                .background(RoundedRectangle(cornerRadius: 5)
+                    .fill(Color(.white)))
         }
+#if os(OSX)
+
+        .contextMenu {
+            Button("Open in new window") {
+                openWindow(id: WindowIdentifiers.noteScene, value: note.uuid)
+            }
+            
+            Button("Delete") {
+                Note.delete(note: note)
+            }
+        }
+        #else
+        .swipeActions (edge: .leading, allowsFullSwipe: false){
+            Button (role: .destructive) {
+                Note.delete(note: note)
+            } label: {
+                Label("Delete", systemImage: "trash")
+            }
+            .labelStyle(.iconOnly)
+
+            
+            Button {
+                
+            } label: {
+                Label("Move", systemImage: "folder")
+            }
+            .labelStyle(.iconOnly)
+            .tint(.cyan)
+            
+            NoteFileExporterButton(note: note, showExportDialog: $showExportDialog)
+
+            .tint(.indigo)
+        }
+        .modifier(NoteFileExportModifier(note: note, showExportDialog: $showExportDialog))
+        
+#endif
+
         
     }
 }
@@ -56,5 +108,6 @@ struct NoteRow_Previews: PreviewProvider {
         NoteRow(note: Note.example())
             .padding()
             .frame(width: 300)
+            .environmentObject(NavigationStateManager())
     }
 }

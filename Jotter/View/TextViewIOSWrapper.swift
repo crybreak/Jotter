@@ -47,6 +47,7 @@ struct TextViewIOSWrapper: UIViewRepresentable {
         }
         
         func textViewDidChange(_ textView: UITextView) {
+
             note.formattedBodyText = textView.attributedText
         }
     }

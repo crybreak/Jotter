@@ -13,100 +13,182 @@ struct ContentDetailNote: View {
     @EnvironmentObject var stateManager: NavigationStateManager
     @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var note: Note
+    
     @State private var showKeyword = false
     @State private var isTargeted = false
+    @State private  var showExportDialog = false
+    @State  var image: Image? = nil
+    
+    var selectedNoteBinding: Binding<Note> {
+        Binding {
+            return note
+        } set: { newNote in
+            stateManager.selectedNote = note
+        }
+    }
     
     var body: some View {
-        VStack (alignment: .leading,spacing: 20) {
-            HStack {
-                if let folders = note.folder?.fullFolderPath() {
-                    ForEach(folders) {folder in
-                        HStack (spacing: 2) {
-                            Image(systemName: "chevron.forward")
-                            Image(systemName: "folder")
-                            Text(folder.name)
-                        }.onTapGesture {
-                            withAnimation {
-                                stateManager.folderChanged(to: folder)
-                            }
+      
+        ScrollIOSContainer {
+            VStack (alignment: .leading,spacing: 20) {
+                ViewThatFits {
+                    HStack {
+                        NotePathFolderView(style: .hstack, note: note)
+                            .fixedSize()
+                        
+                        HStack {
+                            Spacer()
+                            NoteStatusPickerView(note: note)
+                                .labelsHidden()
+                                .fixedSize()
+                                .pickerStyle(.menu)
                         }
                     }
-                }
-            }
-
-            Text("order \(Int(note.order))")
-            Text("canonical: \(note.canonicalTitle_ ?? "")")
-            
-            TextField("New Note", text: $note.title)
-            
-            Picker(selection: $note.status) {
-                ForEach(Status.allCases) {status in
-                    Text(status.rawValue)
-                        .tag(status)
-                }
-            } label: {
-                Text("Note's status")
-            }
-            .pickerStyle(.segmented)
+                    VStack (alignment: .leading) {
+                        NotePathFolderView(style: .flowlayout, note: note)
                         
-            HStack {
-#if os(iOS)
-TextViewIOSWrapper(note: note)
-#else
-TextViewMacosWrapper(note: note)
-#endif
-            }
-            
-            Group {
-                if let attachment = note.attachment_ {
-                    NoteAttachementView(attachment: attachment)
-                } else {
-                    ZStack {
-                        Color.white
-                        Image(systemName: "photo")
-                            .imageScale(.large)
-                            .foregroundStyle(.secondary)
-                            
+                        HStack {
+                            Spacer()
+                            NoteStatusPickerView(note: note)
+                                .labelsHidden()
+                                .fixedSize()
+                                .pickerStyle(.menu)
+                        }
                     }
-                    .frame(width: 100, height: 100)
-                    .border(Color.gray)
+                    
+                }
+                
+                
+    #if os(macOS)
+                TextField("New Note", text: $note.title)
+                    .textFieldStyle(.roundedBorder)
+    #endif
+                Group {
+    #if os(iOS)
+                    TextViewIOSWrapper(note: note)
+                        .frame(minHeight: 300)
+    #else
+                    TextViewMacosWrapper(note: note)
+    #endif
+                }
+                
+                
+                
+                LinkedNotesView(note: note)
+                NotesKeywordsCollectView(note: note)
+                
+                HStack {
+                    VStack (spacing: 20) {
+                        NotePhotoSelectorButton(note: note)
                         
+                        if let image = image {
+                            ShareLink(item: image, preview:
+                                        SharePreview(note.title, image: image))
+                        }
+                        
+                        Button(role: .destructive) {
+                            Attachment.delete(note.attachment_)
+                            image = nil
+                        } label: {
+                            Label("Delete", systemImage: "trash")
+                        }
+                        
+                    }
+                    .labelStyle(.iconOnly)
+                    .imageScale(.large)
+                    .padding()
+                    
+                    Group {
+                        if let attachment = note.attachment_ {
+                            NoteAttachementView(attachment: attachment, thumbnailImage: $image)
+                        } else {
+                            ZStack {
+                                Color.white
+                                Image(systemName: "photo")
+                                    .imageScale(.large)
+                                    .foregroundStyle(.secondary)
+                                
+                            }
+                            .frame(width: 100, height: 100)
+                            .border(Color.gray)
+                            
+                            
+                        }
+                    }
+                    .overlay(isTargeted ? Color(white: 0.5, opacity: 0.5) :
+                                Color.clear)
+                    .onDrop(of: [UTType.image], isTargeted: $isTargeted,
+                            perform: { providers in
+                        handleDrop(for: providers )
+                    })
+    #if os(OSX)
+                    .importsItemProviders(Note.importImageTypes) { providers in
+                        handleDrop(for: providers)
+                    }
+    #endif
+                }
+                .padding()
+                
+                .onDisappear {
+                    PersistenceController.shared.save()
+                }
+                .navigationTitle($note.title)
+                #if os(iOS)
+                .pidNavigationBarTitleDisplayMode()
+                #endif
+                .toolbarRole(.editor)
+                .toolbarTitleMenu(content: {
+                    RenameButton()
+                
+                    CopyNoteButton(note: note)
+                    
+                    Button {
+                    } label: {
+                        Label("Duplicate", systemImage: "plus.square.on.square")
+                    }
+                    
                    
+                    NoteFileExporterButton(note: note, showExportDialog: $showExportDialog)
+
+
+                    Divider()
+                    Button(role: .destructive) {
+                        Note.delete(note: note)
+                    } label: {
+                        Label("Delete", systemImage: "trash")
+                    }
+                })
+                .toolbar {
+                    ToolbarItemGroup(placement: .primaryAction){
+                        Button {
+                            showKeyword.toggle()
+                        } label: {
+                            Image(systemName: "tag")
+                        }.popover(isPresented: $showKeyword) {
+                            AddKeywordsToNoteView(note: note)
+                                .environment(\.managedObjectContext, viewContext)
+                        }
+                        #if os(iOS)
+                        EditlinkedNoteView(note: note)
+
+                        NoteShareButtons(note: note)
+                        #else
+                        NoteFileExporterButton(note: note, showExportDialog: $showExportDialog)
+                        CopyNoteButton(note: note)
+                        
+                        #endif
+
+                    }
                 }
-            }
-            .overlay(isTargeted ? Color(white: 0.5, opacity: 0.5) :
-                        Color.clear)
-            .onDrop(of: [UTType.image, .jotterNote], isTargeted: $isTargeted,
-                     perform: { providers in
-                handleDrop(for: providers )
-             })
-            
-        NotePhotoSelectorButton(note: note)
-            
-        NotesKeywordsCollectView(note: note)
-        }
-        .padding()
-        
-        .onDisappear {
-            PersistenceController.shared.save()
-        }
-        .toolbar {
-            ToolbarItem {
-                Button {
-                    showKeyword.toggle()
-                } label: {
-                    Image(systemName: "tag")
-                }.popover(isPresented: $showKeyword) {
-                    AddKeywordsToNoteView(note: note)
-                        .environment(\.managedObjectContext, viewContext)
-                }
+                .modifier(NoteFileExportModifier(note: note, showExportDialog: $showExportDialog))
+            .focusedSceneValue(\.selectedNote, selectedNoteBinding)
             }
         }
     }
     
     func handleDrop(for providers: [NSItemProvider]) -> Bool{
         
-        var found = providers.loadFirstObject(ofType: UIImage.self) { image in
+        let found = providers.loadFirstObject(ofType: UIImage.self) { image in
              #if os(OSX)
              guard let data = image.tiffRepresentation else {return}
              #else
@@ -114,18 +196,6 @@ TextViewMacosWrapper(note: note)
              #endif
              note.addImage(imageData: data)
          }
-        if found == false {
-            found = providers.loadFirstObject(ofType: NoteDragItem.self) {
-                NoteDragItem in
-                guard let id = NoteDragItem.id,
-                      let droppedNote = Note.fetch(id, context: viewContext) else {
-                          return
-                      }
-                
-                guard note.uuid != droppedNote.uuid else {return}
-                note.linkedNotes.insert(droppedNote)
-            }
-        }
          return found
     }
 }
@@ -133,9 +203,16 @@ TextViewMacosWrapper(note: note)
 
 struct ContentDetailNote_Previews: PreviewProvider {
    static var previews: some View {
-       ContentDetailNote(note: Note.example())
-           .environment(\.managedObjectContext,
-                         PersistenceController.preview.container.viewContext)
-           .environmentObject(NavigationStateManager())
+       return NavigationView {
+           Group {
+               ContentDetailNote(note: Note.example())
+//               ContentDetailNote(note: Note.exampleLongFolder())
+           }
+               .environment(\.managedObjectContext,
+                             PersistenceController.preview.container.viewContext)
+               .environmentObject(NavigationStateManager())
+               .environmentObject(LinkedNoteClipboard())
+       }
+         
   }
 }

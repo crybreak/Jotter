@@ -13,6 +13,7 @@ class NavigationStateManager: ObservableObject {
     
     @Published  var selectedNote: Note? = nil
     @Published  var selectedFolder: Folder? = nil
+    @Published var path: [Note] = []
     
     @Published  var searchText: String = ""
     @Published  var searchTokens = [NoteSearchToken]()
@@ -33,6 +34,9 @@ class NavigationStateManager: ObservableObject {
 
     var subscriptions = Set<AnyCancellable>()
     weak var undoManager: UndoManager?
+
+    var noteObserver: NoteObserverViewModel?
+    var folderObserver: FolderObserverViewModel?
 
     
     init () {
@@ -60,6 +64,7 @@ class NavigationStateManager: ObservableObject {
             self.folderScopePredicate = predicateHelper.createScopePredicate(scope: searchScope , folder: folder)
             
             self.createFullPredicate()
+            self.selectedNote = nil
         }.store(in: &subscriptions)
         
         $selectedNote.compactMap {$0}.sink {[unowned self] note in
@@ -76,6 +81,17 @@ class NavigationStateManager: ObservableObject {
                 }
             }
         }.store(in: &subscriptions)
+        
+   
+        self.createNoteObserverTrigger()
+        self.createFolderObserverTrigger()
+    }
+    
+    
+    func addFolder() {
+        let context = PersistenceController.shared.container.viewContext
+        let newFolder = Folder(name: "New Folder", context: context)
+        self.folderChanged(to: newFolder)
     }
     
     func addNote() {
@@ -84,7 +100,7 @@ class NavigationStateManager: ObservableObject {
         
         let newNote  = Note(title: "New note1", context: context)
         newNote.folder = self.selectedFolder
-        self.selectedNote = newNote
+        self.noteChanged(to: newNote)
     }
     
     
@@ -98,8 +114,24 @@ class NavigationStateManager: ObservableObject {
             })
         }
         self.selectedFolder = folder
+        self.selectedNote = nil
+
     }
     
+    func noteChanged(to note: Note) {
+        guard note != self.selectedNote else {return}
+        
+        if let oldNote = self.selectedNote {
+            undoManager?.registerUndo(withTarget: self, handler: { target in
+                target.noteChanged(to: oldNote)
+            })
+        }
+        self.selectedNote = note
+    }
+    
+    func noteAppendToNavigationStack(note: Note) {
+        path.append(note)
+    }
     
     func addToken(_ token: NoteSearchToken) {
         guard searchTokens.contains(where: {$0 == token}) == false else {return}

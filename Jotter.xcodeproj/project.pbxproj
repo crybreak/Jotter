@@ -16,15 +16,35 @@
 		FA31F6282AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F6272AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift */; };
 		FA31F62A2AFCF4BD0004BF6B /* OptionnalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F6292AFCF4BD0004BF6B /* OptionnalImageView.swift */; };
 		FA31F62E2AFCF7A50004BF6B /* macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA31F62D2AFCF7A50004BF6B /* macOS.swift */; platformFilters = (macos, ); };
+		FA46F0192B6EE3BD00C27071 /* EditlinkedNoteMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F0182B6EE3BD00C27071 /* EditlinkedNoteMenuView.swift */; platformFilter = ios; };
+		FA46F01B2B6EE4B500C27071 /* NoteClipboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F01A2B6EE4B500C27071 /* NoteClipboardView.swift */; platformFilter = ios; };
+		FA46F01E2B6F6E8100C27071 /* LinkedNoteClipboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F01D2B6F6E8100C27071 /* LinkedNoteClipboard.swift */; };
+		FA46F0202B70BCF100C27071 /* NoteStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F01F2B70BCF100C27071 /* NoteStackView.swift */; };
+		FA46F0222B70DA3F00C27071 /* NotePathFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F0212B70DA3F00C27071 /* NotePathFolder.swift */; };
+		FA46F0242B70FBC500C27071 /* ScrollIOSContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F0232B70FBC500C27071 /* ScrollIOSContainer.swift */; };
+		FA46F0262B712F9200C27071 /* Scene + modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F0252B712F9200C27071 /* Scene + modifiers.swift */; };
+		FA46F0282B714BD800C27071 /* View + modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F0272B714BD800C27071 /* View + modifiers.swift */; };
+		FA46F02D2B73ABCB00C27071 /* NoteObserverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F02C2B73ABCB00C27071 /* NoteObserverViewModel.swift */; };
+		FA46F02F2B73C05B00C27071 /* NavigationStateManager + Observer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F02E2B73C05B00C27071 /* NavigationStateManager + Observer.swift */; };
+		FA46F0312B73C15700C27071 /* FolderObserverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA46F0302B73C15700C27071 /* FolderObserverViewModel.swift */; };
+		FA49A8992B62B905001B7BCF /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8982B62B905001B7BCF /* SettingView.swift */; };
+		FA49A89B2B62BCAF001B7BCF /* ProfileSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A89A2B62BCAF001B7BCF /* ProfileSettingsView.swift */; };
+		FA49A89D2B62C07A001B7BCF /* MenubarExtraSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A89C2B62C07A001B7BCF /* MenubarExtraSettingsView.swift */; };
+		FA49A8A02B6403BF001B7BCF /* AppStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A89F2B6403BF001B7BCF /* AppStorageKeys.swift */; };
+		FA49A8A22B640543001B7BCF /* SceneStorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8A12B640543001B7BCF /* SceneStorageKeys.swift */; };
+		FA49A8A52B640D64001B7BCF /* MenuBarExtraContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8A42B640D64001B7BCF /* MenuBarExtraContentView.swift */; platformFilters = (macos, ); };
+		FA49A8A82B641C1A001B7BCF /* WindowIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8A72B641C1A001B7BCF /* WindowIdentifiers.swift */; };
+		FA49A8AB2B641E89001B7BCF /* NoteSingleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8AA2B641E89001B7BCF /* NoteSingleView.swift */; };
+		FA49A8AE2B652FA9001B7BCF /* HelpCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8AD2B652FA9001B7BCF /* HelpCommands.swift */; };
+		FA49A8B12B65365F001B7BCF /* MainWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8B02B65365F001B7BCF /* MainWindow.swift */; };
+		FA49A8B32B653962001B7BCF /* NoteWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8B22B653962001B7BCF /* NoteWindow.swift */; };
+		FA49A8B62B654154001B7BCF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8B52B654154001B7BCF /* OnboardingView.swift */; };
+		FA49A8B82B67B98E001B7BCF /* NewItemCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8B72B67B98E001B7BCF /* NewItemCommand.swift */; };
+		FA49A8BA2B67DFD3001B7BCF /* NoteStatusCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49A8B92B67DFD3001B7BCF /* NoteStatusCommands.swift */; };
 		FA565DA82B10C67200769E99 /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DA72B10C67200769E99 /* FlowLayout.swift */; };
 		FA565DAA2B10D06700769E99 /* AddKeywordsToNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DA92B10D06700769E99 /* AddKeywordsToNoteView.swift */; };
 		FA565DAD2B11596900769E99 /* NewKeywordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DAC2B11596900769E99 /* NewKeywordView.swift */; };
 		FA565DB32B137EB800769E99 /* NoteSorting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DB22B137EB800769E99 /* NoteSorting.swift */; };
-		FA565DB52B14AECF00769E99 /* NoteSectionByDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DB42B14AECF00769E99 /* NoteSectionByDayView.swift */; };
-		FA565DB72B14D58D00769E99 /* NoteSectionedByStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DB62B14D58D00769E99 /* NoteSectionedByStatusView.swift */; };
-		FA565DB92B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DB82B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift */; };
-		FA565DBB2B14E98000769E99 /* NoteSingleSortedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DBA2B14E98000769E99 /* NoteSingleSortedView.swift */; };
-		FA565DBD2B15FC2C00769E99 /* NoteSectionedByLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA565DBC2B15FC2C00769E99 /* NoteSectionedByLetterView.swift */; };
 		FA9813882AFD4A89003452C6 /* Keyword +Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9813872AFD4A89003452C6 /* Keyword +Helper.swift */; };
 		FA98138A2AFE3A29003452C6 /* Color + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9813892AFE3A29003452C6 /* Color + Helper.swift */; };
 		FA9979752AFE772100B0EA5C /* ColorsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9979742AFE772100B0EA5C /* ColorsTests.swift */; };
@@ -52,6 +72,14 @@
 		FAC85DAE2B4CDEB300C10C99 /* helperforNSItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DAD2B4CDEB300C10C99 /* helperforNSItemProvider.swift */; };
 		FAC85DB12B4D7E3A00C10C99 /* UTType + custom + identifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DB02B4D7E3A00C10C99 /* UTType + custom + identifiers.swift */; };
 		FAC85DB32B4D7EEE00C10C99 /* NoteDragItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DB22B4D7EEE00C10C99 /* NoteDragItem.swift */; };
+		FAC85DB82B4D9BE800C10C99 /* LinkedNotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DB72B4D9BE800C10C99 /* LinkedNotesView.swift */; };
+		FAC85DBA2B4EE93100C10C99 /* NoteSectionByDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DB92B4EE93100C10C99 /* NoteSectionByDayView.swift */; };
+		FAC85DBC2B4EE93A00C10C99 /* NoteSectionedByLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DBB2B4EE93A00C10C99 /* NoteSectionedByLetterView.swift */; };
+		FAC85DBE2B4EE94D00C10C99 /* NoteSectionedByStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DBD2B4EE94D00C10C99 /* NoteSectionedByStatusView.swift */; };
+		FAC85DC02B4EE95A00C10C99 /* NoteSingleSortedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DBF2B4EE95A00C10C99 /* NoteSingleSortedView.swift */; };
+		FAC85DC22B4EE96D00C10C99 /* NotesSimpleSectionnedByStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DC12B4EE96D00C10C99 /* NotesSimpleSectionnedByStatus.swift */; };
+		FAC85DC52B4F130500C10C99 /* FolderDragItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DC42B4F130500C10C99 /* FolderDragItem.swift */; };
+		FAC85DC72B4FE83F00C10C99 /* FolderDropPlaceholderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC85DC62B4FE83F00C10C99 /* FolderDropPlaceholderCell.swift */; };
 		FAD64CA42B2518D000B448B6 /* KeywordsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD64CA32B2518D000B448B6 /* KeywordsTests.swift */; };
 		FAD9911E2AFA7F4D00B133E0 /* JotterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */; };
 		FAD991202AFA7F4D00B133E0 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */; };
@@ -65,6 +93,16 @@
 		FAD991522AFA835400B133E0 /* Predicate + Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991512AFA835400B133E0 /* Predicate + Helper.swift */; };
 		FAD991542AFA875D00B133E0 /* ContentDetailNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991532AFA875D00B133E0 /* ContentDetailNote.swift */; };
 		FAD991582AFAA65B00B133E0 /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD991572AFAA65B00B133E0 /* NotesTests.swift */; };
+		FAEECF752B68086100F50C52 /* NoteStatusPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF742B68086100F50C52 /* NoteStatusPickerView.swift */; };
+		FAEECF772B680C9F00F50C52 /* NavigationCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF762B680C9F00F50C52 /* NavigationCommands.swift */; };
+		FAEECF792B68109E00F50C52 /* NavigatedUpdatinBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF782B68109E00F50C52 /* NavigatedUpdatinBackgroundView.swift */; };
+		FAEECF7B2B68CDC000F50C52 /* NoteListSortingPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF7A2B68CDC000F50C52 /* NoteListSortingPicker.swift */; };
+		FAEECF7D2B6ACEC400F50C52 /* Note + share.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF7C2B6ACEC400F50C52 /* Note + share.swift */; };
+		FAEECF7F2B6AD40500F50C52 /* iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF7E2B6AD40500F50C52 /* iOS.swift */; platformFilter = ios; };
+		FAEECF832B6AD64800F50C52 /* CopyNoteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF822B6AD64800F50C52 /* CopyNoteButton.swift */; };
+		FAEECF852B6BE35D00F50C52 /* NoteShareButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF842B6BE35D00F50C52 /* NoteShareButtons.swift */; };
+		FAEECF8B2B6C042E00F50C52 /* NoteDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF8A2B6C042E00F50C52 /* NoteDocument.swift */; };
+		FAEECF8D2B6C044300F50C52 /* NoteFileExporterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEECF8C2B6C044300F50C52 /* NoteFileExporterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,15 +132,35 @@
 		FA31F6272AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePhotoSelectorButton.swift; sourceTree = "<group>"; };
 		FA31F6292AFCF4BD0004BF6B /* OptionnalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionnalImageView.swift; sourceTree = "<group>"; };
 		FA31F62D2AFCF7A50004BF6B /* macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS.swift; sourceTree = "<group>"; };
+		FA46F0182B6EE3BD00C27071 /* EditlinkedNoteMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditlinkedNoteMenuView.swift; sourceTree = "<group>"; };
+		FA46F01A2B6EE4B500C27071 /* NoteClipboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteClipboardView.swift; sourceTree = "<group>"; };
+		FA46F01D2B6F6E8100C27071 /* LinkedNoteClipboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedNoteClipboard.swift; sourceTree = "<group>"; };
+		FA46F01F2B70BCF100C27071 /* NoteStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStackView.swift; sourceTree = "<group>"; };
+		FA46F0212B70DA3F00C27071 /* NotePathFolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotePathFolder.swift; sourceTree = "<group>"; };
+		FA46F0232B70FBC500C27071 /* ScrollIOSContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollIOSContainer.swift; sourceTree = "<group>"; };
+		FA46F0252B712F9200C27071 /* Scene + modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Scene + modifiers.swift"; sourceTree = "<group>"; };
+		FA46F0272B714BD800C27071 /* View + modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + modifiers.swift"; sourceTree = "<group>"; };
+		FA46F02C2B73ABCB00C27071 /* NoteObserverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteObserverViewModel.swift; sourceTree = "<group>"; };
+		FA46F02E2B73C05B00C27071 /* NavigationStateManager + Observer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationStateManager + Observer.swift"; sourceTree = "<group>"; };
+		FA46F0302B73C15700C27071 /* FolderObserverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderObserverViewModel.swift; sourceTree = "<group>"; };
+		FA49A8982B62B905001B7BCF /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		FA49A89A2B62BCAF001B7BCF /* ProfileSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsView.swift; sourceTree = "<group>"; };
+		FA49A89C2B62C07A001B7BCF /* MenubarExtraSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenubarExtraSettingsView.swift; sourceTree = "<group>"; };
+		FA49A89F2B6403BF001B7BCF /* AppStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStorageKeys.swift; sourceTree = "<group>"; };
+		FA49A8A12B640543001B7BCF /* SceneStorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneStorageKeys.swift; sourceTree = "<group>"; };
+		FA49A8A42B640D64001B7BCF /* MenuBarExtraContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarExtraContentView.swift; sourceTree = "<group>"; };
+		FA49A8A72B641C1A001B7BCF /* WindowIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowIdentifiers.swift; sourceTree = "<group>"; };
+		FA49A8AA2B641E89001B7BCF /* NoteSingleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSingleView.swift; sourceTree = "<group>"; };
+		FA49A8AD2B652FA9001B7BCF /* HelpCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommands.swift; sourceTree = "<group>"; };
+		FA49A8B02B65365F001B7BCF /* MainWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindow.swift; sourceTree = "<group>"; };
+		FA49A8B22B653962001B7BCF /* NoteWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteWindow.swift; sourceTree = "<group>"; };
+		FA49A8B52B654154001B7BCF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		FA49A8B72B67B98E001B7BCF /* NewItemCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemCommand.swift; sourceTree = "<group>"; };
+		FA49A8B92B67DFD3001B7BCF /* NoteStatusCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStatusCommands.swift; sourceTree = "<group>"; };
 		FA565DA72B10C67200769E99 /* FlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
 		FA565DA92B10D06700769E99 /* AddKeywordsToNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddKeywordsToNoteView.swift; sourceTree = "<group>"; };
 		FA565DAC2B11596900769E99 /* NewKeywordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewKeywordView.swift; sourceTree = "<group>"; };
 		FA565DB22B137EB800769E99 /* NoteSorting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSorting.swift; sourceTree = "<group>"; };
-		FA565DB42B14AECF00769E99 /* NoteSectionByDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSectionByDayView.swift; sourceTree = "<group>"; };
-		FA565DB62B14D58D00769E99 /* NoteSectionedByStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSectionedByStatusView.swift; sourceTree = "<group>"; };
-		FA565DB82B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesSimpleSectionnedByStatus.swift; sourceTree = "<group>"; };
-		FA565DBA2B14E98000769E99 /* NoteSingleSortedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSingleSortedView.swift; sourceTree = "<group>"; };
-		FA565DBC2B15FC2C00769E99 /* NoteSectionedByLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteSectionedByLetterView.swift; sourceTree = "<group>"; };
 		FA9813872AFD4A89003452C6 /* Keyword +Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Keyword +Helper.swift"; sourceTree = "<group>"; };
 		FA9813892AFE3A29003452C6 /* Color + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Helper.swift"; sourceTree = "<group>"; };
 		FA9979742AFE772100B0EA5C /* ColorsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorsTests.swift; sourceTree = "<group>"; };
@@ -131,6 +189,14 @@
 		FAC85DAF2B4D7BA000C10C99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FAC85DB02B4D7E3A00C10C99 /* UTType + custom + identifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UTType + custom + identifiers.swift"; sourceTree = "<group>"; };
 		FAC85DB22B4D7EEE00C10C99 /* NoteDragItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDragItem.swift; sourceTree = "<group>"; };
+		FAC85DB72B4D9BE800C10C99 /* LinkedNotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedNotesView.swift; sourceTree = "<group>"; };
+		FAC85DB92B4EE93100C10C99 /* NoteSectionByDayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSectionByDayView.swift; sourceTree = "<group>"; };
+		FAC85DBB2B4EE93A00C10C99 /* NoteSectionedByLetterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSectionedByLetterView.swift; sourceTree = "<group>"; };
+		FAC85DBD2B4EE94D00C10C99 /* NoteSectionedByStatusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSectionedByStatusView.swift; sourceTree = "<group>"; };
+		FAC85DBF2B4EE95A00C10C99 /* NoteSingleSortedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteSingleSortedView.swift; sourceTree = "<group>"; };
+		FAC85DC12B4EE96D00C10C99 /* NotesSimpleSectionnedByStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesSimpleSectionnedByStatus.swift; sourceTree = "<group>"; };
+		FAC85DC42B4F130500C10C99 /* FolderDragItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDragItem.swift; sourceTree = "<group>"; };
+		FAC85DC62B4FE83F00C10C99 /* FolderDropPlaceholderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDropPlaceholderCell.swift; sourceTree = "<group>"; };
 		FAD64CA32B2518D000B448B6 /* KeywordsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeywordsTests.swift; sourceTree = "<group>"; };
 		FAD9911A2AFA7F4D00B133E0 /* Jotter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JotterApp.swift; sourceTree = "<group>"; };
@@ -148,6 +214,16 @@
 		FAD991512AFA835400B133E0 /* Predicate + Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Predicate + Helper.swift"; sourceTree = "<group>"; };
 		FAD991532AFA875D00B133E0 /* ContentDetailNote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailNote.swift; sourceTree = "<group>"; };
 		FAD991572AFAA65B00B133E0 /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
+		FAEECF742B68086100F50C52 /* NoteStatusPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteStatusPickerView.swift; sourceTree = "<group>"; };
+		FAEECF762B680C9F00F50C52 /* NavigationCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCommands.swift; sourceTree = "<group>"; };
+		FAEECF782B68109E00F50C52 /* NavigatedUpdatinBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigatedUpdatinBackgroundView.swift; sourceTree = "<group>"; };
+		FAEECF7A2B68CDC000F50C52 /* NoteListSortingPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListSortingPicker.swift; sourceTree = "<group>"; };
+		FAEECF7C2B6ACEC400F50C52 /* Note + share.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note + share.swift"; path = "../../../../Downloads/Note + share.swift"; sourceTree = "<group>"; };
+		FAEECF7E2B6AD40500F50C52 /* iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS.swift; sourceTree = "<group>"; };
+		FAEECF822B6AD64800F50C52 /* CopyNoteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyNoteButton.swift; sourceTree = "<group>"; };
+		FAEECF842B6BE35D00F50C52 /* NoteShareButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteShareButtons.swift; sourceTree = "<group>"; };
+		FAEECF8A2B6C042E00F50C52 /* NoteDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteDocument.swift; sourceTree = "<group>"; };
+		FAEECF8C2B6C044300F50C52 /* NoteFileExporterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteFileExporterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +257,7 @@
 				FAC2983F2B272BFF00AB0867 /* toolbar */,
 				FA9979842B0278E700B0EA5C /* folder */,
 				FA31F61E2AFBF6080004BF6B /* note */,
+				FAC85DC32B4EEA5A00C10C99 /* note list */,
 				FA565DAB2B10D10800769E99 /* keyword */,
 				FA565DA62B10C60500769E99 /* Uility */,
 			);
@@ -192,7 +269,9 @@
 			children = (
 				FA9979892B02CADA00B0EA5C /* NoteListView.swift */,
 				FA99798F2B04ACC000B0EA5C /* NoteRow.swift */,
-				FA565DAF2B137CC300769E99 /* note list */,
+				FAEECF7A2B68CDC000F50C52 /* NoteListSortingPicker.swift */,
+				FA46F01F2B70BCF100C27071 /* NoteStackView.swift */,
+				FAEECF862B6BE37200F50C52 /* note button */,
 				FA565DAE2B137C9900769E99 /* note detail */,
 			);
 			name = note;
@@ -202,6 +281,9 @@
 			isa = PBXGroup;
 			children = (
 				FA31F62D2AFCF7A50004BF6B /* macOS.swift */,
+				FAEECF7E2B6AD40500F50C52 /* iOS.swift */,
+				FA46F0252B712F9200C27071 /* Scene + modifiers.swift */,
+				FA46F0272B714BD800C27071 /* View + modifiers.swift */,
 			);
 			path = crossplatform;
 			sourceTree = "<group>";
@@ -223,6 +305,92 @@
 			name = "container view";
 			sourceTree = "<group>";
 		};
+		FA46F0172B6EE31100C27071 /* linked note */ = {
+			isa = PBXGroup;
+			children = (
+				FAC85DB72B4D9BE800C10C99 /* LinkedNotesView.swift */,
+				FA46F0182B6EE3BD00C27071 /* EditlinkedNoteMenuView.swift */,
+				FA46F01A2B6EE4B500C27071 /* NoteClipboardView.swift */,
+			);
+			name = "linked note";
+			sourceTree = "<group>";
+		};
+		FA46F01C2B6F6E3700C27071 /* share */ = {
+			isa = PBXGroup;
+			children = (
+				FAEECF8A2B6C042E00F50C52 /* NoteDocument.swift */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
+		FA46F02B2B73AB7D00C27071 /* observer */ = {
+			isa = PBXGroup;
+			children = (
+				FA46F02C2B73ABCB00C27071 /* NoteObserverViewModel.swift */,
+				FA46F0302B73C15700C27071 /* FolderObserverViewModel.swift */,
+			);
+			path = observer;
+			sourceTree = "<group>";
+		};
+		FA49A8972B62B8D7001B7BCF /* settings window */ = {
+			isa = PBXGroup;
+			children = (
+				FA49A8982B62B905001B7BCF /* SettingView.swift */,
+				FA49A89A2B62BCAF001B7BCF /* ProfileSettingsView.swift */,
+				FA49A89C2B62C07A001B7BCF /* MenubarExtraSettingsView.swift */,
+			);
+			path = "settings window";
+			sourceTree = "<group>";
+		};
+		FA49A89E2B640393001B7BCF /* contants */ = {
+			isa = PBXGroup;
+			children = (
+				FA49A89F2B6403BF001B7BCF /* AppStorageKeys.swift */,
+				FA49A8A12B640543001B7BCF /* SceneStorageKeys.swift */,
+				FA49A8A72B641C1A001B7BCF /* WindowIdentifiers.swift */,
+			);
+			path = contants;
+			sourceTree = "<group>";
+		};
+		FA49A8A32B640D42001B7BCF /* menu bar extra */ = {
+			isa = PBXGroup;
+			children = (
+				FA49A8A42B640D64001B7BCF /* MenuBarExtraContentView.swift */,
+			);
+			path = "menu bar extra";
+			sourceTree = "<group>";
+		};
+		FA49A8A92B641DD8001B7BCF /* note window */ = {
+			isa = PBXGroup;
+			children = (
+				FA49A8AA2B641E89001B7BCF /* NoteSingleView.swift */,
+				FA49A8B22B653962001B7BCF /* NoteWindow.swift */,
+			);
+			path = "note window";
+			sourceTree = "<group>";
+		};
+		FA49A8AC2B652E8F001B7BCF /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				FAB6432A2B1A1A0C0040C333 /* NoteHistoryCommands.swift */,
+				FA49A8B72B67B98E001B7BCF /* NewItemCommand.swift */,
+				FA49A8AD2B652FA9001B7BCF /* HelpCommands.swift */,
+				FA49A8B92B67DFD3001B7BCF /* NoteStatusCommands.swift */,
+				FAEECF762B680C9F00F50C52 /* NavigationCommands.swift */,
+			);
+			path = Command;
+			sourceTree = "<group>";
+		};
+		FA49A8AF2B653648001B7BCF /* main window */ = {
+			isa = PBXGroup;
+			children = (
+				FA49A8B02B65365F001B7BCF /* MainWindow.swift */,
+				FAD991242AFA7F4D00B133E0 /* ContentView.swift */,
+				FA49A8B52B654154001B7BCF /* OnboardingView.swift */,
+			);
+			path = "main window";
+			sourceTree = "<group>";
+		};
 		FA565DA62B10C60500769E99 /* Uility */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +403,7 @@
 		FA565DAB2B10D10800769E99 /* keyword */ = {
 			isa = PBXGroup;
 			children = (
+				FAB304982B0BB771001527DE /* NotesKeywordsCollectView.swift */,
 				FA565DA92B10D06700769E99 /* AddKeywordsToNoteView.swift */,
 				FA565DAC2B11596900769E99 /* NewKeywordView.swift */,
 			);
@@ -244,27 +413,16 @@
 		FA565DAE2B137C9900769E99 /* note detail */ = {
 			isa = PBXGroup;
 			children = (
+				FA46F0232B70FBC500C27071 /* ScrollIOSContainer.swift */,
 				FAD991532AFA875D00B133E0 /* ContentDetailNote.swift */,
+				FAEECF742B68086100F50C52 /* NoteStatusPickerView.swift */,
 				FA31F61F2AFBF6AC0004BF6B /* TextViewIOSWrapper.swift */,
 				FA31F6232AFC02D00004BF6B /* TextViewMacosWrapper.swift */,
-				FA31F6292AFCF4BD0004BF6B /* OptionnalImageView.swift */,
-				FA9979CF2B06415000B0EA5C /* NoteAttachementView.swift */,
-				FA31F6272AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift */,
-				FAB304982B0BB771001527DE /* NotesKeywordsCollectView.swift */,
+				FAEECF872B6BE3A000F50C52 /* note attachment */,
+				FA46F0172B6EE31100C27071 /* linked note */,
+				FA46F0212B70DA3F00C27071 /* NotePathFolder.swift */,
 			);
 			name = "note detail";
-			sourceTree = "<group>";
-		};
-		FA565DAF2B137CC300769E99 /* note list */ = {
-			isa = PBXGroup;
-			children = (
-				FA565DB62B14D58D00769E99 /* NoteSectionedByStatusView.swift */,
-				FA565DB82B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift */,
-				FA565DBC2B15FC2C00769E99 /* NoteSectionedByLetterView.swift */,
-				FA565DB42B14AECF00769E99 /* NoteSectionByDayView.swift */,
-				FA565DBA2B14E98000769E99 /* NoteSingleSortedView.swift */,
-			);
-			name = "note list";
 			sourceTree = "<group>";
 		};
 		FA565DB02B137DD000769E99 /* data conversion helper */ = {
@@ -294,7 +452,7 @@
 				FAD9911F2AFA7F4D00B133E0 /* Persistence.swift */,
 				FA565DB12B137E9100769E99 /* note search and sorting */,
 				FAD9914D2AFA805100B133E0 /* Model */,
-				FA565DB02B137DD000769E99 /* data conversion helper */,
+				FA46F02B2B73AB7D00C27071 /* observer */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -306,6 +464,7 @@
 				FA29386E2B098794004D5438 /* RecursiveFolderView.swift */,
 				FA9979872B02820D00B0EA5C /* FolderRow.swift */,
 				FA99798D2B048CD400B0EA5C /* FolderEditorView.swift */,
+				FAC85DC62B4FE83F00C10C99 /* FolderDropPlaceholderCell.swift */,
 			);
 			name = folder;
 			sourceTree = "<group>";
@@ -314,7 +473,10 @@
 			isa = PBXGroup;
 			children = (
 				FAC85DAC2B4CDE5200C10C99 /* drag and drop */,
+				FA46F01C2B6F6E3700C27071 /* share */,
 				FAB643242B1677220040C333 /* NavigationStateManager.swift */,
+				FA46F02E2B73C05B00C27071 /* NavigationStateManager + Observer.swift */,
+				FA46F01D2B6F6E8100C27071 /* LinkedNoteClipboard.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -322,7 +484,13 @@
 		FAB643292B1A19F60040C333 /* app */ = {
 			isa = PBXGroup;
 			children = (
-				FAB6432A2B1A1A0C0040C333 /* NoteHistoryCommands.swift */,
+				FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */,
+				FA49A8AF2B653648001B7BCF /* main window */,
+				FA49A8A92B641DD8001B7BCF /* note window */,
+				FA49A8AC2B652E8F001B7BCF /* Command */,
+				FA49A89E2B640393001B7BCF /* contants */,
+				FA49A8972B62B8D7001B7BCF /* settings window */,
+				FA49A8A32B640D42001B7BCF /* menu bar extra */,
 			);
 			path = app;
 			sourceTree = "<group>";
@@ -331,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC298402B272C2C00AB0867 /* NavigationBackwardForwardButtonsView.swift */,
+				FAEECF782B68109E00F50C52 /* NavigatedUpdatinBackgroundView.swift */,
 			);
 			name = toolbar;
 			sourceTree = "<group>";
@@ -338,11 +507,24 @@
 		FAC85DAC2B4CDE5200C10C99 /* drag and drop */ = {
 			isa = PBXGroup;
 			children = (
-				FAC85DAD2B4CDEB300C10C99 /* helperforNSItemProvider.swift */,
 				FAC85DB02B4D7E3A00C10C99 /* UTType + custom + identifiers.swift */,
 				FAC85DB22B4D7EEE00C10C99 /* NoteDragItem.swift */,
+				FAC85DC42B4F130500C10C99 /* FolderDragItem.swift */,
+				FAC85DAD2B4CDEB300C10C99 /* helperforNSItemProvider.swift */,
 			);
 			path = "drag and drop";
+			sourceTree = "<group>";
+		};
+		FAC85DC32B4EEA5A00C10C99 /* note list */ = {
+			isa = PBXGroup;
+			children = (
+				FAC85DB92B4EE93100C10C99 /* NoteSectionByDayView.swift */,
+				FAC85DBB2B4EE93A00C10C99 /* NoteSectionedByLetterView.swift */,
+				FAC85DBD2B4EE94D00C10C99 /* NoteSectionedByStatusView.swift */,
+				FAC85DBF2B4EE95A00C10C99 /* NoteSingleSortedView.swift */,
+				FAC85DC12B4EE96D00C10C99 /* NotesSimpleSectionnedByStatus.swift */,
+			);
+			name = "note list";
 			sourceTree = "<group>";
 		};
 		FAD991112AFA7F4D00B133E0 = {
@@ -370,11 +552,9 @@
 			children = (
 				FAC85DAF2B4D7BA000C10C99 /* Info.plist */,
 				FAB643292B1A19F60040C333 /* app */,
-				FAD9911D2AFA7F4D00B133E0 /* JotterApp.swift */,
-				FAD991242AFA7F4D00B133E0 /* ContentView.swift */,
 				FA31F61D2AFBF5BE0004BF6B /* View */,
-				FAB643262B18D4160040C333 /* View Model */,
 				FA9979762AFE95AD00B0EA5C /* Core Data */,
+				FAB643262B18D4160040C333 /* View Model */,
 				FA31F62B2AFCF7410004BF6B /* crossplatform */,
 				FAD991262AFA7F4E00B133E0 /* Assets.xcassets */,
 				FAD991282AFA7F4E00B133E0 /* Jotter.entitlements */,
@@ -419,13 +599,35 @@
 		FAD9914D2AFA805100B133E0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FA565DB02B137DD000769E99 /* data conversion helper */,
 				FAD9914E2AFA806000B133E0 /* Note+Helper.swift */,
+				FAEECF7C2B6ACEC400F50C52 /* Note + share.swift */,
 				FA99797E2AFEBEBA00B0EA5C /* Folder + Helper.swift */,
 				FA9979CD2B0611FA00B0EA5C /* Attachment + Helper.swift */,
 				FA9813872AFD4A89003452C6 /* Keyword +Helper.swift */,
 				FA31F61B2AFBE9050004BF6B /* Status.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		FAEECF862B6BE37200F50C52 /* note button */ = {
+			isa = PBXGroup;
+			children = (
+				FAEECF822B6AD64800F50C52 /* CopyNoteButton.swift */,
+				FAEECF842B6BE35D00F50C52 /* NoteShareButtons.swift */,
+				FAEECF8C2B6C044300F50C52 /* NoteFileExporterButton.swift */,
+			);
+			name = "note button";
+			sourceTree = "<group>";
+		};
+		FAEECF872B6BE3A000F50C52 /* note attachment */ = {
+			isa = PBXGroup;
+			children = (
+				FA31F6292AFCF4BD0004BF6B /* OptionnalImageView.swift */,
+				FA31F6272AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift */,
+				FA9979CF2B06415000B0EA5C /* NoteAttachementView.swift */,
+			);
+			name = "note attachment";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,46 +764,84 @@
 				FA31F62A2AFCF4BD0004BF6B /* OptionnalImageView.swift in Sources */,
 				FAB643212B1638550040C333 /* NoteSearchToken.swift in Sources */,
 				FAB643252B1677220040C333 /* NavigationStateManager.swift in Sources */,
+				FAC85DBE2B4EE94D00C10C99 /* NoteSectionedByStatusView.swift in Sources */,
+				FAC85DC72B4FE83F00C10C99 /* FolderDropPlaceholderCell.swift in Sources */,
+				FA46F0242B70FBC500C27071 /* ScrollIOSContainer.swift in Sources */,
+				FA46F01B2B6EE4B500C27071 /* NoteClipboardView.swift in Sources */,
 				FA99798A2B02CADA00B0EA5C /* NoteListView.swift in Sources */,
 				FA9979CE2B0611FA00B0EA5C /* Attachment + Helper.swift in Sources */,
+				FA49A89D2B62C07A001B7BCF /* MenubarExtraSettingsView.swift in Sources */,
+				FA46F01E2B6F6E8100C27071 /* LinkedNoteClipboard.swift in Sources */,
+				FAEECF752B68086100F50C52 /* NoteStatusPickerView.swift in Sources */,
+				FAEECF7D2B6ACEC400F50C52 /* Note + share.swift in Sources */,
+				FA49A8A82B641C1A001B7BCF /* WindowIdentifiers.swift in Sources */,
+				FA49A8BA2B67DFD3001B7BCF /* NoteStatusCommands.swift in Sources */,
 				FA9813882AFD4A89003452C6 /* Keyword +Helper.swift in Sources */,
 				FAC85DB12B4D7E3A00C10C99 /* UTType + custom + identifiers.swift in Sources */,
-				FA565DBB2B14E98000769E99 /* NoteSingleSortedView.swift in Sources */,
+				FAC85DC52B4F130500C10C99 /* FolderDragItem.swift in Sources */,
 				FAD9911E2AFA7F4D00B133E0 /* JotterApp.swift in Sources */,
 				FA31F6242AFC02D00004BF6B /* TextViewMacosWrapper.swift in Sources */,
+				FA49A8B62B654154001B7BCF /* OnboardingView.swift in Sources */,
+				FA49A8A52B640D64001B7BCF /* MenuBarExtraContentView.swift in Sources */,
+				FA46F02F2B73C05B00C27071 /* NavigationStateManager + Observer.swift in Sources */,
+				FAC85DBA2B4EE93100C10C99 /* NoteSectionByDayView.swift in Sources */,
+				FAEECF7B2B68CDC000F50C52 /* NoteListSortingPicker.swift in Sources */,
 				FAD9914F2AFA806000B133E0 /* Note+Helper.swift in Sources */,
 				FAC85DAE2B4CDEB300C10C99 /* helperforNSItemProvider.swift in Sources */,
 				FA29386F2B098794004D5438 /* RecursiveFolderView.swift in Sources */,
-				FA565DB72B14D58D00769E99 /* NoteSectionedByStatusView.swift in Sources */,
 				FA9979882B02820D00B0EA5C /* FolderRow.swift in Sources */,
 				FAB304992B0BB771001527DE /* NotesKeywordsCollectView.swift in Sources */,
+				FAEECF832B6AD64800F50C52 /* CopyNoteButton.swift in Sources */,
 				FAB6432B2B1A1A0C0040C333 /* NoteHistoryCommands.swift in Sources */,
 				FA31F61C2AFBE9050004BF6B /* Status.swift in Sources */,
+				FAEECF852B6BE35D00F50C52 /* NoteShareButtons.swift in Sources */,
 				FAD991542AFA875D00B133E0 /* ContentDetailNote.swift in Sources */,
 				FA9979D02B06415000B0EA5C /* NoteAttachementView.swift in Sources */,
 				FAA7E0702B40703D00B7A94E /* UndoHandler.swift in Sources */,
+				FA46F0282B714BD800C27071 /* View + modifiers.swift in Sources */,
 				FA99797F2AFEBEBA00B0EA5C /* Folder + Helper.swift in Sources */,
 				FAD991522AFA835400B133E0 /* Predicate + Helper.swift in Sources */,
+				FA46F0202B70BCF100C27071 /* NoteStackView.swift in Sources */,
+				FAEECF7F2B6AD40500F50C52 /* iOS.swift in Sources */,
+				FA49A8B12B65365F001B7BCF /* MainWindow.swift in Sources */,
+				FAEECF792B68109E00F50C52 /* NavigatedUpdatinBackgroundView.swift in Sources */,
+				FAC85DC02B4EE95A00C10C99 /* NoteSingleSortedView.swift in Sources */,
+				FA49A8B82B67B98E001B7BCF /* NewItemCommand.swift in Sources */,
 				FA98138A2AFE3A29003452C6 /* Color + Helper.swift in Sources */,
-				FA565DB92B14DE9F00769E99 /* NotesSimpleSectionnedByStatus.swift in Sources */,
+				FA46F0262B712F9200C27071 /* Scene + modifiers.swift in Sources */,
+				FAEECF8D2B6C044300F50C52 /* NoteFileExporterButton.swift in Sources */,
 				FA31F6282AFCEFDF0004BF6B /* NotePhotoSelectorButton.swift in Sources */,
 				FAC85DB32B4D7EEE00C10C99 /* NoteDragItem.swift in Sources */,
+				FA46F02D2B73ABCB00C27071 /* NoteObserverViewModel.swift in Sources */,
 				FA9979862B0278FA00B0EA5C /* FolderListView.swift in Sources */,
+				FA49A8AE2B652FA9001B7BCF /* HelpCommands.swift in Sources */,
 				FA31F62E2AFCF7A50004BF6B /* macOS.swift in Sources */,
+				FA49A8992B62B905001B7BCF /* SettingView.swift in Sources */,
 				FA565DAD2B11596900769E99 /* NewKeywordView.swift in Sources */,
+				FA49A8B32B653962001B7BCF /* NoteWindow.swift in Sources */,
 				FAA7E06E2B40703500B7A94E /* UndoProvider.swift in Sources */,
+				FA46F0222B70DA3F00C27071 /* NotePathFolder.swift in Sources */,
 				FA565DB32B137EB800769E99 /* NoteSorting.swift in Sources */,
-				FA565DB52B14AECF00769E99 /* NoteSectionByDayView.swift in Sources */,
 				FA31F6202AFBF6AC0004BF6B /* TextViewIOSWrapper.swift in Sources */,
 				FAD991252AFA7F4D00B133E0 /* ContentView.swift in Sources */,
 				FA9979D32B0643FD00B0EA5C /* Jotter.xcdatamodeld in Sources */,
+				FA49A8AB2B641E89001B7BCF /* NoteSingleView.swift in Sources */,
 				FA565DA82B10C67200769E99 /* FlowLayout.swift in Sources */,
+				FA49A8A22B640543001B7BCF /* SceneStorageKeys.swift in Sources */,
+				FA49A89B2B62BCAF001B7BCF /* ProfileSettingsView.swift in Sources */,
 				FA565DAA2B10D06700769E99 /* AddKeywordsToNoteView.swift in Sources */,
 				FA9979902B04ACC000B0EA5C /* NoteRow.swift in Sources */,
+				FAC85DBC2B4EE93A00C10C99 /* NoteSectionedByLetterView.swift in Sources */,
 				FA99798E2B048CD400B0EA5C /* FolderEditorView.swift in Sources */,
+				FA46F0312B73C15700C27071 /* FolderObserverViewModel.swift in Sources */,
+				FA46F0192B6EE3BD00C27071 /* EditlinkedNoteMenuView.swift in Sources */,
 				FAD991202AFA7F4D00B133E0 /* Persistence.swift in Sources */,
+				FA49A8A02B6403BF001B7BCF /* AppStorageKeys.swift in Sources */,
+				FAC85DC22B4EE96D00C10C99 /* NotesSimpleSectionnedByStatus.swift in Sources */,
 				FAB643282B18D4B70040C333 /* NSpredicateHelper.swift in Sources */,
-				FA565DBD2B15FC2C00769E99 /* NoteSectionedByLetterView.swift in Sources */,
+				FAEECF772B680C9F00F50C52 /* NavigationCommands.swift in Sources */,
+				FAEECF8B2B6C042E00F50C52 /* NoteDocument.swift in Sources */,
+				FAC85DB82B4D9BE800C10C99 /* LinkedNotesView.swift in Sources */,
 				FAB643232B166A1C0040C333 /* NoteSearchScope.swift in Sources */,
 				FA31F6262AFC0E160004BF6B /* NSAttributeString + Data + Helper.swift in Sources */,
 				FAC298412B272C2C00AB0867 /* NavigationBackwardForwardButtonsView.swift in Sources */,
@@ -782,7 +1022,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
@@ -824,7 +1064,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;

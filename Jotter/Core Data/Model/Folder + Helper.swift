@@ -67,15 +67,19 @@ extension Folder {
     static func fetch(_ uuidString: String, context: NSManagedObjectContext) -> Folder? {
         
         guard let uuid = UUID(uuidString: uuidString) else {return nil}
+        return Folder.fetch(uuid, context: context)
+    }
+    
+    static func fetch(_ uuid: UUID, context: NSManagedObjectContext)-> Folder? {
+        
         let predicate = NSPredicate(format: "%K == %@", FolderProperties.uuid, uuid as CVarArg)
         let request = Folder.fetch(predicate)
         request.fetchLimit = 1
         
         if let folders = try? context.fetch(request), let folder = folders.first {
             return folder
-        } else {
-            return nil
         }
+        return nil
     }
     
     static func delete(_ folder: Folder) {
@@ -102,6 +106,28 @@ extension Folder {
         parents = parents.reversed()
         parents.append(self)
         return parents
+    }
+    
+    func handle(providers: [NSItemProvider]) -> Bool {
+        
+        guard let context = managedObjectContext else {return false}
+        
+        var found = providers.loadFirstObject(ofType: NoteDragItem.self) { droppedNoteItem in
+            guard let uuid = droppedNoteItem.id,
+                  let droppedNote = Note.fetch(uuid, context: context) else {return}
+            guard droppedNote.folder != self else {return}
+            self.notes.insert(droppedNote)
+        }
+        
+        if  found == false {
+                   found = providers.loadFirstObject(ofType: FolderDragItem.self, using: { droppedFolderItem in
+                guard let uuid = droppedFolderItem.id,
+                      let droppedFolder = Folder.fetch(uuid, context: context) else {return}
+                self.children.insert(droppedFolder)
+            })
+            
+        }
+        return found
     }
 }
 
@@ -135,8 +161,10 @@ extension Folder {
         parent.children.insert(child1)
         parent.children.insert(child2)
         child2.children.insert(child3)
+        
+        child3.notes.insert(Note(title: "mynote", context: context))
 
-        return child3
+        return parent
     }
     
     static func exampleWithNotes(context: NSManagedObjectContext) -> Folder {

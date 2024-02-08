@@ -11,19 +11,39 @@ struct FolderRow: View {
     
     @ObservedObject var folder: Folder
     @Environment(\.managedObjectContext) var viewContext;
+    @EnvironmentObject var stateManager: NavigationStateManager
 
     @State private var showRenameEditor: Bool = false
     @State private var showDeleteConfirmation: Bool = false
     @FocusState private var textFieldIsSelected: Bool
+    
+    var folderColor: Color {
+        stateManager.selectedFolder == folder ? .white : .accentColor
+    }
 
     var body: some View {
         Group {
 #if os(iOS)
-            Text(folder.name)
+            Label(folder.name, systemImage: "folder")
 #else
+            Image(systemName: "folder")
+                .foregroundColor(folderColor )
             TextField("", text: $folder.name)
                 .focused($textFieldIsSelected)
 #endif
+        }
+        .onDrag{
+            NSItemProvider(object: FolderDragItem(id: folder.uuid))
+        } preview: {
+            HStack {
+                Image(systemName: "folder")
+                Text(folder.name)
+            }
+            .foregroundColor(.black)
+            .fixedSize()
+            .padding(5)
+            .background(RoundedRectangle(cornerRadius: 5,
+                                         style: .continuous).fill(Color.white))
         }
         .contextMenu {
             Button ("Rename") {
@@ -61,6 +81,7 @@ struct FolderRow_Previews: PreviewProvider {
     static var previews: some View {
         FolderRow(folder: Folder(name: "New Folda", context:
                                     PersistenceController.shared.container.viewContext))
+        .environmentObject(NavigationStateManager())
         .frame(width: 200)
         .padding(50)
         

@@ -7,10 +7,23 @@
 
 import Foundation
 import CoreData
+import UniformTypeIdentifiers
+
+#if os(OSX)
+import AppKit
+#endif
 
 //MARK: Models
 
 extension Note {
+    
+    #if os(OSX)
+
+    static let importImageTypes = NSImage.imageTypes.compactMap { UTType($0)}
+    
+    #else
+    static let importImageTypes = [UTType]()
+    #endif
     
     var uuid: UUID  {
         #if DEBUG
@@ -27,7 +40,13 @@ extension Note {
     
     
     @objc var sectionLetterTitle: String {
-        get { (self.title_ != nil) ? String(title.first!) : "" }
+        get {
+            if let title = self.title_, !title.isEmpty {
+                String(title.first!)
+            } else {
+                ""
+            }
+        }
     }
     
     var status: Status {
@@ -119,6 +138,14 @@ extension Note {
         } else {
             return nil
         }
+    }
+    
+    static func createFetchRequest(_ uuid: UUID) -> NSFetchRequest<Note> {
+        let predicate = NSPredicate(format: "%K == %@", NoteProperties.uuid, uuid as CVarArg)
+        let request = Note.fetch(predicate)
+        request.fetchLimit = 1
+        
+        return request
     }
     
     static func delete(note: Note) {
@@ -214,13 +241,36 @@ extension Note {
         note.formattedBodyText = NSAttributedString(string: defaultText)
         
         let folder = Folder.nestedFolderExemple(context: context)
-        //let nestedFolder = folder.children.first
-        note.folder = folder
+        let nestedFolder = folder.children.first
+        note.folder = nestedFolder
         let keys = Keyword.exampleArray()
         for key in keys {
             note.keywords.insert(key)
         }
+        let linkedNote = Note(title: "linked note", context: context)
+        note.linkedNotes.insert(linkedNote)
+        let linkedNote2 = Note(title: "other note", context: context)
+        note.linkedNotes.insert(linkedNote2)
         return note
+    }
+    
+    static func exampleLongFolder() -> Note {
+        let context = PersistenceController.preview.container.viewContext
+    
+        let note = Note(title: "my note", context: context)
+        note.formattedBodyText = NSAttributedString(string: defaultText)
+        
+        let folder1 = Folder(name: "first folder", context: context)
+        let folder2 = Folder(name: "second folder", context: context)
+        let folder3 = Folder(name: "something small", context: context)
+        
+        folder1.children.insert(folder2)
+        folder2.children.insert(folder3)
+        folder3.notes.insert(note)
+        
+        return note
+        
+        
     }
     
     static let defaultText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit"

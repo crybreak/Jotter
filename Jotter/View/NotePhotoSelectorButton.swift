@@ -15,7 +15,9 @@ struct NotePhotoSelectorButton: View {
     
     var body: some View {
         PhotosPicker(selection: $selectedItem, matching: .images, photoLibrary: .shared()) {
-            note.attachment_ == nil ? Text("import photo") : Text("change photo")
+            note.attachment_ == nil 
+            ? Label("import photo", systemImage: "photo")
+            : Label("change photo", systemImage: "arrow.uturn.forward.circle")
         }
         .onChange(of: selectedItem) { newValue in
             Task {

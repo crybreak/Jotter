@@ -19,7 +19,7 @@ struct LinkedNotesView: View {
         HStack (alignment: .firstTextBaseline) {
             Text("Linked Notes: ")
                 .bold()
-            VStack (alignment: .leading){
+            VStack (alignment: .leading, spacing: 5){
                 ForEach(note.linkedNotes.sorted()) {note in
                     Button(action: {
                         #if os(OSX)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NoteSingleSortedView: View {
     
-    init(predicate: NSPredicate, noteSorting: NoteSorting) {
+    init(predicate: NSPredicate,  noteSorting: NoteSorting) {
         self._notes = FetchRequest(fetchRequest: Note.fetch(predicate))
         self.noteSorting = noteSorting
     }
@@ -21,14 +21,13 @@ struct NoteSingleSortedView: View {
     
     var body: some View {
         ForEach(notes) { note in
-            NavigationLink(value: note) {
                 NoteRow(note: note)
-            }.tag(note)
         }.onDelete(perform: deleteNotes(offsets:))
         .onChange(of: noteSorting) { newValue in
             
             let defaultSorting = NSSortDescriptor(keyPath: \Note.creationDate_,
                                                   ascending: true)
+            print("sorting: \(noteSorting)")
             switch newValue {
             case .creationDateAsc:
                 notes.nsSortDescriptors = [defaultSorting]

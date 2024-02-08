@@ -2,13 +2,13 @@
 //  KeywordsTests.swift
 //  JotterTests
 //
-//  Created by macbook on 10/11/2023.
+//  Created by macbook on 09/12/2023.
 //
 
 import XCTest
+import CoreData
 @testable import Jotter
 import SwiftUI
-import CoreData
 
 final class KeywordsTests: XCTestCase {
     var controller: PersistenceController!
@@ -71,3 +71,4 @@ final class KeywordsTests: XCTestCase {
         XCTAssertTrue(retrivedKeywords.contains(keyword))
     }
 }
+
