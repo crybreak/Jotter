@@ -10,6 +10,16 @@ import SwiftUI
 struct NoteStackView: View {
     
     @EnvironmentObject var stateManager: NavigationStateManager
+    
+    #if os(iOS)
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    var isCompact: Bool {
+        horizontalSizeClass == .compact
+    }
+    #else
+    var isCompact = false
+    #endif
+
   
     var body: some View {
         NavigationStack(path: $stateManager.path) {
@@ -19,7 +29,15 @@ struct NoteStackView: View {
                         ContentDetailNote(note: note)
                     }
             } else {
-                Text("")
+                VStack {
+                    if isCompact {
+                        Image(systemName: "lasso.and.sparkles")
+                            .imageScale(.large )
+                    }
+                    Text("select a note")
+                        .foregroundStyle(.secondary)
+
+                }
             }
         }
     }

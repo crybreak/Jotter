@@ -13,6 +13,7 @@ struct ContentView: View {
     @Environment(\.undoManager) private var undoManager
     @Environment(\.managedObjectContext) private var viewContext
     @Environment(\.scenePhase) var scenePhase
+
     
     @State private var columnVisibility: NavigationSplitViewVisibility = .all
     @State var selectedNoteSorting = NoteSorting.creationDateDsc
