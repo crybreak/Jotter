@@ -1,0 +1,3 @@
+Au cours des derniers mois, j'ai travaillé sur une solution extrêmement complexe afin de progresser vers le niveau de développeur senior iOS.  
+Mon approche consistait à utiliser la méthode de zettelkasten pour créer un bloc-notes similaire à celui d'Apple, offrant la possibilité de gérer les données de manière persistante et de les synchroniser via iCloud. 
+Les fonctionnalités incluent la prise de notes, l'organisation par dossiers et sous-dossiers, la suppression, le formatage du texte, l'ajout d'images, le partage via WhatsApp, Teams, Discord, l'ajout de tags, la sauvegarde dans Finder et la synchronisation sur iPad, iPhone (iOS) et macOS. Les technologies utilisées comprennent Swift, UIKit, Combine, Core Data, SwiftUI, Drag and Drop, entre autres.
