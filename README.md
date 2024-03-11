@@ -1,9 +1,9 @@
-Au cours des derniers mois, j'ai travaillé sur une solution extrêmement complexe afin de progresser vers le niveau de développeur senior iOS.  
-Mon approche consistait à utiliser la méthode de zettelkasten pour créer un bloc-notes similaire à celui d'Apple, offrant la possibilité de gérer les données de manière persistante et de les synchroniser via iCloud. 
-Les fonctionnalités incluent la prise de notes, l'organisation par dossiers et sous-dossiers, la suppression, le formatage du texte, l'ajout d'images, le partage via WhatsApp, Teams, Discord, l'ajout de tags, la sauvegarde dans Finder et la synchronisation sur iPad, iPhone (iOS) et macOS. Les technologies utilisées comprennent Swift, UIKit, Combine, Core Data, SwiftUI, Drag and Drop, entre autres.
+Over the past few months, I've been working on an extremely complex solution to advance towards the level of senior iOS developer. My approach involved using the Zettelkasten method to create a notebook similar to Apple's, offering the ability to manage data persistently and synchronize it via iCloud. Features include note-taking, organization by folders and subfolders, deletion, text formatting, adding images, sharing via WhatsApp, Teams, Discord, adding tags, saving to Finder, and syncing on iPad, iPhone (iOS), and macOS. Technologies used include Swift, UIKit, Combine, Core Data, SwiftUI, Drag and Drop, among others.
 
-Le Zettelkasten est un système de prise de notes développé par un scientifique social allemand, Niklas Luhmann. Luhmann a publié une quantité insensée de livres et d'articles scientifiques. 
+The Zettelkasten is a note-taking system developed by a German social scientist, Niklas Luhmann. Luhmann published an insane amount of books and scientific articles.
 
-Son astuce : le Zettelkasten. C'est une archive de notes (Zettelkasten étant le mot allemand pour boîte à fiches). Luhmann avait plus de 80 000 notes dans sa boîte à la fin. Pour retrouver une information, il utilisait un registre d'index et il reliait des notes à d'autres notes, créant ainsi une chaîne de pensées. Ainsi, suivre une série de notes revient à suivre une série de pensées. Vous pouvez communiquer avec le Zettelkasten comme s'il s'agissait de votre deuxième cerveau. 
+His trick: the Zettelkasten. It's an archive of notes (Zettelkasten being the German word for filing cabinet). Luhmann had over 80,000 notes in his cabinet by the end. To retrieve information, he used an index register and linked notes to other notes, thus creating a chain of thoughts. Thus, following a series of notes is like following a series of thoughts. You can interact with the Zettelkasten as if it were your second brain.
 
-Archiver et lier toutes ces notes sur papier a dû représenter un travail colossal. Heureusement, nous allons construire notre propre version du Zettelkasten : une boîte à fiches numérique
+Archiving and linking all these notes on paper must have been a colossal task. Fortunately, we will build our own version of the Zettelkasten: a digital filing cabinet.
+
+système
